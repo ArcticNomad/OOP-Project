@@ -4,6 +4,10 @@ public class Route
     int duration;
     String DestinationName;
 
+    String routeStatus;
+    Station departureStation;
+    Station arrivalStation;
+
     public void createRoute()
     {}
     public void addRoute()
