@@ -1,4 +1,7 @@
+package Station;
+
 import java.util.ArrayList;
+import Train.Train;
 
 public class Station
 {

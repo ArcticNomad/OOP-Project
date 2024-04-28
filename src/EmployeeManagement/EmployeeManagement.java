@@ -1,6 +1,12 @@
+package EmployeeManagement;
+
+import java.util.ArrayList;
 import java.util.Scanner;
+import StationManagement.StationManagement;
+import Employee.Employee;
 public class EmployeeManagement extends StationManagement
 {
+    ArrayList<Employee> employees=new ArrayList<>();
     private String employeeName;
     private int employeeID;
     private String employeeRole;

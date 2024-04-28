@@ -1,10 +1,14 @@
+package StationManagement;
+
+import Route.Route;
+import Train.Train;
+import Station.Station;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class StationManagement
 {
     Scanner input=new Scanner(System.in);
-    ArrayList<Station> stations=new ArrayList<>();
-    ArrayList<Employee> employees=new ArrayList<>();
+    public ArrayList<Station> stations=new ArrayList<>();
     ArrayList<Route> routes=new ArrayList<>();
 
     ArrayList<Train> trains=new ArrayList<>();
@@ -49,7 +53,7 @@ public class StationManagement
         }
     }
 
-    public void addTrain(int trainNUmber, int trainSpeed, int capacity,Station currentStation)
+    public void addTrain(int trainNUmber, int trainSpeed, int capacity, Station currentStation)
     {
         currentStation.addTrain(trainNUmber,trainSpeed,capacity);
     }

@@ -1,3 +1,7 @@
+package Train;
+
+import Station.Station;
+
 public class Train
 {
     private int trainNUmber;

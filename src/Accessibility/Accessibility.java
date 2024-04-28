@@ -1,3 +1,5 @@
+package Accessibility;
+
 public class Accessibility
 {
     private int age;

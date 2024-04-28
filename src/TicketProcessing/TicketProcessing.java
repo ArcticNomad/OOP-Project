@@ -1,3 +1,5 @@
+package TicketProcessing;
+
 public class TicketProcessing {
     double amountDue;
     double amountPaid;

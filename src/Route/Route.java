@@ -1,3 +1,7 @@
+package Route;
+
+import Station.Station;
+
 public class Route
 {
     int distance;

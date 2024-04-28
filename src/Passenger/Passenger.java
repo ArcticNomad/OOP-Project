@@ -1,3 +1,7 @@
+package Passenger;
+
+import Station.Station;
+
 public class Passenger
 {
     private int passengerID;
