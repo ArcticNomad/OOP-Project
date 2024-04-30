@@ -1,58 +1,47 @@
-package Station;
+public class Station {
 
-import java.util.ArrayList;
-import Train.Train;
+  private String stationName;
+  private String location;
+  private List<Facility> facilities;
 
-public class Station
-{
-    private String stationName;
-    private String location;
-    private String facilities;
+  public Station(String stationName, String location) {
+    this.stationName = stationName;
+    this.location = location;
+    this.facilities = new ArrayList<Facility>();
+  }
 
-    ArrayList<Train> trains=new ArrayList<>();
+  public void addFacility(Facility facility) {
+    facilities.add(facility);
+  }
 
-    public Station(String stationName,String location,String facilities)
+  public void removeFacility(Facility facility) {
+    facilities.remove(facility);
+  }
 
-    {
-        setStationName(stationName);
-        setFacilities(facilities);
-        setLocation(location);
+  public List<Facility> getFacilities() {
+    return facilities;
+  }
+
+  public void displayStationDetails() {
+    System.out.println("Station Name: " + stationName);
+    System.out.println("Location: " + location);
+    System.out.println("Facilities: ");
+    for (Facility facility : facilities) {
+      System.out.println(facility);
     }
+  }
+}
+public class Facility {
 
-    public void addTrain(int trainNUmber, int trainSpeed, int capacity)
-    {
-        trains.add(new Train(trainNUmber,trainSpeed,capacity));
-    }
-    public void removeTrain()
-    {
+  private String name;
+  private String description;
 
-    }
-    public void displayStationDetails()
-    {
+  public Facility(String name, String description) {
+    this.name = name;
+    this.description = description;
+  }
 
-    }
-
-    public String getStationName() {
-        return stationName;
-    }
-
-    public void setStationName(String stationName) {
-        this.stationName = stationName;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getFacilities() {
-        return facilities;
-    }
-
-    public void setFacilities(String facilities) {
-        this.facilities = facilities;
-    }
+  public String toString() {
+    return "  * " + name + ": " + description;
+  }
 }
