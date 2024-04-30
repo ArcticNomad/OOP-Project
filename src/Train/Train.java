@@ -1,57 +1,34 @@
-package Train;
+public class Train {
 
-import Station.Station;
+  private int trainNumber;
+  private int capacity;
+  private String currentStation;
+  private Route schedule;
 
-public class Train
-{
-    private int trainNUmber;
-    private int trainSpeed;
-    private int capacity;
-    Station currentStation;
+  public Train(int trainNumber, int capacity) {
+    this.trainNumber = trainNumber;
+    this.capacity = capacity;
+    this.currentStation = "";
+    this.schedule = null;
+  }
 
-    //Schedule trainSchedule;
-
-    public Train(int trainNUmber, int trainSpeed, int capacity)
-    {
-        setCapacity(capacity);
-        setTrainSpeed(trainSpeed);
-        setTrainNUmber(trainNUmber);
+  public void moveToNextStation() {
+    if (schedule != null && currentStation != schedule.getFinalStation()) {
+      currentStation = schedule.getNextStation(currentStation);
     }
+  }
 
-    public void moveTrainToNextStation()
-    {}
-    public void displayTrainDetails()
-    {}
+  public void displayTrainDetails() {
+    System.out.println("Train Number: " + trainNumber);
+    System.out.println("Capacity: " + capacity);
+    System.out.println("Current Station: " + currentStation);
+  }
 
-    public int getTrainNUmber() {
-        return trainNUmber;
-    }
+  public void setSchedule(Route schedule) {
+    this.schedule = schedule;
+  }
 
-    public void setTrainNUmber(int trainNUmber) {
-        this.trainNUmber = trainNUmber;
-    }
-
-    public int getTrainSpeed() {
-        return trainSpeed;
-    }
-
-    public void setTrainSpeed(int trainSpeed) {
-        this.trainSpeed = trainSpeed;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
-    public Station getCurrentStation() {
-        return currentStation;
-    }
-
-    public void setCurrentStation(Station currentStation) {
-        this.currentStation = currentStation;
-    }
+  public String getCurrentStation() {
+    return currentStation;
+  }
 }
