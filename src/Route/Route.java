@@ -1,27 +1,21 @@
-package Route;
+public class Route {
 
-import Station.Station;
+  private String[] stations;
 
-public class Route
-{
-    int distance;
-    int duration;
-    String DestinationName;
+  public Route(String[] stations) {
+    this.stations = stations;
+  }
 
-    String routeStatus;
-    Station departureStation;
-    Station arrivalStation;
+  public String getNextStation(String currentStation) {
+    for (int i = 0; i < stations.length - 1; i++) {
+      if (stations[i].equals(currentStation)) {
+        return stations[i + 1];
+      }
+    }
+    return null;
+  }
 
-    public void createRoute()
-    {}
-    public void addRoute()
-    {}
-    public void assignRoute()
-    {}
-    public void calculateDistance()
-    {}
-
-    public void calculateTime()
-    {}
-
+  public String getFinalStation() {
+    return stations[stations.length - 1];
+  }
 }
