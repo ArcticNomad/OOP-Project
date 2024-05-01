@@ -1,47 +1,103 @@
-public class Station {
+package Station;
 
+import StationManagement.StationManagement;
+import Train.Train;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Station
+{
   private String stationName;
   private String location;
-  private List<Facility> facilities;
+  protected Station currentStation;
+  protected Station destinationStation;
 
-  public Station(String stationName, String location) {
-    this.stationName = stationName;
-    this.location = location;
-    this.facilities = new ArrayList<Facility>();
+
+  Scanner input=new Scanner(System.in);
+  ArrayList<Train> trains=new ArrayList<>();
+
+  public Station(String stationName,String location)
+
+  {
+    setStationName(stationName);
+    setLocation(location);
   }
 
-  public void addFacility(Facility facility) {
-    facilities.add(facility);
+  public Station(){}
+
+  public void addTrain(int trainNUmber, int trainSpeed, int capacity, String facilities,int arrivalTime,int departureTime)
+  {
+    trains.add(new Train(trainNUmber,trainSpeed,capacity,facilities,arrivalTime,departureTime));
   }
 
-  public void removeFacility(Facility facility) {
-    facilities.remove(facility);
-  }
-
-  public List<Facility> getFacilities() {
-    return facilities;
-  }
-
-  public void displayStationDetails() {
-    System.out.println("Station Name: " + stationName);
-    System.out.println("Location: " + location);
-    System.out.println("Facilities: ");
-    for (Facility facility : facilities) {
-      System.out.println(facility);
+  public void buyTicket(int departIndex)
+  {
+    /*System.out.println("Select Departure Location :");
+    System.out.println();
+    for (int i = 0; i < StationManagement.stations.size(); i++)
+    {
+      System.out.println((i+1)+"-  "+"Station Location :"+StationManagement.stations.get(i).getLocation());
+      System.out.println();
     }
+    int departChoice=input.nextInt();
+    int departIndex=departChoice-1;*/
+
+    System.out.println("Select Destination Location :");
+    System.out.println();
+    for (int i = 0; i < StationManagement.stations.size(); i++)
+    {
+      System.out.println((i+1)+"-  "+"Station Location :"+StationManagement.stations.get(i).getLocation());
+      System.out.println();
+    }
+    int arrivalChoice=input.nextInt();
+    int arrivalIndex=arrivalChoice-1;
+
+    setCurrentStation(StationManagement.stations.get(departIndex));
+    setDestinationStation(StationManagement.stations.get(arrivalIndex));
+
+
   }
-}
-public class Facility {
+  public void removeTrain()
+  {
 
-  private String name;
-  private String description;
+  }
+  public void displayStationDetails()
+  {
 
-  public Facility(String name, String description) {
-    this.name = name;
-    this.description = description;
   }
 
-  public String toString() {
-    return "  * " + name + ": " + description;
+
+
+  public String getStationName() {
+    return stationName;
+  }
+
+  public void setStationName(String stationName) {
+    this.stationName = stationName;
+  }
+
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+
+  public Station getCurrentStation() {
+    return currentStation;
+  }
+
+  public void setCurrentStation(Station currentStation) {
+    this.currentStation = currentStation;
+  }
+
+  public Station getDestinationStation() {
+    return destinationStation;
+  }
+
+  public void setDestinationStation(Station destinationStation) {
+    this.destinationStation = destinationStation;
   }
 }

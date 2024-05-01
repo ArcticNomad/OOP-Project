@@ -1,5 +1,6 @@
 package StationManagement;
 
+import Passenger.Passenger;
 import Route.Route;
 import Train.Train;
 import Station.Station;
@@ -8,9 +9,9 @@ import java.util.Scanner;
 public class StationManagement
 {
     Scanner input=new Scanner(System.in);
-    public ArrayList<Station> stations=new ArrayList<>();
+    public static ArrayList<Station> stations=new ArrayList<>();
+    ArrayList<Passenger> passengers=new ArrayList<>();
     ArrayList<Route> routes=new ArrayList<>();
-
     ArrayList<Train> trains=new ArrayList<>();
 
     public void addStation()
@@ -19,10 +20,9 @@ public class StationManagement
         String stationName=input.nextLine();
         System.out.println("Enter Station Location :");
         String location=input.nextLine();
-        System.out.println("Enter Station Facilities :");
-        String facility=input.nextLine();
 
-        stations.add(new Station(stationName,location,facility));
+
+        stations.add(new Station(stationName,location));
 
     }
 
@@ -53,16 +53,18 @@ public class StationManagement
         }
     }
 
-    public void addTrain(int trainNUmber, int trainSpeed, int capacity, Station currentStation)
+    public void addTrain(int trainNUmber, int trainSpeed, int capacity,Station currentStation, String facilities, int arrivalTime, int departureTime)
     {
-        currentStation.addTrain(trainNUmber,trainSpeed,capacity);
+        currentStation.addTrain(trainNUmber,trainSpeed,capacity,facilities,arrivalTime,departureTime);
     }
+
+
 
     public void displayFacilities()
     {
-        for(Station s: stations)
+        for(Train t: trains)
         {
-            System.out.println("Station Facilities :"+ s.getFacilities());
+            System.out.println("Station Facilities :"+ t.getFacilities());
         }
     }
 
@@ -79,7 +81,7 @@ public class StationManagement
         System.out.println(7+" - Remove Employee");
         System.out.println(8+" - Update Employee Role");
         System.out.println(9+" - Add Train");
-        System.out.println(10+"- Remove Train");
+        System.out.println(10+"- Display Train Details");
 
     }
 }
