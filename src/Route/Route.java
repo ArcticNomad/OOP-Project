@@ -1,21 +1,43 @@
-public class Route {
+package Route;
 
-  private String[] stations;
+import Station.Station;
 
-  public Route(String[] stations) {
-    this.stations = stations;
+public class Route
+{
+  private Schedule trainTiming;
+  public static int distanceBetweenStations;
+
+  private Station departureStation;
+  private Station arrivalStation;
+
+  public Route(Schedule trainTiming, Station departureStation, Station arrivalStation)
+  {
+    setArrivalStation(arrivalStation);
+    setDepartureStation(departureStation);
+    setTrainTiming(trainTiming);
+  }
+  public Station getDepartureStation() {
+    return departureStation;
   }
 
-  public String getNextStation(String currentStation) {
-    for (int i = 0; i < stations.length - 1; i++) {
-      if (stations[i].equals(currentStation)) {
-        return stations[i + 1];
-      }
-    }
-    return null;
+  public void setDepartureStation(Station departureStation) {
+    this.departureStation = departureStation;
   }
 
-  public String getFinalStation() {
-    return stations[stations.length - 1];
+  public Station getArrivalStation() {
+    return arrivalStation;
   }
+
+  public void setArrivalStation(Station arrivalStation) {
+    this.arrivalStation = arrivalStation;
+  }
+
+  public Schedule getTrainTiming() {
+    return trainTiming;
+  }
+
+  public void setTrainTiming(Schedule trainTiming) {
+    this.trainTiming = trainTiming;
+  }
+
 }

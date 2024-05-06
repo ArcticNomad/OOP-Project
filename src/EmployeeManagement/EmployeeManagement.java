@@ -37,11 +37,16 @@ public class EmployeeManagement extends StationManagement
     }
     public void removeEmployee(int employeeID)
     {
+        if(employees.isEmpty())
+        {
+            System.out.println("No Employees to Remove !");
+        }
         for (int i=0;i<employees.size();i++)
         {
             if(employees.get(i).getEmployeeID()==employeeID)
             {
                 employees.remove(i);
+                System.out.println("Employee Removed");
             }
         }
     }

@@ -1,47 +1,66 @@
-public class Station {
+package Station;
 
+import Route.Route;
+import StationManagement.StationManagement;
+import Train.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Station
+{
   private String stationName;
-  private String location;
-  private List<Facility> facilities;
+  private String city;
+  ArrayList<Train> trains = new ArrayList<>();
 
-  public Station(String stationName, String location) {
-    this.stationName = stationName;
-    this.location = location;
-    this.facilities = new ArrayList<Facility>();
+
+  Scanner input = new Scanner(System.in);
+
+  public Station(String stationName, String city) {
+    setStationName(stationName);
+    setCity(city);
   }
 
-  public void addFacility(Facility facility) {
-    facilities.add(facility);
+
+  public void addTrain(int trainNUmber, int trainSpeed, int capacity, BusinessClass businessClass,EconomyClass economyClass) {
+    trains.add(new Train(trainNUmber, trainSpeed, capacity,businessClass,economyClass));
   }
 
-  public void removeFacility(Facility facility) {
-    facilities.remove(facility);
-  }
 
-  public List<Facility> getFacilities() {
-    return facilities;
-  }
+  public void removeTrain()
+  {
+    System.out.println("Enter Train Number :");
+    int trainNum=input.nextInt();
 
-  public void displayStationDetails() {
-    System.out.println("Station Name: " + stationName);
-    System.out.println("Location: " + location);
-    System.out.println("Facilities: ");
-    for (Facility facility : facilities) {
-      System.out.println(facility);
+    for (int i=0;i<trains.size();i++)
+    {
+      if(trainNum==trains.get(i).getTrainNUmber())
+      {
+        trains.remove(i);
+      }
     }
-  }
-}
-public class Facility {
 
-  private String name;
-  private String description;
-
-  public Facility(String name, String description) {
-    this.name = name;
-    this.description = description;
   }
 
-  public String toString() {
-    return "  * " + name + ": " + description;
+  public void displayStationDetails()
+  {
+
   }
+
+  public String getStationName() {
+    return stationName;
+  }
+
+  public void setStationName(String stationName) {
+    this.stationName = stationName;
+  }
+
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+
 }
