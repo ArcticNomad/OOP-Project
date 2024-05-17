@@ -17,7 +17,7 @@ public class SelectionController {
         Stage stage = (Stage) button.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminLogin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1200, 650);
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 650);
         stage.setScene(scene);
         stage.show();
     }

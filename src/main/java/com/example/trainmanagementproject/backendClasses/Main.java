@@ -160,8 +160,8 @@ public class Main
                         economyFacility.add(facility);
                     }
 
-                    businessClass = new BusinessClass(businessCapacity, businessFacilities);
-                    economyClass = new EconomyClass(economCapacity, economyFacility);
+                    //businessClass = new BusinessClass(businessCapacity, businessFacilities);
+                    //economyClass = new EconomyClass(economCapacity, economyFacility);
 
                     try {
                         manager.addTrain(trainNum, speed, capacity, businessClass, economyClass);
