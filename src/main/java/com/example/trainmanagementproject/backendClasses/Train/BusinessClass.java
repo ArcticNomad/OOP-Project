@@ -8,9 +8,9 @@ public class BusinessClass
     private PassengerSitting businessSiting;
     private int businessCapacity;
     private int seatsAvailable;
-    private ArrayList<String>facility;
+    private String facility;
 
-    public BusinessClass(int businessCapacity,ArrayList<String> facility)
+    public BusinessClass(int businessCapacity,String facility)
     {
         setBusinessCapacity(seatsAvailable);
         setBusinessCapacity(businessCapacity);
@@ -33,11 +33,11 @@ public class BusinessClass
         this.seatsAvailable = seatsAvailable;
     }
 
-    public ArrayList<String> getFacility() {
+    public String getFacility() {
         return facility;
     }
 
-    public void setFacility(ArrayList<String> facility) {
+    public void setFacility(String facility) {
         this.facility = facility;
     }
 }

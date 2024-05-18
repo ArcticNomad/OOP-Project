@@ -16,7 +16,6 @@ public class AdminLoginController {
     @FXML
     private Button loginButton;
     @FXML
-    private pa
 
     private final String adminPassword = "admin123";
 
@@ -25,11 +24,11 @@ public class AdminLoginController {
             Stage stage = (Stage) passwordField.getScene().getWindow();
 
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainAdminPage.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1200, 650);
+            Scene scene = new Scene(fxmlLoader.load(), 1000, 650);
             stage.setScene(scene);
             stage.show();
         } else {
-            passwordCheck.
+            loginButton.setText("Incorrect !");
         }
     }
 }
