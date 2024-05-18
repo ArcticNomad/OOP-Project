@@ -1,6 +1,7 @@
 package com.example.trainManagementProject.backendClasses.Passenger;
 
 import com.example.trainManagementProject.backendClasses.Ticket.*;
+import javafx.scene.control.TextField;
 
 import java.util.Scanner;
 
@@ -27,6 +28,14 @@ public class Passenger
     }
 
     public Passenger(){}
+
+    public Passenger(int id, String firstName, String lastName, int age)
+    {
+        setAge(age);
+        setPassengerID(id);
+        setFirstName(firstName);
+        setLastName(lastName);
+    }
 
     public void assignTicket(){}
 

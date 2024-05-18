@@ -76,6 +76,7 @@ public class Ticket
             double change=amountPaid-fare;
             System.out.println("Change :"+change);
         }
+
         else {
             System.out.println("Insufficient Funds ! Please Try Again");
         }

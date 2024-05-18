@@ -9,78 +9,66 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trainManagementProject.buyTicketController">
    <children>
-      <AnchorPane layoutX="1.0" prefHeight="650.0" prefWidth="1000.0">
+      <AnchorPane layoutX="14.0" layoutY="-4.0" prefHeight="650.0" prefWidth="1000.0">
          <children>
-            <TextField fx:id="firstName" layoutX="397.0" layoutY="124.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
-            <TextField fx:id="lastName" layoutX="397.0" layoutY="188.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
-            <TextField fx:id="age" layoutX="398.0" layoutY="315.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
-            <TextField fx:id="id" layoutX="397.0" layoutY="256.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
             <Label alignment="TOP_CENTER" layoutX="422.0" layoutY="22.0" prefHeight="55.0" prefWidth="118.0" text="Buy Ticket">
                <font>
                   <Font name="Agency FB" size="31.0" />
                </font>
             </Label>
-            <Label layoutX="178.0" layoutY="118.0" prefHeight="44.0" prefWidth="174.0" text="Passenger First Name">
+            <TextField fx:id="destinationStationName" layoutX="398.0" layoutY="205.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
+            <Label layoutX="178.0" layoutY="132.0" prefHeight="44.0" prefWidth="174.0" text="Departure Station Name">
                <font>
                   <Font name="Agency FB Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="178.0" layoutY="182.0" prefHeight="44.0" prefWidth="174.0" text="Passenger last Name">
+            <Label layoutX="178.0" layoutY="267.0" prefHeight="44.0" prefWidth="174.0" text="Distance (In KM)">
                <font>
                   <Font name="Agency FB Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="178.0" layoutY="250.0" prefHeight="44.0" prefWidth="174.0" text="CNIC">
+            <Label alignment="CENTER" layoutX="149.0" layoutY="410.0" prefHeight="44.0" prefWidth="129.0" text="Train Type">
                <font>
                   <Font name="Agency FB Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="178.0" layoutY="309.0" prefHeight="44.0" prefWidth="174.0" text="Age">
-               <font>
-                  <Font name="Agency FB Bold" size="21.0" />
-               </font>
-            </Label>
-            <TextField fx:id="distance" layoutX="397.0" layoutY="441.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
-            <Label layoutX="178.0" layoutY="371.0" prefHeight="44.0" prefWidth="174.0" text="Departure Station Name">
+            <Label layoutX="178.0" layoutY="199.0" prefHeight="44.0" prefWidth="174.0" text="Destination Station Name">
                <font>
                   <Font name="Agency FB Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="178.0" layoutY="501.0" prefHeight="44.0" prefWidth="174.0" text="Distance (In KM)">
-               <font>
-                  <Font name="Agency FB Bold" size="20.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="751.0" layoutY="118.0" prefHeight="44.0" prefWidth="129.0" text="Train Type">
-               <font>
-                  <Font name="Agency FB Bold" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="178.0" layoutY="435.0" prefHeight="44.0" prefWidth="174.0" text="Destination Station Name">
-               <font>
-                  <Font name="Agency FB Bold" size="20.0" />
-               </font>
-            </Label>
-            <Button layoutX="756.0" layoutY="188.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="118.0" text="Business Class">
+            <Button fx:id="businessClassButton" layoutX="178.0" layoutY="478.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="118.0" text="Business Class">
                <font>
                   <Font name="Agency FB" size="16.0" />
                </font></Button>
-            <Button layoutX="756.0" layoutY="256.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="118.0" text="Economy Class">
+            <Button fx:id="economyClassButton" layoutX="178.0" layoutY="542.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="118.0" text="Economy Class">
                <font>
                   <Font name="Agency FB" size="16.0" />
                </font></Button>
-            <TextArea editable="false" layoutX="700.0" layoutY="348.0" prefHeight="205.0" prefWidth="242.0" text="&#10;" />
-            <Label alignment="CENTER" layoutX="756.0" layoutY="310.0" prefHeight="44.0" prefWidth="129.0" text="Stations">
+            <TextArea fx:id="stationList" editable="false" layoutX="360.0" layoutY="432.0" prefHeight="205.0" prefWidth="242.0" text="&#10;" />
+            <Label alignment="CENTER" layoutX="417.0" layoutY="388.0" prefHeight="44.0" prefWidth="129.0" text="Stations">
                <font>
                   <Font name="Agency FB Bold" size="19.0" />
                </font>
             </Label>
-            <TextField fx:id="lastName1" layoutX="398.0" layoutY="377.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
-            <TextField fx:id="distance1" layoutX="397.0" layoutY="512.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
-            <Button layoutX="423.0" layoutY="576.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" text="Pay For Ticket">
+            <TextField fx:id="departStationName" layoutX="397.0" layoutY="138.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
+            <TextField fx:id="distance" layoutX="397.0" layoutY="278.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
+            <Button fx:id="payButton" layoutX="756.0" layoutY="542.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" text="Pay For Ticket">
                <font>
                   <Font name="Agency FB" size="17.0" />
                </font></Button>
+            <Label alignment="CENTER" layoutX="728.0" layoutY="88.0" prefHeight="44.0" prefWidth="174.0" text="Avalible Seats ">
+               <font>
+                  <Font name="Agency FB Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="178.0" layoutY="333.0" prefHeight="44.0" prefWidth="174.0" text="Enter Seat No">
+               <font>
+                  <Font name="Agency FB Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="seatNo" layoutX="398.0" layoutY="339.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
+            <TextArea fx:id="seatList" editable="false" layoutX="694.0" layoutY="136.0" prefHeight="333.0" prefWidth="242.0" text="&#10;" />
          </children>
       </AnchorPane>
    </children>
