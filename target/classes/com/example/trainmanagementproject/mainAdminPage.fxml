@@ -141,10 +141,10 @@
                   <Font name="Agency FB Bold" size="20.0" />
                </font>
             </Label>
-            <TableView layoutX="775.0" layoutY="656.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;">
+            <TableView fx:id="trainTableView" layoutX="775.0" layoutY="656.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;">
               <columns>
                 <TableColumn minWidth="0.0" prefWidth="0.0" />
-                <TableColumn prefWidth="199.0" text="Train Number" />
+                <TableColumn fx:id="trainNum" prefWidth="199.0" text="Train Number" />
               </columns>
             </TableView>
             <Label layoutX="565.0" layoutY="735.0" prefHeight="39.0" prefWidth="174.0" text="Train Number">

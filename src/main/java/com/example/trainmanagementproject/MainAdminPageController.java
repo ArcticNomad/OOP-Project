@@ -33,8 +33,6 @@ public class MainAdminPageController implements Initializable
     private ArrayList<Station> stations=new ArrayList<>();
     private ArrayList<Train> trains=new ArrayList<>();
     private ArrayList<Route> routes=new ArrayList<>();
-    public TableView<Train>trainTableView;
-    public TableColumn<Train, Integer>trainNum;
 
     // STATION DETAILS
 
@@ -82,7 +80,9 @@ public class MainAdminPageController implements Initializable
 
     public TextField distanceBwStations;
 
-    ObservableList<Train> train;
+    public TableView<Integer>trainTableView;
+    public TableColumn<Train, Integer>trainNum;
+    ObservableList<Integer> train=FXCollections.observableArrayList();
 
 
     public void onAddStationButton() throws IOException
@@ -104,9 +104,11 @@ public class MainAdminPageController implements Initializable
         trains.add(new Train(num,speed,cap,businessClass,economyClass));
         addTrainButton.setText("Added!");
 
-        train = FXCollections.observableArrayList(trains);
+        for (int i = 0; i < trains.size(); i++) {
 
-        initialize(URL url, ResourceBundle resourceBundle);
+            train.add(trains.get(i).getTrainNUmber());
+        }
+
 
     }
 
@@ -147,6 +149,7 @@ public class MainAdminPageController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         trainNum.setCellValueFactory(new PropertyValueFactory<Train,Integer>("trainNumber"));
+        trainTableView.setEditable(true);
         trainTableView.setItems(train);
     }
 }
