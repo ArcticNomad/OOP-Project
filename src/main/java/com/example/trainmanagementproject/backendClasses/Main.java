@@ -225,8 +225,8 @@ public class Main
                     Station departStation = manager.getStationByName(departureStation);
                     Station arriveStation = manager.getStationByName(arrivalStation);
 
-                    trainTiming = new Schedule(month, day, departTime, arrivalTime, departure_AM_PM, arrival_AM_PM);
-                    trainRoute = new Route(trainTiming, departStation, arriveStation);
+                    //trainTiming = new Schedule(month, day, departTime, arrivalTime, departure_AM_PM, arrival_AM_PM);
+                    //trainRoute = new Route(trainTiming, departStation, arriveStation);
 
                     try {
                         routeWriter.write("Departure Station :"+departStation);

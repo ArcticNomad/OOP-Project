@@ -1,5 +1,7 @@
 package com.example.trainmanagementproject;
 
+import com.example.trainmanagementproject.backendClasses.Route.Route;
+import com.example.trainmanagementproject.backendClasses.Route.Schedule;
 import com.example.trainmanagementproject.backendClasses.Station.Station;
 import com.example.trainmanagementproject.backendClasses.Train.BusinessClass;
 import com.example.trainmanagementproject.backendClasses.Train.EconomyClass;
@@ -19,6 +21,10 @@ public class MainAdminPageController
 
     private ArrayList<Station> stations=new ArrayList<>();
     private ArrayList<Train> trains=new ArrayList<>();
+    private ArrayList<Route> routes=new ArrayList<>();
+
+    // STATION DETAILS
+
     @FXML
     private TextField stationName;
     public TextField stationCity;
@@ -26,6 +32,9 @@ public class MainAdminPageController
     private Button addStationButton ;
     @FXML
     private Button addTrainButton;
+    private Button addRouteButton;
+
+    // TRAIN DETAILS
     @FXML
     public TextField trainNumber;
     @FXML
@@ -36,6 +45,30 @@ public class MainAdminPageController
     public TextField businessFacility;
     public TextField economyCapacity;
     public TextField economyFacility;
+
+    // ROUTE DETAILS
+    @FXML
+    public TextField departStationName;
+    public TextField arrivalStationName;
+
+    // ROUTE SCHEDULE DETAILS
+    public TextField departDay;
+    public TextField departMonth;
+    public TextField departYear;
+    public TextField arrivalDay;
+    public TextField arrivalMonth;
+    public TextField arrivalYear;
+
+    public TextField departHour;
+    public TextField departMin;
+    public TextField arrivalHour;
+
+    public TextField arrivalMin;
+    public TextField departAmPm;
+    public TextField arrivalAmPm;
+
+    public TextField distanceBwStations;
+
 
     public void onAddStationButton() throws IOException
     {
@@ -60,7 +93,8 @@ public class MainAdminPageController
 
     public void onAddRouteButton()
     {
-           
+        Schedule schedul =new Schedule(departDay.getText(), departMonth.getText(), departYear.getText(), arrivalDay.getText(), arrivalMonth.getText(),arrivalYear.getText(), departHour.getText(), departMin.getText(), arrivalHour.getText(), arrivalMin.getText(), departAmPm.getText(),arrivalAmPm.getText());
+        routes.add(new Route( departStationName.getText(),arrivalStationName.getText()))
     }
     public void resetStationButton()
     {

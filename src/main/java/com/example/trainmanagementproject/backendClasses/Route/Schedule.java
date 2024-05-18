@@ -4,48 +4,41 @@ import com.example.trainmanagementproject.backendClasses.Station.Station;
 
 import java.util.Stack;
 
-public class Schedule
-{
-    private String month;
-    private int day;
-    private int departureTiming;
-    private int arrivalTiming;
+public class Schedule {
+    private int departDay;
+    private String departMonth;
+    private int departYear;
+    private int arrivalDay;
+    private String arrivalMonth;
+    private int arrivalYear;
+
+    private int departureHour;
+    private int departureMin;
+    private int arrivalHour;
+    private int arrivalMin;
     private String departure_AM_PM;
     private String arrival_AM_PM;
 
+    private double distanceBwStations;
 
-    public Schedule(String month,int day,int departureTiming, int arrivalTiming, String departure_AM_PM, String arrival_AM_PM)
-    {
-        setDay(day);
-        setMonth(month);
-        setDepartureTiming(departureTiming);
-        setArrivalTiming(arrivalTiming);
+    public Schedule(int departDay, String departMonth, int departYear, int arrivalDay, String arrivalMonth, int arrivalYear, int departureHour, int departureMin, int arrivalHour, int arrivalMin, String departure_AM_PM, String arrival_AM_PM) {
+        setArrivalDay(arrivalDay);
+        setArrivalHour(arrivalHour);
+        setArrivalMonth(arrivalMonth);
+        setArrivalMin(arrivalMin);
         setArrival_AM_PM(arrival_AM_PM);
+        setArrivalYear(arrivalYear);
+
+        setDepartDay(departDay);
+        setDepartMonth(departMonth);
         setDeparture_AM_PM(departure_AM_PM);
-    }
-    public String getMonth() {
-        return month;
+        setDepartMonth(departMonth);
+        setDepartYear(departYear);
+        setArrivalHour(departureHour);
+
+        setDistanceBwStations(distanceBwStations);
     }
 
-    public void setMonth(String month) {
-        this.month = month;
-    }
-
-    public int getDay() {
-        return day;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
-    }
-
-    public int getDepartureTiming() {
-        return departureTiming;
-    }
-
-    public void setDepartureTiming(int departureTiming) {
-        this.departureTiming = departureTiming;
-    }
 
     public String getArrival_AM_PM() {
         return arrival_AM_PM;
@@ -63,11 +56,92 @@ public class Schedule
         this.departure_AM_PM = departure_AM_PM;
     }
 
-    public int getArrivalTiming() {
-        return arrivalTiming;
+    public int getDepartDay() {
+        return departDay;
     }
 
-    public void setArrivalTiming(int arrivalTiming) {
-        this.arrivalTiming = arrivalTiming;
+    public void setDepartDay(int departDay) {
+        this.departDay = departDay;
+    }
+
+    public String getDepartMonth() {
+        return departMonth;
+    }
+
+    public void setDepartMonth(String departMonth) {
+        this.departMonth = departMonth;
+    }
+
+    public int getDepartYear() {
+        return departYear;
+    }
+
+    public void setDepartYear(int departYear) {
+        this.departYear = departYear;
+    }
+
+    public int getArrivalDay() {
+        return arrivalDay;
+    }
+
+    public void setArrivalDay(int arrivalDay) {
+        this.arrivalDay = arrivalDay;
+    }
+
+    public String getArrivalMonth() {
+        return arrivalMonth;
+    }
+
+    public void setArrivalMonth(String arrivalMonth) {
+        this.arrivalMonth = arrivalMonth;
+    }
+
+    public int getArrivalYear() {
+        return arrivalYear;
+    }
+
+    public void setArrivalYear(int arrivalYear) {
+        this.arrivalYear = arrivalYear;
+    }
+
+    public int getDepartureHour() {
+        return departureHour;
+    }
+
+    public void setDepartureHour(int departureHour) {
+        this.departureHour = departureHour;
+    }
+
+    public int getDepartureMin() {
+        return departureMin;
+    }
+
+    public void setDepartureMin(int departureMin) {
+        this.departureMin = departureMin;
+    }
+
+    public int getArrivalHour() {
+        return arrivalHour;
+    }
+
+    public void setArrivalHour(int arrivalHour) {
+        this.arrivalHour = arrivalHour;
+    }
+
+    public int getArrivalMin() {
+        return arrivalMin;
+    }
+
+    public void setArrivalMin(int arrivalMin) {
+        this.arrivalMin = arrivalMin;
+    }
+
+    public double getDistanceBwStations() {
+        return distanceBwStations;
+    }
+
+    public void setDistanceBwStations(double distanceBwStations) {
+        this.distanceBwStations = distanceBwStations;
     }
 }
+
