@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trainmanagementproject.MainAdminPageController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="952.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trainmanagementproject.MainAdminPageController">
    <content>
       <AnchorPane prefHeight="1017.0" prefWidth="998.0">
          <children>
@@ -111,31 +111,31 @@
                   <Font name="Agency FB" size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="265.0" layoutY="473.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
-            <TextField layoutX="265.0" layoutY="534.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
-            <TextField layoutX="265.0" layoutY="595.0" prefHeight="34.0" prefWidth="48.0" promptText="Hour" />
-            <TextField layoutX="333.0" layoutY="595.0" prefHeight="34.0" prefWidth="48.0" promptText="Min" />
-            <TextField layoutX="399.0" layoutY="596.0" prefHeight="34.0" prefWidth="61.0" promptText="Am/Pm" />
+            <TextField fx:id="departStationName" layoutX="265.0" layoutY="473.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
+            <TextField fx:id="arrivalStationName" layoutX="265.0" layoutY="534.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
+            <TextField fx:id="departHour" layoutX="265.0" layoutY="595.0" prefHeight="34.0" prefWidth="48.0" promptText="Hour" />
+            <TextField fx:id="departMin" layoutX="333.0" layoutY="595.0" prefHeight="34.0" prefWidth="48.0" promptText="Min" />
+            <TextField fx:id="departAmPm" layoutX="399.0" layoutY="596.0" prefHeight="34.0" prefWidth="61.0" promptText="Am/Pm" />
             <Label layoutX="91.0" layoutY="653.0" prefHeight="39.0" prefWidth="174.0" text="Departure Date">
                <font>
                   <Font name="Agency FB" size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="265.0" layoutY="656.0" prefHeight="34.0" prefWidth="48.0" promptText="Day" />
-            <TextField layoutX="333.0" layoutY="656.0" prefHeight="34.0" prefWidth="48.0" promptText="Month" />
-            <TextField layoutX="399.0" layoutY="656.0" prefHeight="34.0" prefWidth="48.0" promptText="Year" />
+            <TextField fx:id="departDay" layoutX="265.0" layoutY="656.0" prefHeight="34.0" prefWidth="48.0" promptText="Day" />
+            <TextField fx:id="departMonth" layoutX="333.0" layoutY="656.0" prefHeight="34.0" prefWidth="48.0" promptText="Month" />
+            <TextField fx:id="departYear" layoutX="399.0" layoutY="656.0" prefHeight="34.0" prefWidth="48.0" promptText="Year" />
             <Label layoutX="91.0" layoutY="772.0" prefHeight="39.0" prefWidth="174.0" text="Arrival Date">
                <font>
                   <Font name="Agency FB" size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="265.0" layoutY="718.0" prefHeight="34.0" prefWidth="48.0" promptText="Hour" />
-            <TextField layoutX="333.0" layoutY="718.0" prefHeight="34.0" prefWidth="48.0" promptText="Min" />
-            <TextField layoutX="393.0" layoutY="718.0" prefHeight="34.0" prefWidth="61.0" promptText="Am/Pm" />
-            <TextField layoutX="265.0" layoutY="775.0" prefHeight="34.0" prefWidth="48.0" promptText="Day" />
-            <TextField layoutX="333.0" layoutY="775.0" prefHeight="34.0" prefWidth="48.0" promptText="Month" />
-            <TextField layoutX="400.0" layoutY="775.0" prefHeight="34.0" prefWidth="48.0" promptText="Year" />
-            <Button layoutX="82.0" layoutY="856.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="96.0" style="-fx-background-color: a6aeba;" text="Add Route" textFill="#170707" />
+            <TextField fx:id="arrivalHour" layoutX="265.0" layoutY="718.0" prefHeight="34.0" prefWidth="48.0" promptText="Hour" />
+            <TextField fx:id="arrivalMin" layoutX="333.0" layoutY="718.0" prefHeight="34.0" prefWidth="48.0" promptText="Min" />
+            <TextField fx:id="arrivalAmPm" layoutX="393.0" layoutY="718.0" prefHeight="34.0" prefWidth="61.0" promptText="Am/Pm" />
+            <TextField fx:id="arrivalDay" layoutX="265.0" layoutY="775.0" prefHeight="34.0" prefWidth="48.0" promptText="Day" />
+            <TextField fx:id="arrivalMonth" layoutX="333.0" layoutY="775.0" prefHeight="34.0" prefWidth="48.0" promptText="Month" />
+            <TextField fx:id="arrivalYear" layoutX="400.0" layoutY="775.0" prefHeight="34.0" prefWidth="48.0" promptText="Year" />
+            <Button fx:id="addRouteButton" layoutX="82.0" layoutY="881.0" mnemonicParsing="false" onAction="#onAddRouteButton" onMouseExited="#resetRouteButton" prefHeight="49.0" prefWidth="96.0" style="-fx-background-color: a6aeba;" text="Add Route" textFill="#170707" />
             <Label alignment="CENTER" layoutX="542.0" layoutY="654.0" prefHeight="38.0" prefWidth="187.0" text="Assign Route To Train">
                <font>
                   <Font name="Agency FB Bold" size="20.0" />
@@ -153,7 +153,19 @@
                </font>
             </Label>
             <TextField layoutX="561.0" layoutY="785.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
-            <Button layoutX="565.0" layoutY="856.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="96.0" style="-fx-background-color: a6aeba;" text="Add Route" textFill="#170707" />
+            <Button layoutX="565.0" layoutY="881.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="96.0" style="-fx-background-color: a6aeba;" text="Add Route" textFill="#170707" />
+            <Label layoutX="91.0" layoutY="837.0" prefHeight="39.0" prefWidth="174.0" text="Distance ">
+               <font>
+                  <Font name="Agency FB" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="distanceBwStations" layoutX="265.0" layoutY="832.0" prefHeight="34.0" prefWidth="183.0" promptText="In Kilometer" />
+            <TableView layoutX="227.0" layoutY="289.0" prefHeight="109.0" prefWidth="200.0" style="-fx-border-color: black;">
+               <columns>
+                  <TableColumn minWidth="0.0" prefWidth="0.0" />
+                  <TableColumn prefWidth="199.0" text="Stations" />
+               </columns>
+            </TableView>
          </children>
       </AnchorPane>
    </content>

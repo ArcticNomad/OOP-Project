@@ -222,14 +222,14 @@ public class Main
                     System.out.println("Enter AM/PM:");
                     String arrival_AM_PM = input.next();
 
-                    Station departStation = manager.getStationByName(departureStation);
-                    Station arriveStation = manager.getStationByName(arrivalStation);
+                    //Station departStation = manager.getStationByName(departureStation);
+                    //Station arriveStation = manager.getStationByName(arrivalStation);
 
                     //trainTiming = new Schedule(month, day, departTime, arrivalTime, departure_AM_PM, arrival_AM_PM);
                     //trainRoute = new Route(trainTiming, departStation, arriveStation);
 
                     try {
-                        routeWriter.write("Departure Station :"+departStation);
+                       // routeWriter.write("Departure Station :"+departStation);
                         routeWriter.write("Arrival Station :"+arrivalStation);
                         routeWriter.write("Departure Day :"+day);
                         routeWriter.write("Departure Month :"+month);

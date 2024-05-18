@@ -26,8 +26,8 @@ public class Ticket
     {
         System.out.println("Ticket Details :");
         System.out.println();
-        System.out.println("Departure Time :"+ticketTrain.getTrainRoute().getTrainTiming().getDepartureTiming()+" "+ticketTrain.getTrainRoute().getTrainTiming().getDeparture_AM_PM());
-        System.out.println("Arrival Time :"+ticketTrain.getTrainRoute().getTrainTiming().getArrivalTiming()+" "+ticketTrain.getTrainRoute().getTrainTiming().getArrival_AM_PM());
+        //System.out.println("Departure Time :"+ticketTrain.getTrainRoute().getTrainTiming().getDepartureTiming()+" "+ticketTrain.getTrainRoute().getTrainTiming().getDeparture_AM_PM());
+        //System.out.println("Arrival Time :"+ticketTrain.getTrainRoute().getTrainTiming().getArrivalTiming()+" "+ticketTrain.getTrainRoute().getTrainTiming().getArrival_AM_PM());
         System.out.println("Departure Station :" +ticketTrain.getTrainRoute().getDepartureStation().getStationName()+" "+ticketTrain.getTrainRoute().getDepartureStation().getCity());
         System.out.println("Arrival Station :" +ticketTrain.getTrainRoute().getArrivalStation().getStationName()+" "+ticketTrain.getTrainRoute().getArrivalStation().getCity());
         System.out.println("Train Number :" +ticketTrain.getTrainNUmber());

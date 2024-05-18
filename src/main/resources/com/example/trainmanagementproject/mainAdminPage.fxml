@@ -135,7 +135,7 @@
             <TextField fx:id="arrivalDay" layoutX="265.0" layoutY="775.0" prefHeight="34.0" prefWidth="48.0" promptText="Day" />
             <TextField fx:id="arrivalMonth" layoutX="333.0" layoutY="775.0" prefHeight="34.0" prefWidth="48.0" promptText="Month" />
             <TextField fx:id="arrivalYear" layoutX="400.0" layoutY="775.0" prefHeight="34.0" prefWidth="48.0" promptText="Year" />
-            <Button fx:id="addRouteButton" layoutX="82.0" layoutY="881.0" mnemonicParsing="false" onAction="#onAddRouteButton" prefHeight="49.0" prefWidth="96.0" style="-fx-background-color: a6aeba;" text="Add Route" textFill="#170707" />
+            <Button fx:id="addRouteButton" layoutX="82.0" layoutY="881.0" mnemonicParsing="false" onAction="#onAddRouteButton" onMouseExited="#resetRouteButton" prefHeight="49.0" prefWidth="96.0" style="-fx-background-color: a6aeba;" text="Add Route" textFill="#170707" />
             <Label alignment="CENTER" layoutX="542.0" layoutY="654.0" prefHeight="38.0" prefWidth="187.0" text="Assign Route To Train">
                <font>
                   <Font name="Agency FB Bold" size="20.0" />
@@ -160,6 +160,12 @@
                </font>
             </Label>
             <TextField fx:id="distanceBwStations" layoutX="265.0" layoutY="832.0" prefHeight="34.0" prefWidth="183.0" promptText="In Kilometer" />
+            <TableView layoutX="227.0" layoutY="289.0" prefHeight="109.0" prefWidth="200.0" style="-fx-border-color: black;">
+               <columns>
+                  <TableColumn minWidth="0.0" prefWidth="0.0" />
+                  <TableColumn prefWidth="199.0" text="Stations" />
+               </columns>
+            </TableView>
          </children>
       </AnchorPane>
    </content>

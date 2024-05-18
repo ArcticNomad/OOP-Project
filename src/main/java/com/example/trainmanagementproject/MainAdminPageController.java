@@ -7,22 +7,34 @@ import com.example.trainmanagementproject.backendClasses.StationManagement.Stati
 import com.example.trainmanagementproject.backendClasses.Train.BusinessClass;
 import com.example.trainmanagementproject.backendClasses.Train.EconomyClass;
 import com.example.trainmanagementproject.backendClasses.Train.Train;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class MainAdminPageController
+public class MainAdminPageController implements Initializable
 {
 
     private ArrayList<Station> stations=new ArrayList<>();
     private ArrayList<Train> trains=new ArrayList<>();
     private ArrayList<Route> routes=new ArrayList<>();
+    public TableView<Train>trainTableView;
+    public TableColumn<Train, Integer>trainNum;
 
     // STATION DETAILS
 
@@ -33,7 +45,7 @@ public class MainAdminPageController
     private Button addStationButton ;
     @FXML
     private Button addTrainButton;
-    private Button addRouteButton;
+    public Button addRouteButton;
 
     // TRAIN DETAILS
     @FXML
@@ -70,6 +82,8 @@ public class MainAdminPageController
 
     public TextField distanceBwStations;
 
+    ObservableList<Train> train;
+
 
     public void onAddStationButton() throws IOException
     {
@@ -90,13 +104,17 @@ public class MainAdminPageController
         trains.add(new Train(num,speed,cap,businessClass,economyClass));
         addTrainButton.setText("Added!");
 
+        train = FXCollections.observableArrayList(trains);
+
+        initialize(URL url, ResourceBundle resourceBundle);
+
     }
 
     public void onAddRouteButton()
     {
         // add try catch here
-        Station departStation = StationManagement.getStationByName(departStationName.getText());
-        Station arriveStation = StationManagement.getStationByName(arrivalStationName.getText());
+        Station departStation = StationManagement.getStationByName(stations,departStationName.getText());
+        Station arriveStation = StationManagement.getStationByName(stations,arrivalStationName.getText());
 
         Integer depDay= Integer.valueOf(departDay.getText());
         Integer depYear= Integer.valueOf(departYear.getText());
@@ -109,6 +127,9 @@ public class MainAdminPageController
 
         Schedule schedule =new Schedule(depDay, departMonth.getText(), depYear, arriveDay, arrivalMonth.getText(), arriveYear, depHour, depMin, arriveHour, arriveMin, departAmPm.getText(),arrivalAmPm.getText());
         routes.add(new Route(schedule, departStation,arriveStation));
+
+        addRouteButton.setText("Added!");
+
     }
     public void resetStationButton()
     {
@@ -118,5 +139,14 @@ public class MainAdminPageController
     {
         addStationButton.setText("Add Train");
     }
+    public void resetRouteButton()
+    {
+        addRouteButton.setText("Add Route");
+    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        trainNum.setCellValueFactory(new PropertyValueFactory<Train,Integer>("trainNumber"));
+        trainTableView.setItems(train);
+    }
 }
