@@ -13,10 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.net.URL;
@@ -27,7 +24,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class MainAdminPageController implements Initializable
+public class MainAdminPageController
 {
 
     private ArrayList<Station> stations=new ArrayList<>();
@@ -80,16 +77,15 @@ public class MainAdminPageController implements Initializable
 
     public TextField distanceBwStations;
 
-    public TableView<Integer>trainTableView;
-    public TableColumn<Train, Integer>trainNum;
-    ObservableList<Integer> train=FXCollections.observableArrayList();
-
-
+    public TextArea trainNumbers;
+    public TextArea stationLists;
     public void onAddStationButton() throws IOException
     {
         stations.add(new Station(stationName.getText(),stationCity.getText()));
         addStationButton.setText("Added!");
     }
+
+
     public void onAddTrainButton()
     {
         Integer businessCap= Integer.valueOf(businessCapacity.getText());
@@ -103,12 +99,6 @@ public class MainAdminPageController implements Initializable
         int speed = Integer.parseInt(trainSpeed.getText());
         trains.add(new Train(num,speed,cap,businessClass,economyClass));
         addTrainButton.setText("Added!");
-
-        for (int i = 0; i < trains.size(); i++) {
-
-            train.add(trains.get(i).getTrainNUmber());
-        }
-
 
     }
 
@@ -141,15 +131,28 @@ public class MainAdminPageController implements Initializable
     {
         addStationButton.setText("Add Train");
     }
+
     public void resetRouteButton()
     {
         addRouteButton.setText("Add Route");
     }
+    public void onTrainRefreshButton()
+    {
+        trainNumbers.clear();
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        trainNum.setCellValueFactory(new PropertyValueFactory<Train,Integer>("trainNumber"));
-        trainTableView.setEditable(true);
-        trainTableView.setItems(train);
+        for (int i = 0; i < trains.size(); i++) {
+            String trainNumb = String.valueOf(trains.get(i).getTrainNUmber());
+            trainNumbers.appendText("Train " + (i + 1) + " - " + trainNumb + "\n");
+        }
     }
+    public void onStationRefreshButton()
+    {
+        stationLists.clear();
+
+        for (int i = 0; i < stations.size(); i++)
+        {
+            stationLists.appendText("Station "+(i+1)+" -"+stations.get(i).getStationName()+"\n");
+        }
+    }
+
 }

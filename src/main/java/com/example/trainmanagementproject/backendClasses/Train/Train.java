@@ -34,6 +34,10 @@ public class Train
 
   public Train(){}
 
+  public Train(int trainNumb) {
+    setTrainNUmber(trainNumb);
+  }
+
 
   public int getTrainNUmber() {
     return trainNUmber;
