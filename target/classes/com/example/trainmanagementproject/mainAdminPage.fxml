@@ -145,28 +145,36 @@
                   <Font name="Agency FB" size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="561.0" layoutY="785.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
-            <Button layoutX="565.0" layoutY="881.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="96.0" style="-fx-background-color: a6aeba;" text="Add Route" textFill="#170707" />
+            <TextField fx:id="assignRouteText" layoutX="561.0" layoutY="785.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
+            <Button fx:id="assignRouteButton" layoutX="565.0" layoutY="881.0" mnemonicParsing="false" onAction="#onAssignRouteButton" onMouseExited="#resetAssignRouteButton" prefHeight="49.0" prefWidth="96.0" style="-fx-background-color: a6aeba;" text="Add Route" textFill="#170707" />
             <Label layoutX="53.0" layoutY="886.0" prefHeight="39.0" prefWidth="174.0" text="Distance ">
                <font>
                   <Font name="Agency FB" size="20.0" />
                </font>
             </Label>
             <TextField fx:id="distanceBwStations" layoutX="266.0" layoutY="892.0" prefHeight="34.0" prefWidth="183.0" promptText="In Kilometer" />
-            <Label alignment="CENTER" layoutX="801.0" layoutY="651.0" prefHeight="39.0" prefWidth="174.0" text="Train Numbers">
+            <Label alignment="CENTER" layoutX="803.0" layoutY="652.0" prefHeight="39.0" prefWidth="174.0" text="Train Numbers">
                <font>
                   <Font name="Agency FB Bold" size="20.0" />
                </font>
             </Label>
-            <TextArea fx:id="trainNumbers" layoutX="805.0" layoutY="689.0" prefHeight="117.0" prefWidth="170.0" />
-            <Button fx:id="refreshButton" layoutX="846.0" layoutY="822.0" mnemonicParsing="false" onAction="#onTrainRefreshButton" style="-fx-background-color: a6aeba;" text="Refresh List" />
-            <TextArea fx:id="stationLists" layoutX="277.0" layoutY="315.0" prefHeight="112.0" prefWidth="172.0" />
+            <Button fx:id="refreshButton" layoutX="848.0" layoutY="837.0" mnemonicParsing="false" onAction="#onTrainRefreshButton" style="-fx-background-color: a6aeba;" text="Refresh List" />
+            <TextArea fx:id="stationLists" layoutX="277.0" layoutY="315.0" prefHeight="112.0" prefWidth="172.0" style="-fx-font-size: 15;">
+               <font>
+                  <Font name="Agency FB" size="12.0" />
+               </font>
+            </TextArea>
             <Label alignment="CENTER" layoutX="302.0" layoutY="292.0" prefHeight="6.0" prefWidth="122.0" text="Stations List">
                <font>
                   <Font name="Agency FB Bold" size="20.0" />
                </font>
             </Label>
             <Button fx:id="refreshButton1" layoutX="320.0" layoutY="447.0" mnemonicParsing="false" onAction="#onStationRefreshButton" style="-fx-background-color: a6aeba;" text="Refresh List" />
+            <TextArea fx:id="trainNumbers" layoutX="804.0" layoutY="690.0" prefHeight="130.0" prefWidth="172.0" style="-fx-font-size: 15;">
+               <font>
+                  <Font name="Agency FB" size="12.0" />
+               </font>
+            </TextArea>
          </children>
       </AnchorPane>
    </content>

@@ -24,12 +24,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class MainAdminPageController
+public class MainAdminPageController implements Initializable
 {
 
     private ArrayList<Station> stations=new ArrayList<>();
     private ArrayList<Train> trains=new ArrayList<>();
-    private ArrayList<Route> routes=new ArrayList<>();
+    private Route trainRoute=null;
 
     // STATION DETAILS
 
@@ -76,7 +76,8 @@ public class MainAdminPageController
     public TextField arrivalAmPm;
 
     public TextField distanceBwStations;
-
+    public TextField assignRouteText;
+    public Button assignRouteButton;
     public TextArea trainNumbers;
     public TextArea stationLists;
     public void onAddStationButton() throws IOException
@@ -118,10 +119,23 @@ public class MainAdminPageController
         Integer arriveHour= Integer.valueOf(arrivalHour.getText());
 
         Schedule schedule =new Schedule(depDay, departMonth.getText(), depYear, arriveDay, arrivalMonth.getText(), arriveYear, depHour, depMin, arriveHour, arriveMin, departAmPm.getText(),arrivalAmPm.getText());
-        routes.add(new Route(schedule, departStation,arriveStation));
+        trainRoute=new Route(schedule, departStation,arriveStation);
 
         addRouteButton.setText("Added!");
 
+    }
+
+    public void onAssignRouteButton()
+    {
+        for (int i = 0; i < trains.size(); i++)
+        {
+            Integer num= Integer.valueOf(assignRouteText.getText());
+            if(num.equals(trains.get(i).getTrainNUmber()))
+            {
+                trains.get(i).setTrainRoute(trainRoute);
+                assignRouteButton.setText("Assigned!");
+            }
+        }
     }
     public void resetStationButton()
     {
@@ -129,12 +143,16 @@ public class MainAdminPageController
     }
     public void resetTrainButton()
     {
-        addStationButton.setText("Add Train");
+        addTrainButton.setText("Add Train");
     }
 
     public void resetRouteButton()
     {
         addRouteButton.setText("Add Route");
+    }
+    public void resetAssignRouteButton()
+    {
+        assignRouteButton.setText("Assign Route");
     }
     public void onTrainRefreshButton()
     {
@@ -155,4 +173,9 @@ public class MainAdminPageController
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        trainNumbers.setEditable(false);
+        stationLists.setEditable(false);
+    }
 }
