@@ -3,6 +3,6 @@ module com.example.trainmanagementproject {
     requires javafx.fxml;
 
 
-    opens com.example.trainmanagementproject to javafx.fxml;
-    exports com.example.trainmanagementproject;
+    opens com.example.trainManagementProject to javafx.fxml;
+    exports com.example.trainManagementProject;
 }

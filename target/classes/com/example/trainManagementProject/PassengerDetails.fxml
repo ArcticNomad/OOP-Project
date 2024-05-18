@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BuyTicketPage">
+   <children>
+      <Label layoutX="219.0" layoutY="22.0" text="Passenger Details">
+         <font>
+            <Font name="Agency FB Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="99.0" prefHeight="17.0" prefWidth="181.0" text="First Name">
+         <font>
+            <Font name="Agency FB Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="141.0" text="Last Name">
+         <font>
+            <Font name="Agency FB Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="183.0" text="CNIC">
+         <font>
+            <Font name="Agency FB Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="224.0" text="Age">
+         <font>
+            <Font name="Agency FB Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="262.0" text="Departure">
+         <font>
+            <Font name="Agency FB Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="302.0" text="Destination">
+         <font>
+            <Font name="Agency FB Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="346.0" text="Distance">
+         <font>
+            <Font name="Agency FB Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="335.0" layoutY="119.0" text="Train Type">
+         <font>
+            <Font name="Agency FB Bold" size="15.0" />
+         </font>
+      </Label>
+      <Separator layoutX="314.0" layoutY="85.0" orientation="VERTICAL" prefHeight="304.0" prefWidth="19.0" />
+      <TextField layoutX="138.0" layoutY="96.0" />
+      <TextField layoutX="138.0" layoutY="137.0" />
+      <TextField layoutX="138.0" layoutY="179.0" />
+      <TextField layoutX="138.0" layoutY="220.0" />
+      <TextField layoutX="138.0" layoutY="258.0" />
+      <TextField layoutX="138.0" layoutY="298.0" />
+      <TextField layoutX="138.0" layoutY="342.0" />
+      <TextField layoutX="413.0" layoutY="115.0" />
+   </children>
+</AnchorPane>
