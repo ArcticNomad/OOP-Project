@@ -13,7 +13,7 @@
    <content>
       <AnchorPane prefHeight="1046.0" prefWidth="998.0">
          <children>
-            <TextField fx:id="stationName" layoutX="174.0" layoutY="180.0" prefHeight="34.0" prefWidth="140.0" promptText="Enter Here" />
+            <TextField fx:id="stationName" layoutX="174.0" layoutY="180.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
             <Label alignment="TOP_CENTER" layoutX="399.0" layoutY="20.0" prefHeight="94.0" prefWidth="207.0" text="Admin Controls ">
                <font>
                   <Font name="Agency FB Bold" size="36.0" />
@@ -25,7 +25,7 @@
                   <Font name="Agency FB Bold" size="20.0" />
                </font>
             </Label>
-            <Label alignment="TOP_CENTER" layoutX="14.0" layoutY="178.0" prefHeight="39.0" prefWidth="174.0" text="Station Name">
+            <Label alignment="TOP_CENTER" layoutX="11.0" layoutY="178.0" prefHeight="39.0" prefWidth="174.0" text="Station Name">
                <font>
                   <Font name="Agency FB" size="20.0" />
                </font>
