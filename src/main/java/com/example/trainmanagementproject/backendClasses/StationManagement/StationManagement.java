@@ -74,7 +74,7 @@ public class StationManagement
 
     }
 
-    public Station getStationByName(String stationName) {
+    public static Station getStationByName(String stationName) {
         for(int i = 0; i < stations.size(); i++)
         {
             if (stations.get(i).getStationName().equals(stationName))

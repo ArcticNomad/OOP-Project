@@ -3,6 +3,7 @@ package com.example.trainmanagementproject;
 import com.example.trainmanagementproject.backendClasses.Route.Route;
 import com.example.trainmanagementproject.backendClasses.Route.Schedule;
 import com.example.trainmanagementproject.backendClasses.Station.Station;
+import com.example.trainmanagementproject.backendClasses.StationManagement.StationManagement;
 import com.example.trainmanagementproject.backendClasses.Train.BusinessClass;
 import com.example.trainmanagementproject.backendClasses.Train.EconomyClass;
 import com.example.trainmanagementproject.backendClasses.Train.Train;
@@ -93,8 +94,21 @@ public class MainAdminPageController
 
     public void onAddRouteButton()
     {
-        Schedule schedul =new Schedule(departDay.getText(), departMonth.getText(), departYear.getText(), arrivalDay.getText(), arrivalMonth.getText(),arrivalYear.getText(), departHour.getText(), departMin.getText(), arrivalHour.getText(), arrivalMin.getText(), departAmPm.getText(),arrivalAmPm.getText());
-        routes.add(new Route( departStationName.getText(),arrivalStationName.getText()))
+        // add try catch here
+        Station departStation = StationManagement.getStationByName(departStationName.getText());
+        Station arriveStation = StationManagement.getStationByName(arrivalStationName.getText());
+
+        Integer depDay= Integer.valueOf(departDay.getText());
+        Integer depYear= Integer.valueOf(departYear.getText());
+        Integer arriveDay= Integer.valueOf(arrivalDay.getText());
+        Integer arriveYear= Integer.valueOf(arrivalYear.getText());
+        Integer depHour= Integer.valueOf(departHour.getText());
+        Integer depMin= Integer.valueOf(departMin.getText());
+        Integer arriveMin= Integer.valueOf(arrivalMin.getText());
+        Integer arriveHour= Integer.valueOf(arrivalHour.getText());
+
+        Schedule schedule =new Schedule(depDay, departMonth.getText(), depYear, arriveDay, arrivalMonth.getText(), arriveYear, depHour, depMin, arriveHour, arriveMin, departAmPm.getText(),arrivalAmPm.getText());
+        routes.add(new Route(schedule, departStation,arriveStation));
     }
     public void resetStationButton()
     {
