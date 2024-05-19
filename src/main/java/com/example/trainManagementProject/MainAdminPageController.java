@@ -8,8 +8,11 @@ import com.example.trainManagementProject.backendClasses.Train.BusinessClass;
 import com.example.trainManagementProject.backendClasses.Train.EconomyClass;
 import com.example.trainManagementProject.backendClasses.Train.Train;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,9 +23,6 @@ import java.util.ArrayList;
 public class MainAdminPageController implements Initializable
 {
 
-    private ArrayList<Station> stations=new ArrayList<>();
-    private ArrayList<Train> trains=new ArrayList<>();
-    private Route trainRoute=null;
 
     // STATION DETAILS
 
@@ -96,25 +96,30 @@ public class MainAdminPageController implements Initializable
     private TextArea trainNumbers;
     @FXML
     private TextArea stationLists;
+
+    @FXML
+    private Button homeButton;
     public void onAddStationButton() throws IOException
     {
-        stations.add(new Station(stationName.getText(),stationCity.getText()));
+       StationManagement.addStation(stationName.getText(),stationCity.getText());
         addStationButton.setText("Added!");
     }
 
+    public static BusinessClass businessClass;
+    public static EconomyClass economyClass;
 
     public void onAddTrainButton()
     {
         Integer businessCap= Integer.valueOf(businessCapacity.getText());
         Integer ecoCap= Integer.valueOf(economyCapacity.getText());
-        BusinessClass businessClass=new BusinessClass(businessCap,businessFacility.getText());
-        EconomyClass economyClass=new EconomyClass(ecoCap,economyFacility.getText());
+        businessClass =new BusinessClass(businessCap,businessFacility.getText());
+        economyClass=new EconomyClass(ecoCap,economyFacility.getText());
 
 
         int cap = Integer.parseInt(trainCapacity.getText());
         int num = Integer.parseInt(trainNumber.getText());
         int speed = Integer.parseInt(trainSpeed.getText());
-        trains.add(new Train(num,speed,cap,businessClass,economyClass));
+        StationManagement.addTrain(num,speed,cap,businessClass,economyClass);
         addTrainButton.setText("Added!");
 
     }
@@ -122,8 +127,8 @@ public class MainAdminPageController implements Initializable
     public void onAddRouteButton()
     {
         // add try catch here
-        Station departStation = StationManagement.getStationByName(stations,departStationName.getText());
-        Station arriveStation = StationManagement.getStationByName(stations,arrivalStationName.getText());
+        Station departStation = StationManagement.getStationByName(StationManagement.getStations(),departStationName.getText());
+        Station arriveStation = StationManagement.getStationByName(StationManagement.getStations(),arrivalStationName.getText());
 
         Integer depDay= Integer.valueOf(departDay.getText());
         Integer depYear= Integer.valueOf(departYear.getText());
@@ -135,7 +140,8 @@ public class MainAdminPageController implements Initializable
         Integer arriveHour= Integer.valueOf(arrivalHour.getText());
 
         Schedule schedule =new Schedule(depDay, departMonth.getText(), depYear, arriveDay, arrivalMonth.getText(), arriveYear, depHour, depMin, arriveHour, arriveMin, departAmPm.getText(),arrivalAmPm.getText());
-        trainRoute=new Route(schedule, departStation,arriveStation);
+
+        StationManagement.trainR=new Route(schedule, departStation,arriveStation);
 
         addRouteButton.setText("Added!");
 
@@ -193,5 +199,31 @@ public class MainAdminPageController implements Initializable
     public void initialize(URL url, ResourceBundle resourceBundle) {
         trainNumbers.setEditable(false);
         stationLists.setEditable(false);
+    }
+
+    public static ArrayList<Station> getStations() {
+        return stations;
+    }
+
+    public static void setStations(ArrayList<Station> stations) {
+        MainAdminPageController.stations = stations;
+    }
+    public static ArrayList<Train> getTrains() {
+        return trains;
+    }
+
+    public static void setTrains(ArrayList<Train> trains) {
+        MainAdminPageController.trains = trains;
+    }
+
+    public void onHomeButton() throws IOException {
+        Stage stage= (Stage) homeButton.getScene().getWindow();
+
+        FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("selectionScreen.FXML"));
+
+        Scene scene=new Scene(fxmlLoader.load());
+
+        stage.setScene(scene);
+        stage.show();
     }
 }

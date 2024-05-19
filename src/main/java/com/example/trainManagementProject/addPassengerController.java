@@ -25,7 +25,7 @@ public class addPassengerController
     private Button doneButton;
 
     @FXML
-    private ArrayList <Passenger> passengers=new ArrayList<>();
+    private static ArrayList <Passenger> passengers=new ArrayList<>();
 
 
     public void onDoneButton() throws IOException {

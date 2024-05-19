@@ -11,17 +11,13 @@ import java.util.Scanner;
 public class StationManagement
 {
     Scanner input=new Scanner(System.in);
-    ArrayList<Station> stations=new ArrayList<>();
+    static ArrayList<Station> stations=new ArrayList<>();
     ArrayList<Passenger> passengers=new ArrayList<>();
-    ArrayList<Route> routes=new ArrayList<>();
-    ArrayList<Train> trains=new ArrayList<>();
+    static Route trainRoute=null;
+    static ArrayList<Train> trains=new ArrayList<>();
 
-    public ArrayList<Station> getStations() {
+    public static ArrayList<Station> getStations() {
         return stations;
-    }
-
-    public void setStations(ArrayList<Station> stations) {
-        this.stations = stations;
     }
 
     public void addPassenger(int cnic, String firstName, String lastName, int age,Ticket passengerTicket)
@@ -65,7 +61,7 @@ public class StationManagement
         }
     }
 
-    public void addStation(String stationName, String city)
+    public static void addStation(String stationName, String city)
     {
 
         stations.add(new Station(stationName,city));
@@ -123,7 +119,7 @@ public class StationManagement
         }
     }
 
-    public void addTrain(int trainNUmber, int trainSpeed, int capacity,BusinessClass businessClass,EconomyClass economyClass)
+    public static void addTrain(int trainNUmber, int trainSpeed, int capacity,BusinessClass businessClass,EconomyClass economyClass)
     {
         trains.add(new Train(trainNUmber,trainSpeed,capacity,businessClass,economyClass));
     }
@@ -181,7 +177,7 @@ public class StationManagement
 
     }
 
-    public ArrayList<Train> getTrains() {
+    public static ArrayList<Train> getTrains() {
         return trains;
     }
 
