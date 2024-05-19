@@ -60,6 +60,12 @@ public class Ticket
         fare=2* Route.distanceBetweenStations;
         return fare;
     }
+    public double calculateChange(double payment, double amountDue)
+    {
+        double change=payment-amountDue;
+        return change;
+    }
+
     public void ProcessPayment()
     {
         System.out.println("Amount Due :"+fare);

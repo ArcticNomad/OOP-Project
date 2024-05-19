@@ -37,7 +37,7 @@ public class paymentPageController implements Initializable
 
         if(PAYMENT<AmountDue)
         {
-            payButton.setText("Invalid Funds !");
+            payButton.setText("Insufficient Funds !");
             payButton.setDisable(true);
         }
 
@@ -50,6 +50,9 @@ public class paymentPageController implements Initializable
                     StationManagement.getPassengers().get(i).setPassengerTicket(StationManagement.getPassengerTicket());
                     passengerFound=true;
                     payButton.setText("Ticket Purchased!");
+                    double calculatedChange=StationManagement.getPassengerTicket().calculateChange(PAYMENT,AmountDue);
+                    String cc= String.valueOf(calculatedChange);
+                    change.setText(cc);
                 }
             }
             if(!passengerFound)
@@ -65,7 +68,6 @@ public class paymentPageController implements Initializable
         payButton.setText("Pay");
         payButton.setDisable(false);
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {

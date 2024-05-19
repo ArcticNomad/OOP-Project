@@ -39,7 +39,7 @@
                   <Font name="Agency FB Bold" size="21.0" />
                </font>
             </Label>
-            <TextField fx:id="id" editable="false" layoutX="251.0" layoutY="112.0" prefHeight="44.0" prefWidth="174.0" />
+            <TextField fx:id="id" layoutX="251.0" layoutY="112.0" prefHeight="44.0" prefWidth="174.0" />
          </children>
       </AnchorPane>
    </children>

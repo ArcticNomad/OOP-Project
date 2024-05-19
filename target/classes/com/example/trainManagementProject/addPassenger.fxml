@@ -4,18 +4,35 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trainManagementProject.addPassengerController">
    <children>
-      <TextField fx:id="firstName" layoutX="418.0" layoutY="113.0" />
-      <Label layoutX="188.0" layoutY="117.0" text="First Name" />
-      <Label layoutX="188.0" layoutY="157.0" text="Last Name" />
-      <TextField fx:id="lastName" layoutX="418.0" layoutY="162.0" />
-      <Label layoutX="179.0" layoutY="221.0" prefHeight="17.0" prefWidth="41.0" text="CNIC" />
-      <Label layoutX="193.0" layoutY="259.0" prefHeight="17.0" prefWidth="35.0" text="Age" />
-      <TextField fx:id="id" layoutX="400.0" layoutY="217.0" />
-      <TextField fx:id="age" layoutX="410.0" layoutY="255.0" />
-      <Button fx:id="doneButton" layoutX="384.0" layoutY="345.0" mnemonicParsing="false" onAction="#onDoneButton" prefHeight="41.0" prefWidth="72.0" text="Done" />
+      <TextField fx:id="firstName" layoutX="421.0" layoutY="117.0" prefHeight="33.0" prefWidth="158.0" />
+      <Label layoutX="208.0" layoutY="117.0" prefHeight="33.0" prefWidth="132.0" text="First Name">
+         <font>
+            <Font name="Agency FB Bold" size="22.0" />
+         </font></Label>
+      <Label layoutX="208.0" layoutY="171.0" prefHeight="33.0" prefWidth="132.0" style="-fx-font-style: bold;" text="Last Name">
+         <font>
+            <Font name="Agency FB Bold" size="22.0" />
+         </font></Label>
+      <TextField fx:id="lastName" layoutX="421.0" layoutY="171.0" prefHeight="33.0" prefWidth="158.0" />
+      <Label layoutX="208.0" layoutY="232.0" prefHeight="33.0" prefWidth="132.0" style="-fx-font-style: bold;" text="CNIC">
+         <font>
+            <Font name="Agency FB Bold" size="22.0" />
+         </font></Label>
+      <Label layoutX="208.0" layoutY="286.0" prefHeight="33.0" prefWidth="132.0" text="Age">
+         <font>
+            <Font name="Agency FB Bold" size="22.0" />
+         </font></Label>
+      <TextField fx:id="id" layoutX="421.0" layoutY="232.0" prefHeight="33.0" prefWidth="158.0" />
+      <TextField fx:id="age" layoutX="421.0" layoutY="286.0" prefHeight="33.0" prefWidth="158.0" />
+      <Button fx:id="doneButton" layoutX="464.0" layoutY="370.0" mnemonicParsing="false" onAction="#onDoneButton" prefHeight="41.0" prefWidth="72.0" style="-fx-font-family: Agency FB;" text="Done" />
+      <Label alignment="TOP_CENTER" layoutX="388.0" layoutY="26.0" prefHeight="52.0" prefWidth="225.0" text="Passenger Details">
+         <font>
+            <Font name="Agency FB Bold" size="28.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
