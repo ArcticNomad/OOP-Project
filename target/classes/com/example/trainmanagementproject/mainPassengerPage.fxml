@@ -14,7 +14,7 @@
                   <Font name="Agency FB" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="399.0" layoutY="291.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="157.0" text="Display Ticket Details">
+            <Button fx:id="trainDetailsButton" layoutX="399.0" layoutY="291.0" mnemonicParsing="false" onAction="#onTicketDetailsButton" prefHeight="34.0" prefWidth="157.0" text="Display Ticket Details">
                <font>
                   <Font name="Agency FB" size="16.0" />
                </font>

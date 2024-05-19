@@ -11,7 +11,7 @@
    <children>
       <AnchorPane layoutX="7.0" prefHeight="650.0" prefWidth="1000.0">
          <children>
-            <Button fx:id="submit" layoutX="455.0" layoutY="552.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="105.0" text="SUBMIT" />
+            <Button fx:id="submit" layoutX="433.0" layoutY="553.0" mnemonicParsing="false" onMouseExited="#resetSubmitButton" prefHeight="39.0" prefWidth="136.0" text="SUBMIT" />
             <Label layoutX="168.0" layoutY="114.0" prefHeight="39.0" prefWidth="149.0" text="Enter Name">
                <font>
                   <Font name="Agency FB Bold" size="21.0" />

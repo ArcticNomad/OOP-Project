@@ -16,7 +16,8 @@ public class mainPassengerPageController
     private Button backButton;
     @FXML
     private Button feedbackButton;
-
+    @FXML
+    private  Button trainDetailsButton;
 
     public void onBuyTicketButton()
     {
@@ -50,6 +51,17 @@ public class mainPassengerPageController
         Stage stage= (Stage) feedbackButton.getScene().getWindow();
 
         FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("feedbackPage.FXML"));
+
+        Scene scene=new Scene(fxmlLoader.load());
+
+        stage.setScene(scene);
+
+        stage.show();
+    }
+    public void onTicketDetailsButton() throws IOException {
+        Stage stage= (Stage) trainDetailsButton.getScene().getWindow();
+
+        FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("TicketDetails.FXML"));
 
         Scene scene=new Scene(fxmlLoader.load());
 
