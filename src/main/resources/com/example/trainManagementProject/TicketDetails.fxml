@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trainManagementProject.ticketDetailController">
+   <children>
+      <Label layoutX="429.0" layoutY="28.0" text="Ticket Details">
+         <font>
+            <Font name="Agency FB Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="117.0" prefHeight="48.0" prefWidth="149.0" text="Passenger Name">
+         <font>
+            <Font name="Agency FB Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="572.0" layoutY="117.0" prefHeight="48.0" prefWidth="149.0" text="CNIC">
+         <font>
+            <Font name="Agency FB Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="201.0" prefHeight="48.0" prefWidth="149.0" text="From">
+         <font>
+            <Font name="Agency FB Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="574.0" layoutY="196.0" prefHeight="48.0" prefWidth="149.0" text="To">
+         <font>
+            <Font name="Agency FB Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="103.0" layoutY="368.0" prefHeight="48.0" prefWidth="149.0" text="Departure">
+         <font>
+            <Font name="Agency FB Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="572.0" layoutY="282.0" prefHeight="48.0" prefWidth="149.0" text="Train Type">
+         <font>
+            <Font name="Agency FB Bold" size="21.0" />
+         </font>
+      </Label>
+      <Separator layoutX="857.0" layoutY="320.0" orientation="VERTICAL" prefHeight="304.0" prefWidth="19.0" />
+      <TextField layoutX="292.0" layoutY="122.0" prefHeight="38.0" prefWidth="149.0" />
+      <TextField layoutX="292.0" layoutY="206.0" prefHeight="38.0" prefWidth="149.0" />
+      <TextField layoutX="678.0" layoutY="122.0" prefHeight="38.0" prefWidth="149.0" />
+      <TextField layoutX="292.0" layoutY="287.0" prefHeight="38.0" prefWidth="149.0" />
+      <TextField layoutX="678.0" layoutY="287.0" prefHeight="38.0" prefWidth="149.0" />
+      <TextField layoutX="679.0" layoutY="201.0" prefHeight="38.0" prefWidth="149.0" />
+      <Label layoutX="107.0" layoutY="287.0" prefHeight="48.0" prefWidth="149.0" text="Date">
+         <font>
+            <Font name="Agency FB Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="572.0" layoutY="368.0" prefHeight="48.0" prefWidth="149.0" text="Arrival">
+         <font>
+            <Font name="Agency FB Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="149.0" layoutY="555.0" prefHeight="48.0" prefWidth="149.0" text="Price">
+         <font>
+            <Font name="Agency FB Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="548.0" layoutY="448.0" prefHeight="48.0" prefWidth="149.0" text="Seat Number ">
+         <font>
+            <Font name="Agency FB Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="103.0" layoutY="448.0" prefHeight="48.0" prefWidth="149.0" text="Train Number ">
+         <font>
+            <Font name="Agency FB Bold" size="21.0" />
+         </font>
+      </Label>
+      <TextField layoutX="292.0" layoutY="382.0" prefHeight="38.0" prefWidth="149.0" />
+      <TextField layoutX="679.0" layoutY="373.0" prefHeight="38.0" prefWidth="149.0" />
+      <TextField layoutX="292.0" layoutY="446.0" prefHeight="38.0" prefWidth="149.0" />
+      <TextField layoutX="679.0" layoutY="446.0" prefHeight="38.0" prefWidth="149.0" />
+   </children>
+</AnchorPane>
