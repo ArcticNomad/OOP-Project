@@ -19,6 +19,8 @@ public class paymentPageController implements Initializable
     private TextField payment;
     @FXML
     private TextField amountDue;
+    @FXML
+    private TextField change;
 
     public void onPayButton()
     {
@@ -30,9 +32,14 @@ public class paymentPageController implements Initializable
         int ID= Integer.parseInt(id.getText());
         Double PAYMENT= Double.valueOf(payment.getText());
         Double AmountDue= Double.valueOf(amountDue.getText());
-        
+
         Boolean passengerFound=false;
 
+        if(PAYMENT<AmountDue)
+        {
+            payButton.setText("Invalid Funds !");
+            payButton.setDisable(true);
+        }
 
         if (PAYMENT>=AmountDue)
         {
@@ -56,11 +63,14 @@ public class paymentPageController implements Initializable
     public void resetPayButton()
     {
         payButton.setText("Pay");
+        payButton.setDisable(false);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        amountDue.setEditable(false);
+        change.setEditable(false);
         String fare= String.valueOf(StationManagement.getPassengerTicket().calculateFare());
         amountDue.setText(fare);
     }

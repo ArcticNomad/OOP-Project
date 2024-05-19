@@ -15,17 +15,19 @@ public class StationManagement
 
     private static ArrayList<Passenger> passengers=new ArrayList<>();
     private static Route trainRoute;
+    private static Ticket passengerTicket=new Ticket();
+
+    private static ArrayList<Train> trains=new ArrayList<>();
+
+
+
 
     public static Ticket getPassengerTicket() {
         return passengerTicket;
     }
-
     public static void setPassengerTicket(Ticket passengerTicket) {
         StationManagement.passengerTicket = passengerTicket;
     }
-
-    private static Ticket passengerTicket;
-    private static ArrayList<Train> trains=new ArrayList<>();
 
 
 

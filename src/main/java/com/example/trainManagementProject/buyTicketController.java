@@ -50,9 +50,11 @@ public class buyTicketController implements Initializable
         }
 
         Boolean trainFound=false;
+
+
         for (int i = 0; i < StationManagement.getTrains().size(); i++)
         {
-            if(StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().equals(departStationName) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().equals(destinationStationName))
+            if(StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().getStationName().equals(departStationName.getText()) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().getStationName().equals(destinationStationName.getText()))
             {
                 StationManagement.getPassengerTicket().setTicketTrain(StationManagement.getTrains().get(i));
                 trainFound=true;
@@ -130,5 +132,6 @@ public class buyTicketController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         seatList.setEditable(false);
+        stationList.setEditable(false);
     }
 }

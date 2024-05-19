@@ -27,19 +27,19 @@
                   <Font name="Agency FB Bold" size="21.0" />
                </font>
             </Label>
-            <TextField layoutX="253.0" layoutY="278.0" prefHeight="44.0" prefWidth="174.0" promptText="Enter Amount" />
+            <TextField fx:id="payment" layoutX="253.0" layoutY="278.0" prefHeight="44.0" prefWidth="174.0" promptText="Enter Amount" />
             <Label layoutX="70.0" layoutY="472.0" prefHeight="37.0" prefWidth="149.0" text="Change ">
                <font>
                   <Font name="Agency FB Bold" size="21.0" />
                </font>
             </Label>
-            <TextField layoutX="254.0" layoutY="468.0" prefHeight="44.0" prefWidth="174.0" />
+            <TextField fx:id="change" layoutX="254.0" layoutY="468.0" prefHeight="44.0" prefWidth="174.0" />
             <Label layoutX="70.0" layoutY="116.0" prefHeight="37.0" prefWidth="174.0" text="Enter Passenger CNIC">
                <font>
                   <Font name="Agency FB Bold" size="21.0" />
                </font>
             </Label>
-            <TextField fx:id="id" editable="false" layoutX="251.0" layoutY="112.0" prefHeight="44.0" prefWidth="174.0" />
+            <TextField fx:id="id" layoutX="251.0" layoutY="112.0" prefHeight="44.0" prefWidth="174.0" />
          </children>
       </AnchorPane>
    </children>
