@@ -55,9 +55,10 @@ public class Ticket
     }
 
 
-    public void calculateFare()
+    public double calculateFare()
     {
         fare=2* Route.distanceBetweenStations;
+        return fare;
     }
     public void ProcessPayment()
     {
