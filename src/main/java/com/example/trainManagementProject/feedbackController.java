@@ -2,15 +2,21 @@ package com.example.trainManagementProject;
 
 import com.example.trainManagementProject.backendClasses.StationManagement.StationManagement;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class feedbackController
-{
+import java.io.IOException;
+
+public class feedbackController {
 
     @FXML
     private CheckBox average;
+    @FXML
+    private Button backButton;
 
     @FXML
     private CheckBox bad;
@@ -19,7 +25,7 @@ public class feedbackController
     private TextField contact;
 
     @FXML
-    private TextField descripton;
+    private TextField description;
 
     @FXML
     private CheckBox good;
@@ -30,37 +36,69 @@ public class feedbackController
     @FXML
     private Button submit;
 
-    int feedbackNature;
+    private String feedbackNature;
 
     public void onSubmitButton()
     {
-
-
-        //StationManagement.addFeedback();
+        if(name.getText().isEmpty()|| contact.getText().isEmpty())
+        {
+            submit.setText("Empty Field!");
+        }
+        else
+        {
+            int Contact= Integer.parseInt(contact.getText());
+            StationManagement.addFeedback(name.getText(),description.getText(),Contact,feedbackNature);
+            submit.setText("Submitted !");
+        }
     }
 
-    public void onGoodCheckBox()
+    public void onGoodCheckBox() {
+        if (good.isSelected()) {
+            bad.setDisable(true);
+            average.setDisable(true);
+            feedbackNature="Good";
+        } else {
+            bad.setDisable(false);
+            average.setDisable(false);
+        }
+    }
+
+    public void onAverageCheckBox() {
+        if (average.isSelected()) {
+            good.setDisable(true);
+            bad.setDisable(true);
+            feedbackNature="Average";
+        } else {
+            good.setDisable(false);
+            bad.setDisable(false);
+        }
+    }
+
+    public void onBadCheckBox() {
+        if (bad.isSelected()) {
+            good.setDisable(true);
+            average.setDisable(true);
+            feedbackNature="Bad";
+        } else {
+            good.setDisable(false);
+            average.setDisable(false);
+        }
+    }
+
+    public void onBackButton() throws IOException {
+        Stage stage=(Stage) backButton.getScene().getWindow();
+
+        FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("mainPassengerPage.FXML"));
+
+        Scene scene= new Scene(fxmlLoader.load());
+
+        stage.setScene(scene);
+
+        stage.show();
+    }
+    public void resetSubmitButton()
     {
-        bad.setDisable(true);
-        average.setDisable(true);
+        submit.setText("Submit");
     }
-    public void onAverageCheckBox()
-    {
-        good.setDisable(true);
-        bad.setDisable(true);
-    }
-    public void onBadCheckBod()
-    {
-        good.setDisable(true);
-        average.setDisable(true);
-    }
-
-    public void resetCheckBoxes()
-    {
-        good.setDisable(false);
-        bad.setDisable(false);
-        average.setDisable(false);
-    }
-
 
 }

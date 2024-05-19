@@ -4,10 +4,10 @@ public class Feedback
 {
     private String name;
     String description;
-    int feedbackNature;
+    String feedbackNature;
     private int contact;
 
-    public Feedback(String name,String description, int contact, int feedbackNature)
+    public Feedback(String name,String description, int contact, String feedbackNature)
     {
         setContact(contact);
         setDescription(description);
@@ -39,11 +39,11 @@ public class Feedback
         this.contact = contact;
     }
 
-    public int getFeedbackNature() {
+    public String getFeedbackNature() {
         return feedbackNature;
     }
 
-    public void setFeedbackNature(int feedbackNature) {
+    public void setFeedbackNature(String feedbackNature) {
         this.feedbackNature = feedbackNature;
     }
 }

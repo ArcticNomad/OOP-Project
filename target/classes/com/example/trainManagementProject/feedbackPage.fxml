@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -41,7 +40,7 @@
                </font>
             </Label>
             <TextField fx:id="descripton" alignment="TOP_LEFT" layoutX="336.0" layoutY="375.0" prefHeight="124.0" prefWidth="343.0" promptText="Enter here" />
-            <CheckBox fx:id="good" layoutX="350.0" layoutY="299.0" mnemonicParsing="false" onAction="#onGoodCheckBox" onMouseClicked="#resetCheckBoxes" prefHeight="32.0" prefWidth="95.0" text="Good">
+            <CheckBox fx:id="good" layoutX="350.0" layoutY="299.0" mnemonicParsing="false" onAction="#onGoodCheckBox" prefHeight="32.0" prefWidth="95.0" text="Good">
                <font>
                   <Font size="14.0" />
                </font>
@@ -51,13 +50,13 @@
                   <Font size="14.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="bad" layoutX="584.0" layoutY="299.0" mnemonicParsing="false" onAction="#onBadCheckBod" prefHeight="32.0" prefWidth="95.0" text="Bad">
+            <CheckBox fx:id="bad" layoutX="584.0" layoutY="299.0" mnemonicParsing="false" onAction="#onBadCheckBox" prefHeight="32.0" prefWidth="95.0" text="Bad">
                <font>
                   <Font size="14.0" />
                </font>
             </CheckBox>
+            <Button fx:id="backButton" layoutX="21.0" layoutY="41.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="25.0" prefWidth="47.0" text="Back" />
          </children>
       </AnchorPane>
-      <ChoiceBox prefWidth="150.0" />
    </children>
 </AnchorPane>
