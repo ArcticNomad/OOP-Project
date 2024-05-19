@@ -45,7 +45,7 @@ public class ticketDetailController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-
+        passengerName.setEditable(false);
         from.setEditable(false);
         to.setEditable(false);
         date.setEditable(false);
@@ -73,18 +73,7 @@ public class ticketDetailController implements Initializable
             seatNumber.setText(SeatNumber);
         }catch (NullPointerException e)
         {
-            Stage stage= (Stage) errorField.getScene().getWindow();
-            FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("errorPage.FXMl"));
 
-            Scene scene;
-
-            try {
-                scene= new Scene(fxmlLoader.load());
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-            stage.setScene(scene);
-            stage.show();
         }
 
 
