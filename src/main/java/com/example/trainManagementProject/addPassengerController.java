@@ -41,6 +41,7 @@ public class addPassengerController
             Integer Age= Integer.valueOf(age.getText());
 
             StationManagement.addPassenger(ID,firstName.getText(),lastName.getText(),Age);
+
             Stage stage = (Stage) doneButton.getScene().getWindow();
 
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainPassengerPage.FXML"));

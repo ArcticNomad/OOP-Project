@@ -19,8 +19,7 @@ import java.util.ResourceBundle;
 
 public class buyTicketController implements Initializable
 {
-    @FXML
-    private Ticket passengerTicket=new Ticket();
+
     @FXML
     private Button backButton;
 
@@ -59,6 +58,8 @@ public class buyTicketController implements Initializable
             if(StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().getStationName().equals(departStationName.getText()) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().getStationName().equals(destinationStationName.getText()))
             {
                 StationManagement.getPassengerTicket().setTicketTrain(StationManagement.getTrains().get(i));
+                int seat= Integer.parseInt(seatNo.getText());
+                StationManagement.getPassengerTicket().setPassengerSeat(seat);
                 trainFound=true;
 
                 if(economyClassButton.isPressed())
@@ -122,13 +123,13 @@ public class buyTicketController implements Initializable
 
     public void onBusinessClassButton()
     {
-        passengerTicket.setBusinessClass(MainAdminPageController.businessClass);
-        passengerTicket.setEconomyClass(null);
+        StationManagement.getPassengerTicket().setBusinessClass(MainAdminPageController.businessClass);
+        StationManagement.getPassengerTicket().setEconomyClass(null);
     }
     public void onEconomyClassButton()
     {
-        passengerTicket.setEconomyClass(MainAdminPageController.economyClass);
-        passengerTicket.setBusinessClass(null);
+        StationManagement.getPassengerTicket().setEconomyClass(MainAdminPageController.economyClass);
+        StationManagement.getPassengerTicket().setBusinessClass(null);
     }
 
     @Override

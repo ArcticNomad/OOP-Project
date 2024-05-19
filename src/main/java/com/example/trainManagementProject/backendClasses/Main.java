@@ -283,8 +283,8 @@ public class Main
                         passengerWriter.write("ID :"+cnic);
                         passengerWriter.newLine();
                         passengerWriter.write("Age :"+age);
-                        passengerWriter.write("Passenger Seat No. :"+passengerTicket.getPassengerSeat().getSeatNo());
-                        passengerWriter.write("Passenger Carriage No. "+passengerTicket.getPassengerSeat().getCarriageNo());
+                        //passengerWriter.write("Passenger Seat No. :"+passengerTicket.getPassengerSeat().getSeatNo());
+                        //passengerWriter.write("Passenger Carriage No. "+passengerTicket.getPassengerSeat().getCarriageNo());
                         passengerWriter.flush();
                     } catch (IOException e) {
                         throw new RuntimeException(e);

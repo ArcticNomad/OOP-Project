@@ -51,10 +51,18 @@ public class paymentPageController implements Initializable
 
         if (PAYMENT>=AmountDue)
         {
-            for (int i = 0; i < StationManagement.getPassengers().size(); i++) {
+            for (int i = 0; i < StationManagement.getPassengers().size(); i++)
+            {
 
                 if(ID == StationManagement.getPassengers().get(i).getPassengerID())
                 {
+                    StationManagement.getPassengerTicket().setPassenger(StationManagement.getPassengers().get(i));
+
+                    StationManagement.getPassengerTicket().getPassenger().setFirstName(StationManagement.getPassengers().get(i).getFirstName());
+                    StationManagement.getPassengerTicket().getPassenger().setLastName(StationManagement.getPassengers().get(i).getLastName());
+
+                    StationManagement.getPassengerTicket().getPassenger().setPassengerID(ID);
+
                     StationManagement.getPassengers().get(i).setPassengerTicket(StationManagement.getPassengerTicket());
                     passengerFound=true;
                     payButton.setText("Ticket Purchased!");

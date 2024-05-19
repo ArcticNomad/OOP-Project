@@ -11,7 +11,7 @@ public class Ticket
     private double fare;
     private double amountPaid;
     Train ticketTrain;
-    private PassengerSitting passengerSeat;
+    private int passengerSeat;
     private Passenger passenger;
     private BusinessClass businessClass;
     private EconomyClass economyClass;
@@ -34,9 +34,9 @@ public class Ticket
         System.out.println();
         System.out.println("Passenger Seat Details :");
         System.out.println();
-        System.out.println("Seat Number :"+getPassengerSeat().getSeatNo());
-        System.out.println("Cabin Number :"+getPassengerSeat().getCabin());
-        System.out.println("Carriage Number :"+getPassengerSeat().getCarriageNo());
+       // System.out.println("Seat Number :"+getPassengerSeat().getSeatNo());
+        //System.out.println("Cabin Number :"+getPassengerSeat().getCabin());
+        //System.out.println("Carriage Number :"+getPassengerSeat().getCarriageNo());
     }
 
     public void generatePassengerSeat()
@@ -50,7 +50,7 @@ public class Ticket
 
         PassengerSitting sitting=new PassengerSitting(seat,cabin,carriage);
 
-        setPassengerSeat(sitting);
+        //setPassengerSeat(sitting);
 
     }
 
@@ -101,11 +101,11 @@ public class Ticket
         return amountPaid;
     }
 
-    public PassengerSitting getPassengerSeat() {
+    public int getPassengerSeat() {
         return passengerSeat;
     }
 
-    public void setPassengerSeat(PassengerSitting passengerSeat) {
+    public void setPassengerSeat(int passengerSeat) {
         this.passengerSeat = passengerSeat;
     }
 
