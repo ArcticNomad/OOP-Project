@@ -1,6 +1,7 @@
 package com.example.trainManagementProject;
 
 import com.example.trainManagementProject.backendClasses.Passenger.Passenger;
+import com.example.trainManagementProject.backendClasses.StationManagement.StationManagement;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,8 +25,6 @@ public class addPassengerController
     @FXML
     private Button doneButton;
 
-    @FXML
-    private static ArrayList <Passenger> passengers=new ArrayList<>();
 
 
     public void onDoneButton() throws IOException {
@@ -38,9 +37,8 @@ public class addPassengerController
 
             Integer ID= Integer.valueOf(id.getText());
             Integer Age= Integer.valueOf(age.getText());
-            passengers.add(new Passenger(ID,firstName.getText(),lastName.getText(),Age));
 
-
+            StationManagement.addPassenger(ID,firstName.getText(),lastName.getText(),Age);
             Stage stage = (Stage) doneButton.getScene().getWindow();
 
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainPassengerPage.FXML"));

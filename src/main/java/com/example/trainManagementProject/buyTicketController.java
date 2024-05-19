@@ -40,10 +40,6 @@ public class buyTicketController
     public void onPaymentButton() throws IOException {
 
 
-        if (!distance.getText().isEmpty()) {
-            Route.distanceBetweenStations = Integer.parseInt(distance.getText());
-        }
-
         if(departStationName.getText().isEmpty()||destinationStationName.getText().isEmpty()||distance.getText().isEmpty()||seatNo.getText().isEmpty()|| !businessClassButton.isPressed() && !economyClassButton.isPressed())
         {
             payButton.setText("Error!");
@@ -77,7 +73,7 @@ public class buyTicketController
         stationList.clear();
 
         for (int i = 0; i < StationManagement.getStations().size(); i++) {
-            stationList.appendText("Station " + (i + 1) + " - " + MainAdminPageController.getStations().get(i).getStationName() + "\n");
+            stationList.appendText("Station " + (i + 1) + " - " + StationManagement.getStations().get(i).getStationName() + "\n");
         }
     }
     public void onSeatRefreshButton()
@@ -86,7 +82,7 @@ public class buyTicketController
 
         for (int i = 0; i <StationManagement.getTrains().size(); i++)
         {
-            if(MainAdminPageController.getTrains().get(i).getTrainRoute().getDepartureStation().equals(departStationName) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().equals(destinationStationName))
+            if(StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().equals(departStationName) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().equals(destinationStationName))
             {
                 for (int j = 0; j < StationManagement.getTrains().get(i).getCapacity(); j++)
                 {

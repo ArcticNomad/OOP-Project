@@ -340,7 +340,7 @@ public class Main
                         passengerTicket.setEconomyClass(economyClass);
                     }
 
-                    manager.addPassenger(cnic, firstName, lastName, age, passengerTicket);
+                    //manager.addPassenger(cnic, firstName, lastName, age, passengerTicket);
                     int passengerIndex = manager.getPassengerByDetails(cnic);
 
                     passengerTicket.generatePassengerSeat();

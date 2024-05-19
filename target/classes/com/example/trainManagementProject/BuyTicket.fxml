@@ -22,11 +22,6 @@
                   <Font name="Agency FB Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="178.0" layoutY="267.0" prefHeight="44.0" prefWidth="174.0" text="Distance (In KM)">
-               <font>
-                  <Font name="Agency FB Bold" size="20.0" />
-               </font>
-            </Label>
             <Label alignment="CENTER" layoutX="149.0" layoutY="410.0" prefHeight="44.0" prefWidth="129.0" text="Train Type">
                <font>
                   <Font name="Agency FB Bold" size="20.0" />
@@ -52,7 +47,6 @@
                </font>
             </Label>
             <TextField fx:id="departStationName" layoutX="397.0" layoutY="138.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
-            <TextField fx:id="distance" layoutX="397.0" layoutY="278.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
             <Button fx:id="payButton" layoutX="731.0" layoutY="537.0" mnemonicParsing="false" onAction="#onPaymentButton" prefHeight="44.0" prefWidth="168.0" text="Pay For Ticket">
                <font>
                   <Font name="Agency FB" size="17.0" />

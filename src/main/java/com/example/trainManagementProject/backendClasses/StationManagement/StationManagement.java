@@ -12,17 +12,26 @@ public class StationManagement
 {
     Scanner input=new Scanner(System.in);
     static ArrayList<Station> stations=new ArrayList<>();
-    ArrayList<Passenger> passengers=new ArrayList<>();
-    static Route trainRoute=null;
+    static ArrayList<Passenger> passengers=new ArrayList<>();
+
+    public static Route getTrainRoute() {
+        return trainRoute;
+    }
+
+    public static void setTrainRoute(Route trainRoute) {
+        StationManagement.trainRoute = trainRoute;
+    }
+
+    static Route trainRoute;
     static ArrayList<Train> trains=new ArrayList<>();
 
     public static ArrayList<Station> getStations() {
         return stations;
     }
 
-    public void addPassenger(int cnic, String firstName, String lastName, int age,Ticket passengerTicket)
+    public static void addPassenger(int cnic, String firstName, String lastName, int age)
     {
-        passengers.add(new Passenger(cnic,firstName,lastName,age,passengerTicket));
+        passengers.add(new Passenger(cnic,firstName,lastName,age));
     }
     public int getPassengerByDetails(int cnic)
     {
@@ -66,6 +75,10 @@ public class StationManagement
 
         stations.add(new Station(stationName,city));
 
+    }
+    public static void addRoute(Station departStation, Station arriveStation, Schedule schedule)
+    {
+        trainRoute=new Route(schedule, departStation,arriveStation);
     }
 
     public static Station getStationByName(ArrayList <Station> stations, String stationName)

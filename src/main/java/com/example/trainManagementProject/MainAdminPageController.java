@@ -126,6 +126,11 @@ public class MainAdminPageController implements Initializable
 
     public void onAddRouteButton()
     {
+
+        if (!distanceBwStations.getText().isEmpty()) {
+            Route.distanceBetweenStations = Integer.parseInt(distanceBwStations.getText());
+        }
+        
         // add try catch here
         Station departStation = StationManagement.getStationByName(StationManagement.getStations(),departStationName.getText());
         Station arriveStation = StationManagement.getStationByName(StationManagement.getStations(),arrivalStationName.getText());
@@ -139,9 +144,10 @@ public class MainAdminPageController implements Initializable
         Integer arriveMin= Integer.valueOf(arrivalMin.getText());
         Integer arriveHour= Integer.valueOf(arrivalHour.getText());
 
+
         Schedule schedule =new Schedule(depDay, departMonth.getText(), depYear, arriveDay, arrivalMonth.getText(), arriveYear, depHour, depMin, arriveHour, arriveMin, departAmPm.getText(),arrivalAmPm.getText());
 
-        StationManagement.trainR=new Route(schedule, departStation,arriveStation);
+        StationManagement.addRoute(departStation,arriveStation,schedule);
 
         addRouteButton.setText("Added!");
 
@@ -149,12 +155,12 @@ public class MainAdminPageController implements Initializable
 
     public void onAssignRouteButton()
     {
-        for (int i = 0; i < trains.size(); i++)
+        for (int i = 0; i < StationManagement.getTrains().size(); i++)
         {
             Integer num= Integer.valueOf(assignRouteText.getText());
-            if(num.equals(trains.get(i).getTrainNUmber()))
+            if(num.equals(StationManagement.getTrains().get(i).getTrainNUmber()))
             {
-                trains.get(i).setTrainRoute(trainRoute);
+                StationManagement.getTrains().get(i).setTrainRoute(StationManagement.getTrainRoute());
                 assignRouteButton.setText("Assigned!");
             }
         }
@@ -180,8 +186,8 @@ public class MainAdminPageController implements Initializable
     {
         trainNumbers.clear();
 
-        for (int i = 0; i < trains.size(); i++) {
-            String trainNumb = String.valueOf(trains.get(i).getTrainNUmber());
+        for (int i = 0; i < StationManagement.getTrains().size(); i++) {
+            String trainNumb = String.valueOf(StationManagement.getTrains().get(i).getTrainNUmber());
             trainNumbers.appendText("Train " + (i + 1) + " - " + trainNumb + "\n");
         }
     }
@@ -189,9 +195,9 @@ public class MainAdminPageController implements Initializable
     {
         stationLists.clear();
 
-        for (int i = 0; i < stations.size(); i++)
+        for (int i = 0; i < StationManagement.getStations().size(); i++)
         {
-            stationLists.appendText("Station "+(i+1)+" -"+stations.get(i).getStationName()+"\n");
+            stationLists.appendText("Station "+(i+1)+" -"+StationManagement.getStations().get(i).getStationName()+"\n");
         }
     }
 
@@ -201,20 +207,6 @@ public class MainAdminPageController implements Initializable
         stationLists.setEditable(false);
     }
 
-    public static ArrayList<Station> getStations() {
-        return stations;
-    }
-
-    public static void setStations(ArrayList<Station> stations) {
-        MainAdminPageController.stations = stations;
-    }
-    public static ArrayList<Train> getTrains() {
-        return trains;
-    }
-
-    public static void setTrains(ArrayList<Train> trains) {
-        MainAdminPageController.trains = trains;
-    }
 
     public void onHomeButton() throws IOException {
         Stage stage= (Stage) homeButton.getScene().getWindow();
