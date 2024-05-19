@@ -45,6 +45,7 @@ public class ticketDetailController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        errorField.setEditable(false);
         passengerName.setEditable(false);
         from.setEditable(false);
         to.setEditable(false);
@@ -73,7 +74,7 @@ public class ticketDetailController implements Initializable
             seatNumber.setText(SeatNumber);
         }catch (NullPointerException e)
         {
-
+            errorField.setText("No Ticket Purchased !");
         }
 
 

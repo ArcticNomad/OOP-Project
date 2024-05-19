@@ -39,7 +39,7 @@
             <Font name="Agency FB Bold" size="21.0" />
          </font>
       </Label>
-      <Separator layoutX="491.0" layoutY="87.0" orientation="VERTICAL" prefHeight="498.0" prefWidth="19.0" />
+      <Separator layoutX="491.0" layoutY="119.0" orientation="VERTICAL" prefHeight="466.0" prefWidth="19.0" />
       <TextField fx:id="passengerName" layoutX="292.0" layoutY="122.0" prefHeight="38.0" prefWidth="149.0" />
       <TextField fx:id="from" layoutX="292.0" layoutY="206.0" prefHeight="38.0" prefWidth="149.0" />
       <TextField fx:id="cnic" layoutX="678.0" layoutY="122.0" prefHeight="38.0" prefWidth="149.0" />
@@ -76,5 +76,6 @@
       <TextField fx:id="seatNumber" layoutX="679.0" layoutY="446.0" prefHeight="38.0" prefWidth="149.0" />
       <TextField fx:id="price" layoutX="679.0" layoutY="287.0" prefHeight="38.0" prefWidth="149.0" />
       <Button fx:id="backButton" layoutX="29.0" layoutY="35.0" mnemonicParsing="false" onAction="#onBackButton" text="Back" />
+      <TextField fx:id="errorField" layoutX="426.0" layoutY="75.0" prefHeight="25.0" prefWidth="130.0" />
    </children>
 </AnchorPane>
