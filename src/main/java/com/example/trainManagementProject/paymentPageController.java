@@ -99,7 +99,7 @@ public class paymentPageController implements Initializable
     public void onHomeButton() throws IOException {
         Stage stage=(Stage) backButton.getScene().getWindow();
 
-        FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("buyTicket.FXML"));
+        FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("mainPassengerPage.FXML"));
 
         Scene scene= new Scene(fxmlLoader.load());
 

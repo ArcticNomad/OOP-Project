@@ -76,6 +76,6 @@
       <TextField fx:id="seatNumber" layoutX="679.0" layoutY="446.0" prefHeight="38.0" prefWidth="149.0" />
       <TextField fx:id="price" layoutX="679.0" layoutY="287.0" prefHeight="38.0" prefWidth="149.0" />
       <Button fx:id="backButton" layoutX="29.0" layoutY="35.0" mnemonicParsing="false" onAction="#onBackButton" text="Back" />
-      <TextField fx:id="errorField" layoutX="411.0" layoutY="76.0" prefHeight="25.0" prefWidth="171.0" />
+      <TextField fx:id="errorField" layoutX="426.0" layoutY="75.0" prefHeight="25.0" prefWidth="130.0" />
    </children>
 </AnchorPane>
