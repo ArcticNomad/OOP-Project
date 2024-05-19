@@ -21,6 +21,8 @@ public class buyTicketController implements Initializable
 {
     @FXML
     private Ticket passengerTicket=new Ticket();
+    @FXML
+    private Button backButton;
 
     @FXML
     private TextField departStationName;
@@ -133,5 +135,16 @@ public class buyTicketController implements Initializable
     public void initialize(URL url, ResourceBundle resourceBundle) {
         seatList.setEditable(false);
         stationList.setEditable(false);
+    }
+    public void onBackButton() throws IOException {
+        Stage stage=(Stage) backButton.getScene().getWindow();
+
+        FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("mainPassengerPage.FXML"));
+
+        Scene scene= new Scene(fxmlLoader.load());
+
+        stage.setScene(scene);
+
+        stage.show();
     }
 }

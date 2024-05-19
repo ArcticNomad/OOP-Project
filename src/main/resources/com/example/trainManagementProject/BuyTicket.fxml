@@ -68,6 +68,7 @@
                </font></TextArea>
             <Button layoutX="454.0" layoutY="601.0" mnemonicParsing="false" onAction="#onStationRefreshButton" text="Refresh" />
             <Button layoutX="787.0" layoutY="482.0" mnemonicParsing="false" onAction="#onSeatRefreshButton" text="Refresh" />
+            <Button fx:id="backButton" layoutX="38.0" layoutY="33.0" mnemonicParsing="false" onAction="#onBackButton" text="Back" />
          </children>
       </AnchorPane>
    </children>

@@ -34,5 +34,6 @@
             <Font name="Agency FB Bold" size="28.0" />
          </font>
       </Label>
+      <Button fx:id="backButton" layoutX="51.0" layoutY="40.0" mnemonicParsing="false" onAction="#onBackButton" text="Back" />
    </children>
 </AnchorPane>

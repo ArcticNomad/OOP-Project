@@ -24,6 +24,8 @@ public class addPassengerController
     private TextField age;
     @FXML
     private Button doneButton;
+    @FXML
+    private Button backButton;
 
 
 
@@ -49,6 +51,18 @@ public class addPassengerController
 
             stage.show();
         }
+    }
+
+    public void onBackButton() throws IOException {
+        Stage stage=(Stage) backButton.getScene().getWindow();
+
+        FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("selectionScreen.FXML"));
+
+        Scene scene= new Scene(fxmlLoader.load());
+
+        stage.setScene(scene);
+
+        stage.show();
     }
 
 }

@@ -1,46 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FeedbackPage">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trainManagementProject.feedbackController">
    <children>
-      <AnchorPane layoutX="7.0" prefHeight="400.0" prefWidth="601.0">
+      <AnchorPane layoutX="7.0" prefHeight="650.0" prefWidth="1000.0">
          <children>
-            <Label layoutX="65.0" layoutY="76.0" prefHeight="21.0" prefWidth="80.0" text="Enter Name">
+            <Button fx:id="submit" layoutX="455.0" layoutY="552.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="105.0" text="SUBMIT" />
+            <Label layoutX="168.0" layoutY="114.0" prefHeight="39.0" prefWidth="149.0" text="Enter Name">
                <font>
-                  <Font name="Agency FB Bold" size="17.0" />
+                  <Font name="Agency FB Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="65.0" layoutY="130.0" text="Enter Contact">
+            <Label layoutX="168.0" layoutY="198.0" prefHeight="39.0" prefWidth="149.0" text="Enter Contact">
                <font>
-                  <Font name="Agency FB Bold" size="17.0" />
+                  <Font name="Agency FB Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="266.0" layoutY="29.0" text="FEEDBACK">
+            <Label alignment="TOP_CENTER" layoutX="419.0" layoutY="31.0" prefHeight="39.0" prefWidth="163.0" text="FEEDBACK">
                <font>
-                  <Font name="Agency FB Bold" size="20.0" />
+                  <Font name="Agency FB Bold" size="28.0" />
                </font>
             </Label>
-            <TextField layoutX="152.0" layoutY="72.0" promptText="enter here" />
-            <TextField layoutX="152.0" layoutY="128.0" promptText="enter here" />
-            <Label layoutX="65.0" layoutY="183.0" prefHeight="25.0" prefWidth="115.0" text="Overall Experience?">
+            <TextField fx:id="name" layoutX="419.0" layoutY="114.0" prefHeight="39.0" prefWidth="163.0" promptText="enter here" />
+            <TextField fx:id="contact" layoutX="419.0" layoutY="198.0" prefHeight="39.0" prefWidth="163.0" promptText="enter here" />
+            <Label layoutX="168.0" layoutY="295.0" prefHeight="39.0" prefWidth="149.0" text="Overall Experience?">
                <font>
-                  <Font name="Agency FB Bold" size="15.0" />
+                  <Font name="Agency FB Bold" size="21.0" />
                </font>
             </Label>
-            <Button layoutX="227.0" layoutY="183.0" mnemonicParsing="false" text="Good" />
-            <Button layoutX="227.0" layoutY="234.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" text="Avg" />
-            <Button layoutX="227.0" layoutY="281.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" text="Bad" />
-            <Label layoutX="206.0" layoutY="187.0" text="1" />
-            <Label layoutX="203.0" layoutY="238.0" text="2" />
-            <Label layoutX="199.0" layoutY="285.0" text="3" />
-            <Button layoutX="408.0" layoutY="341.0" mnemonicParsing="false" text="SUBMIT" />
+            <Label layoutX="168.0" layoutY="375.0" prefHeight="39.0" prefWidth="149.0" text="Description">
+               <font>
+                  <Font name="Agency FB Bold" size="21.0" />
+               </font>
+            </Label>
+            <TextField fx:id="descripton" alignment="TOP_LEFT" layoutX="336.0" layoutY="375.0" prefHeight="124.0" prefWidth="343.0" promptText="Enter here" />
+            <CheckBox fx:id="good" layoutX="350.0" layoutY="299.0" mnemonicParsing="false" onAction="#onGoodCheckBox" onMouseClicked="#resetCheckBoxes" prefHeight="32.0" prefWidth="95.0" text="Good">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="average" layoutX="460.0" layoutY="299.0" mnemonicParsing="false" onAction="#onAverageCheckBox" prefHeight="32.0" prefWidth="95.0" text="Average">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="bad" layoutX="584.0" layoutY="299.0" mnemonicParsing="false" onAction="#onBadCheckBod" prefHeight="32.0" prefWidth="95.0" text="Bad">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
          </children>
       </AnchorPane>
+      <ChoiceBox prefWidth="150.0" />
    </children>
 </AnchorPane>

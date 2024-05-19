@@ -12,6 +12,10 @@ public class mainPassengerPageController
 {
     @FXML
     private Button buyTicketButton;
+    @FXML
+    private Button backButton;
+    @FXML
+    private Button feedbackButton;
 
 
     public void onBuyTicketButton()
@@ -27,6 +31,30 @@ public class mainPassengerPageController
             throw new RuntimeException(e);
         }
         stage.setScene(scene);
+        stage.show();
+    }
+
+    public void onBackButton() throws IOException {
+
+        Stage stage=(Stage) backButton.getScene().getWindow();
+
+        FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("addPassenger.FXML"));
+
+        Scene scene= new Scene(fxmlLoader.load());
+
+        stage.setScene(scene);
+
+        stage.show();
+    }
+    public void onFeedbackButton() throws IOException {
+        Stage stage= (Stage) feedbackButton.getScene().getWindow();
+
+        FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("feedbackPage.FXML"));
+
+        Scene scene=new Scene(fxmlLoader.load());
+
+        stage.setScene(scene);
+
         stage.show();
     }
 

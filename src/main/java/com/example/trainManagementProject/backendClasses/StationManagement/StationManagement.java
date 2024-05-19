@@ -1,5 +1,6 @@
 package com.example.trainManagementProject.backendClasses.StationManagement;
 
+import com.example.trainManagementProject.backendClasses.Feedback.Feedback;
 import com.example.trainManagementProject.backendClasses.Passenger.*;
 import com.example.trainManagementProject.backendClasses.Route.*;
 import com.example.trainManagementProject.backendClasses.Ticket.*;
@@ -19,7 +20,7 @@ public class StationManagement
 
     private static ArrayList<Train> trains=new ArrayList<>();
 
-
+    private static ArrayList<Feedback> passengerFeedbacks=new ArrayList<>();
 
 
     public static Ticket getPassengerTicket() {
@@ -29,6 +30,10 @@ public class StationManagement
         StationManagement.passengerTicket = passengerTicket;
     }
 
+    public static void addFeedback(String name, String description, int contact, int feedbackNature)
+    {
+        passengerFeedbacks.add(new Feedback(name,description,contact,feedbackNature));
+    }
 
 
     public static void addPassenger(int cnic, String firstName, String lastName, int age)
