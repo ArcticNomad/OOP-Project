@@ -12,27 +12,29 @@ public class StationManagement
 {
     Scanner input=new Scanner(System.in);
     static ArrayList<Station> stations=new ArrayList<>();
-    static ArrayList<Passenger> passengers=new ArrayList<>();
 
-    public static Route getTrainRoute() {
-        return trainRoute;
+    private static ArrayList<Passenger> passengers=new ArrayList<>();
+    private static Route trainRoute;
+
+    public static Ticket getPassengerTicket() {
+        return passengerTicket;
     }
 
-    public static void setTrainRoute(Route trainRoute) {
-        StationManagement.trainRoute = trainRoute;
+    public static void setPassengerTicket(Ticket passengerTicket) {
+        StationManagement.passengerTicket = passengerTicket;
     }
 
-    static Route trainRoute;
-    static ArrayList<Train> trains=new ArrayList<>();
+    private static Ticket passengerTicket;
+    private static ArrayList<Train> trains=new ArrayList<>();
 
-    public static ArrayList<Station> getStations() {
-        return stations;
-    }
+
 
     public static void addPassenger(int cnic, String firstName, String lastName, int age)
     {
         passengers.add(new Passenger(cnic,firstName,lastName,age));
     }
+
+
     public int getPassengerByDetails(int cnic)
     {
         for (int i = 0; i < passengers.size(); i++)
@@ -194,11 +196,22 @@ public class StationManagement
         return trains;
     }
 
-    public ArrayList<Passenger> getPassengers() {
+    public static ArrayList<Passenger> getPassengers() {
         return passengers;
     }
 
     public void setPassengers(ArrayList<Passenger> passengers) {
         this.passengers = passengers;
+    }
+
+    public static Route getTrainRoute() {
+        return trainRoute;
+    }
+
+    public static void setTrainRoute(Route trainRoute) {
+        StationManagement.trainRoute = trainRoute;
+    }
+    public static ArrayList<Station> getStations() {
+        return stations;
     }
 }

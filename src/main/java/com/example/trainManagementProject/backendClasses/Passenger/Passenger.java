@@ -12,7 +12,7 @@ public class Passenger
     private String lastName;
     private int age;
     private int passengerID;
-    private Ticket passengerTicket;
+    private static Ticket passengerTicket;
 
     Scanner input=new Scanner(System.in);
 

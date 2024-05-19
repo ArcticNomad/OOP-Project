@@ -1,10 +1,12 @@
 package com.example.trainManagementProject;
 
+import com.example.trainManagementProject.backendClasses.Passenger.Passenger;
 import com.example.trainManagementProject.backendClasses.Route.Route;
 import com.example.trainManagementProject.backendClasses.StationManagement.StationManagement;
 import com.example.trainManagementProject.backendClasses.Ticket.Ticket;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -12,8 +14,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class buyTicketController
+public class buyTicketController implements Initializable
 {
     @FXML
     private Ticket passengerTicket=new Ticket();
@@ -40,7 +44,7 @@ public class buyTicketController
     public void onPaymentButton() throws IOException {
 
 
-        if(departStationName.getText().isEmpty()||destinationStationName.getText().isEmpty()||distance.getText().isEmpty()||seatNo.getText().isEmpty()|| !businessClassButton.isPressed() && !economyClassButton.isPressed())
+        if(departStationName.getText().isEmpty()||destinationStationName.getText().isEmpty()||seatNo.getText().isEmpty()|| !businessClassButton.isPressed() && !economyClassButton.isPressed())
         {
             payButton.setText("Error!");
         }
@@ -50,8 +54,23 @@ public class buyTicketController
         {
             if(StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().equals(departStationName) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().equals(destinationStationName))
             {
-                passengerTicket.setTicketTrain(StationManagement.getTrains().get(i));
+                StationManagement.getPassengerTicket().setTicketTrain(StationManagement.getTrains().get(i));
                 trainFound=true;
+
+                if(economyClassButton.isPressed())
+                {
+                    StationManagement.getPassengerTicket().setBusinessClass(null);
+                    StationManagement.getPassengerTicket().setEconomyClass(MainAdminPageController.economyClass);
+
+                }
+                if(businessClassButton.isPressed())
+                {
+                    StationManagement.getPassengerTicket().setBusinessClass(MainAdminPageController.businessClass);
+                    StationManagement.getPassengerTicket().setEconomyClass(null);
+
+                }
+
+                break;
             }
         }
         if (!trainFound)
@@ -82,11 +101,11 @@ public class buyTicketController
 
         for (int i = 0; i <StationManagement.getTrains().size(); i++)
         {
-            if(StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().equals(departStationName) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().equals(destinationStationName))
+            if(StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().getStationName().equals(departStationName.getText()) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().getStationName().equals(destinationStationName.getText()))
             {
                 for (int j = 0; j < StationManagement.getTrains().get(i).getCapacity(); j++)
                 {
-                    seatList.setText((i + 1) + "\n");
+                    seatList.appendText((j + 1) + "\n");
                 }
             }
             if(StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().equals(departStationName) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().equals(destinationStationName))
@@ -108,4 +127,8 @@ public class buyTicketController
         passengerTicket.setBusinessClass(null);
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        seatList.setEditable(false);
+    }
 }

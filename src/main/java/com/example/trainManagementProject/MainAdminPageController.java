@@ -130,7 +130,7 @@ public class MainAdminPageController implements Initializable
         if (!distanceBwStations.getText().isEmpty()) {
             Route.distanceBetweenStations = Integer.parseInt(distanceBwStations.getText());
         }
-        
+
         // add try catch here
         Station departStation = StationManagement.getStationByName(StationManagement.getStations(),departStationName.getText());
         Station arriveStation = StationManagement.getStationByName(StationManagement.getStations(),arrivalStationName.getText());

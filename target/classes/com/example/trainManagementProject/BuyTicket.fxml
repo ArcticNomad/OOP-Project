@@ -62,7 +62,10 @@
                </font>
             </Label>
             <TextField fx:id="seatNo" layoutX="398.0" layoutY="339.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
-            <TextArea fx:id="seatList" editable="false" layoutX="694.0" layoutY="136.0" prefHeight="333.0" prefWidth="242.0" text="&#10;" />
+            <TextArea fx:id="seatList" editable="false" layoutX="742.0" layoutY="132.0" prefHeight="333.0" prefWidth="147.0" text="&#10;">
+               <font>
+                  <Font name="Agency FB" size="12.0" />
+               </font></TextArea>
             <Button layoutX="454.0" layoutY="601.0" mnemonicParsing="false" onAction="#onStationRefreshButton" text="Refresh" />
             <Button layoutX="787.0" layoutY="482.0" mnemonicParsing="false" onAction="#onSeatRefreshButton" text="Refresh" />
          </children>

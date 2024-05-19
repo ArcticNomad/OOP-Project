@@ -273,7 +273,7 @@ public class Main
                     System.out.println("Enter Age:");
                     int age = input.nextInt();
 
-                    passengerTicket = new Ticket();
+                    //passengerTicket = new Ticket();
 
                     try {
                         passengerWriter.write("First Name :"+firstName);
@@ -345,7 +345,7 @@ public class Main
 
                     passengerTicket.generatePassengerSeat();
 
-                    passengerTicket.setPassenger(manager.getPassengers().get(passengerIndex));
+                    //passengerTicket.setPassenger(manager.getPassengers().get(passengerIndex));
 
                     passengerTicket.calculateFare();
 
