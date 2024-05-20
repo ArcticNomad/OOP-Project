@@ -36,7 +36,7 @@ public class StationManagement
     }
 
 
-    public static void addPassenger(int cnic, String firstName, String lastName, int age)
+    public static void addPassenger(Long cnic, String firstName, String lastName, int age)
     {
         passengers.add(new Passenger(cnic,firstName,lastName,age));
     }
@@ -109,6 +109,16 @@ public class StationManagement
             }
         }
         return departExists && arrivalExists;
+    }
+    public static Boolean checkID(Long id)
+    {
+        String s=id.toString();
+        s.toCharArray();
+        if(s.length() != 9)
+        {
+            return true;
+        }
+        return false;
     }
 
     public static void addRoute(Station departStation, Station arriveStation, Schedule schedule)

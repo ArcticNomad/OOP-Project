@@ -131,6 +131,7 @@ public class MainAdminPageController implements Initializable
         if(trainNumber.getText().isEmpty()||trainSpeed.getText().isEmpty()||businessCapacity.getText().isEmpty()||economyCapacity.getText().isEmpty()||trainCapacity.getText().isEmpty()||businessFacility.getText().isEmpty()||economyFacility.getText().isEmpty())
         {
             addTrainButton.setText("Empty Field!");
+            return;
         }
         try {
 
@@ -231,19 +232,26 @@ public class MainAdminPageController implements Initializable
     {
         Boolean trainFound=false;
 
-        for (int i = 0; i < StationManagement.getTrains().size(); i++)
+        if(assignRouteText.getText().isEmpty())
         {
-            Integer num= Integer.valueOf(assignRouteText.getText());
-            if(num.equals(StationManagement.getTrains().get(i).getTrainNUmber()))
-            {
-                StationManagement.getTrains().get(i).setTrainRoute(StationManagement.getTrainRoute());
-                assignRouteButton.setText("Assigned!");
-                trainFound=true;
-            }
+            assignRouteButton.setText("Empty Field!");
+            return;
         }
-        if (!trainFound)
-        {
-            assignRouteButton.setText("Train Not Found!");
+
+        try {
+            for (int i = 0; i < StationManagement.getTrains().size(); i++) {
+                Integer num = Integer.valueOf(assignRouteText.getText());
+                if (num.equals(StationManagement.getTrains().get(i).getTrainNUmber())) {
+                    StationManagement.getTrains().get(i).setTrainRoute(StationManagement.getTrainRoute());
+                    assignRouteButton.setText("Assigned!");
+                    trainFound = true;
+                }
+            }
+            if (!trainFound) {
+                assignRouteButton.setText("Train Not Found!");
+            }
+        }catch (NumberFormatException e){
+            assignRouteButton.setText("Invalid Input!");
         }
     }
     public void resetStationButton()

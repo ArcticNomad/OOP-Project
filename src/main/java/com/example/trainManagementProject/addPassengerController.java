@@ -31,14 +31,23 @@ public class addPassengerController
 
     public void onDoneButton() throws IOException {
 
+
         if (firstName.getText().isEmpty()||lastName.getText().isEmpty()||id.getText().isEmpty()||age.getText().isEmpty())
         {
-            doneButton.setText("Error!");
+            doneButton.setText("Empty Field!");
+            return;
         }
-        else {
 
-            Integer ID= Integer.valueOf(id.getText());
+        try
+        {
+            Long ID= Long.parseLong(id.getText());
             Integer Age= Integer.valueOf(age.getText());
+
+            if (StationManagement.checkID(ID))
+            {
+                doneButton.setText("Invalid ID!");
+                return;
+            }
 
             StationManagement.addPassenger(ID,firstName.getText(),lastName.getText(),Age);
 
@@ -51,6 +60,9 @@ public class addPassengerController
             stage.setScene(scene);
 
             stage.show();
+        }catch (NumberFormatException e)
+        {
+            doneButton.setText("Invalid Input!");
         }
     }
 
@@ -64,6 +76,10 @@ public class addPassengerController
         stage.setScene(scene);
 
         stage.show();
+    }
+    public void resetDoneButton()
+    {
+        doneButton.setText("Done");
     }
 
 }

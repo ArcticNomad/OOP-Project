@@ -57,7 +57,7 @@ public class ticketDetailController implements Initializable
         price.setEditable(false);
         cnic.setEditable(false);
 
-        //try {
+        try {
             passengerName.setText(StationManagement.getPassengerTicket().getPassenger().getFirstName() + " " + StationManagement.getPassengerTicket().getPassenger().getLastName());
             String id= String.valueOf(StationManagement.getPassengerTicket().getPassenger().getPassengerID());
             cnic.setText(id);
@@ -74,10 +74,10 @@ public class ticketDetailController implements Initializable
             trainNumber.setText(number);
             String SeatNumber = String.valueOf(StationManagement.getPassengerTicket().getPassengerSeat());
             seatNumber.setText(SeatNumber);
-        //}catch (NullPointerException e)
-        //{
-            //errorField.setText("No Ticket Purchased !");
-        //}
+        }catch (NullPointerException e)
+        {
+            errorField.setText("No Ticket Purchased !");
+        }
 
 
     }
@@ -86,7 +86,7 @@ public class ticketDetailController implements Initializable
 
         Stage stage=(Stage) backButton.getScene().getWindow();
 
-        FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("addPassenger.FXML"));
+        FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("mainPassengerPage.FXML"));
 
         Scene scene= new Scene(fxmlLoader.load());
 

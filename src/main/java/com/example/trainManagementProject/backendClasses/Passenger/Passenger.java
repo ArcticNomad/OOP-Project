@@ -1,7 +1,6 @@
 package com.example.trainManagementProject.backendClasses.Passenger;
 
 import com.example.trainManagementProject.backendClasses.Ticket.*;
-import javafx.scene.control.TextField;
 
 import java.util.Scanner;
 
@@ -11,14 +10,14 @@ public class Passenger
     private String firstName;
     private String lastName;
     private int age;
-    private int passengerID;
+    private Long passengerID;
     private static Ticket passengerTicket;
 
     Scanner input=new Scanner(System.in);
 
 
 
-    public Passenger(int passengerID,String firstName,String lastName, int age, Ticket passengerTicket)
+    public Passenger(Long passengerID, String firstName, String lastName, int age, Ticket passengerTicket)
     {
         setAge(age);
         setFirstName(firstName);
@@ -29,7 +28,7 @@ public class Passenger
 
     public Passenger(){}
 
-    public Passenger(int id, String firstName, String lastName, int age)
+    public Passenger(Long id, String firstName, String lastName, int age)
     {
         setAge(age);
         setPassengerID(id);
@@ -47,11 +46,11 @@ public class Passenger
         System.out.println(4+" - Feedback ");
     }
 
-    public int getPassengerID() {
+    public Long getPassengerID() {
         return passengerID;
     }
 
-    public void setPassengerID(int passengerID) {
+    public void setPassengerID(Long passengerID) {
         this.passengerID = passengerID;
     }
 

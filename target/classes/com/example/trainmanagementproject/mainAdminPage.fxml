@@ -146,7 +146,7 @@
                </font>
             </Label>
             <TextField fx:id="assignRouteText" layoutX="561.0" layoutY="785.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
-            <Button fx:id="assignRouteButton" layoutX="565.0" layoutY="881.0" mnemonicParsing="false" onAction="#onAssignRouteButton" onMouseExited="#resetAssignRouteButton" prefHeight="49.0" prefWidth="127.0" style="-fx-background-color: a6aeba;" text="Add Route" textFill="#170707" />
+            <Button fx:id="assignRouteButton" layoutX="565.0" layoutY="881.0" mnemonicParsing="false" onAction="#onAssignRouteButton" onMouseExited="#resetAssignRouteButton" prefHeight="49.0" prefWidth="127.0" style="-fx-background-color: a6aeba;" text="Assign Route" textFill="#170707" />
             <Label layoutX="53.0" layoutY="886.0" prefHeight="39.0" prefWidth="174.0" text="Distance ">
                <font>
                   <Font name="Agency FB" size="20.0" />

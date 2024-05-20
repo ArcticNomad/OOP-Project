@@ -37,7 +37,7 @@ public class paymentPageController implements Initializable
             payButton.setText("Empty Field!");
         }
 
-        int ID= Integer.parseInt(id.getText());
+        Long ID= Long.parseLong(id.getText());
         Double PAYMENT= Double.valueOf(payment.getText());
         Double AmountDue= Double.valueOf(amountDue.getText());
 
