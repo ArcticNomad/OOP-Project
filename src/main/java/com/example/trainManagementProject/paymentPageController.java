@@ -35,54 +35,58 @@ public class paymentPageController implements Initializable
         if(id.getText().isEmpty()|| payment.getText().isEmpty())
         {
             payButton.setText("Empty Field!");
+            return;
         }
-
-        Long ID= Long.parseLong(id.getText());
-        Double PAYMENT= Double.valueOf(payment.getText());
-        Double AmountDue= Double.valueOf(amountDue.getText());
 
         Boolean passengerFound=false;
 
-        if(PAYMENT<AmountDue)
-        {
-            payButton.setText("Insufficient Funds !");
-            payButton.setDisable(true);
-        }
 
-        if (PAYMENT>=AmountDue)
-        {
-            for (int i = 0; i < StationManagement.getPassengers().size(); i++)
+        try {
+
+            Long ID= Long.parseLong(id.getText());
+            Double PAYMENT= Double.valueOf(payment.getText());
+            Double AmountDue= Double.valueOf(amountDue.getText());
+
+            if(PAYMENT<AmountDue)
             {
+                payButton.setText("Insufficient Funds !");
+                return;
+            }
 
-                if(ID == StationManagement.getPassengers().get(i).getPassengerID())
-                {
-                    StationManagement.getPassengerTicket().setPassenger(StationManagement.getPassengers().get(i));
+            if (PAYMENT >= AmountDue) {
+                for (int i = 0; i < StationManagement.getPassengers().size(); i++) {
 
-                    StationManagement.getPassengerTicket().getPassenger().setFirstName(StationManagement.getPassengers().get(i).getFirstName());
-                    StationManagement.getPassengerTicket().getPassenger().setLastName(StationManagement.getPassengers().get(i).getLastName());
+                    if (ID.equals(StationManagement.getPassengers().get(i).getPassengerID()))
+                    {
+                        StationManagement.getPassengerTicket().setPassenger(StationManagement.getPassengers().get(i));
 
-                    StationManagement.getPassengerTicket().getPassenger().setPassengerID(ID);
+                        StationManagement.getPassengerTicket().getPassenger().setFirstName(StationManagement.getPassengers().get(i).getFirstName());
+                        StationManagement.getPassengerTicket().getPassenger().setLastName(StationManagement.getPassengers().get(i).getLastName());
 
-                    StationManagement.getPassengers().get(i).setPassengerTicket(StationManagement.getPassengerTicket());
-                    passengerFound=true;
-                    payButton.setText("Ticket Purchased!");
-                    double calculatedChange=StationManagement.getPassengerTicket().calculateChange(PAYMENT,AmountDue);
-                    String cc= String.valueOf(calculatedChange);
-                    change.setText(cc);
+                        StationManagement.getPassengerTicket().getPassenger().setPassengerID(ID);
+
+                        StationManagement.getPassengers().get(i).setPassengerTicket(StationManagement.getPassengerTicket());
+                        passengerFound = true;
+                        payButton.setText("Ticket Purchased!");
+                        double calculatedChange = StationManagement.getPassengerTicket().calculateChange(PAYMENT, AmountDue);
+                        String cc = String.valueOf(calculatedChange);
+                        change.setText(cc);
+                    }
                 }
-            }
-            if(!passengerFound)
-            {
-                payButton.setText("Invalid ID!");
-            }
+                if (!passengerFound) {
+                    payButton.setText("Invalid ID!");
+                }
 
+            }
+        }catch (NumberFormatException e)
+        {
+            payButton.setText("Invalid Input!");
         }
 
     }
     public void resetPayButton()
     {
         payButton.setText("Pay");
-        payButton.setDisable(false);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)

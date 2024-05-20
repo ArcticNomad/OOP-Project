@@ -11,7 +11,7 @@
    <children>
       <AnchorPane layoutX="7.0" prefHeight="650.0" prefWidth="1000.0">
          <children>
-            <Button fx:id="submit" layoutX="433.0" layoutY="553.0" mnemonicParsing="false" onMouseExited="#resetSubmitButton" prefHeight="39.0" prefWidth="136.0" text="SUBMIT" />
+            <Button fx:id="submit" layoutX="416.0" layoutY="552.0" mnemonicParsing="false" onAction="#onSubmitButton" onMouseExited="#resetSubmitButton" prefHeight="39.0" prefWidth="169.0" text="SUBMIT" />
             <Label layoutX="168.0" layoutY="114.0" prefHeight="39.0" prefWidth="149.0" text="Enter Name">
                <font>
                   <Font name="Agency FB Bold" size="21.0" />
@@ -39,7 +39,7 @@
                   <Font name="Agency FB Bold" size="21.0" />
                </font>
             </Label>
-            <TextField fx:id="descripton" alignment="TOP_LEFT" layoutX="336.0" layoutY="375.0" prefHeight="124.0" prefWidth="343.0" promptText="Enter here" />
+            <TextField fx:id="description" alignment="TOP_LEFT" layoutX="336.0" layoutY="375.0" prefHeight="124.0" prefWidth="343.0" promptText="Enter here" />
             <CheckBox fx:id="good" layoutX="350.0" layoutY="299.0" mnemonicParsing="false" onAction="#onGoodCheckBox" prefHeight="32.0" prefWidth="95.0" text="Good">
                <font>
                   <Font size="14.0" />

@@ -5,9 +5,9 @@ public class Feedback
     private String name;
     String description;
     String feedbackNature;
-    private int contact;
+    private Long contact;
 
-    public Feedback(String name,String description, int contact, String feedbackNature)
+    public Feedback(String name,String description, Long contact, String feedbackNature)
     {
         setContact(contact);
         setDescription(description);
@@ -31,11 +31,11 @@ public class Feedback
         this.description = description;
     }
 
-    public int getContact() {
+    public Long getContact() {
         return contact;
     }
 
-    public void setContact(int contact) {
+    public void setContact(Long contact) {
         this.contact = contact;
     }
 

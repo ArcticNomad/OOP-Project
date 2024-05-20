@@ -38,19 +38,32 @@ public class feedbackController {
 
     private String feedbackNature;
 
-    public void onSubmitButton()
-    {
-        if(name.getText().isEmpty()|| contact.getText().isEmpty())
-        {
+    public void onSubmitButton() {
+
+        if (name.getText().isEmpty() || contact.getText().isEmpty()) {
             submit.setText("Empty Field!");
+            return;
         }
-        else
-        {
-            int Contact= Integer.parseInt(contact.getText());
-            StationManagement.addFeedback(name.getText(),description.getText(),Contact,feedbackNature);
-            submit.setText("Submitted !");
+
+        try {
+            // Ensure contact number is parsed correctly
+            Long contactNumber = Long.parseLong(contact.getText());
+
+            // Check the length of the contact number
+            if (contact.getText().length() < 11) {
+                submit.setText("Invalid Contact Format!");
+                return;
+            }
+
+            // Add feedback to the system
+            StationManagement.addFeedback(name.getText(), description.getText(), contactNumber, feedbackNature);
+            submit.setText("Submitted!");
+
+        } catch (NumberFormatException e) {
+            submit.setText("Invalid Input!");
         }
     }
+
 
     public void onGoodCheckBox() {
         if (good.isSelected()) {

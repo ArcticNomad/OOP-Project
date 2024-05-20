@@ -30,7 +30,7 @@ public class StationManagement
         StationManagement.passengerTicket = passengerTicket;
     }
 
-    public static void addFeedback(String name, String description, int contact, String feedbackNature)
+    public static void addFeedback(String name, String description, Long contact, String feedbackNature)
     {
         passengerFeedbacks.add(new Feedback(name,description,contact,feedbackNature));
     }
