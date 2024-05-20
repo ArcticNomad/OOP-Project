@@ -101,8 +101,22 @@ public class MainAdminPageController implements Initializable
     private Button homeButton;
     public void onAddStationButton() throws IOException
     {
-       StationManagement.addStation(stationName.getText(),stationCity.getText());
-        addStationButton.setText("Added!");
+        if(stationName.getText().isEmpty() || stationCity.getText().isEmpty())
+        {
+            addStationButton.setText("Empty Field !");
+        }
+
+        else if (checkStringForInteger(stationName.getText()) || checkStringForInteger(stationCity.getText()))
+        {
+            addStationButton.setText("Alphabets Only !");
+        }
+
+        else
+        {
+            StationManagement.addStation(stationName.getText(),stationCity.getText());
+            addStationButton.setText("Added!");
+        }
+
     }
 
     public static BusinessClass businessClass;
@@ -217,5 +231,18 @@ public class MainAdminPageController implements Initializable
 
         stage.setScene(scene);
         stage.show();
+    }
+    public Boolean checkStringForInteger(String s)
+    {
+        s.toCharArray();
+
+        for (int i = 0; i < s.length(); i++)
+        {
+            if(Character.isDigit(s.charAt(i)));
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
