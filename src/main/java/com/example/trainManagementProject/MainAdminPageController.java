@@ -128,17 +128,27 @@ public class MainAdminPageController implements Initializable
 
     public void onAddTrainButton()
     {
-        Integer businessCap= Integer.valueOf(businessCapacity.getText());
-        Integer ecoCap= Integer.valueOf(economyCapacity.getText());
-        businessClass =new BusinessClass(businessCap,businessFacility.getText());
-        economyClass=new EconomyClass(ecoCap,economyFacility.getText());
+        if(trainNumber.getText().isEmpty()||trainSpeed.getText().isEmpty()||businessCapacity.getText().isEmpty()||economyCapacity.getText().isEmpty()||trainCapacity.getText().isEmpty()||businessFacility.getText().isEmpty()||economyFacility.getText().isEmpty())
+        {
+            addTrainButton.setText("Empty Field!");
+        }
+        try {
+
+            Integer businessCap = Integer.valueOf(businessCapacity.getText());
+            Integer ecoCap = Integer.valueOf(economyCapacity.getText());
+            businessClass = new BusinessClass(businessCap, businessFacility.getText());
+            economyClass = new EconomyClass(ecoCap, economyFacility.getText());
 
 
-        int cap = Integer.parseInt(trainCapacity.getText());
-        int num = Integer.parseInt(trainNumber.getText());
-        int speed = Integer.parseInt(trainSpeed.getText());
-        StationManagement.addTrain(num,speed,cap,businessClass,economyClass);
-        addTrainButton.setText("Added!");
+            int cap = Integer.parseInt(trainCapacity.getText());
+            int num = Integer.parseInt(trainNumber.getText());
+            int speed = Integer.parseInt(trainSpeed.getText());
+            StationManagement.addTrain(num, speed, cap, businessClass, economyClass);
+            addTrainButton.setText("Added!");
+        }catch (NumberFormatException e)
+        {
+            addTrainButton.setText("Invalid Input!");
+        }
 
     }
 
@@ -182,7 +192,6 @@ public class MainAdminPageController implements Initializable
             addRouteButton.setText("Station Not Found!");
             return;
         }
-        if()
 
         // Attempt to add the route
         try {
@@ -220,6 +229,8 @@ public class MainAdminPageController implements Initializable
 
     public void onAssignRouteButton()
     {
+        Boolean trainFound=false;
+
         for (int i = 0; i < StationManagement.getTrains().size(); i++)
         {
             Integer num= Integer.valueOf(assignRouteText.getText());
@@ -227,7 +238,12 @@ public class MainAdminPageController implements Initializable
             {
                 StationManagement.getTrains().get(i).setTrainRoute(StationManagement.getTrainRoute());
                 assignRouteButton.setText("Assigned!");
+                trainFound=true;
             }
+        }
+        if (!trainFound)
+        {
+            assignRouteButton.setText("Train Not Found!");
         }
     }
     public void resetStationButton()

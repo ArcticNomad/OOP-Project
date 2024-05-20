@@ -79,7 +79,7 @@
             <Line endX="502.0" endY="946.0" startX="502.0" startY="141.0" />
             <TextField fx:id="trainNumber" layoutX="743.0" layoutY="163.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
             <TextField fx:id="businessCapacity" layoutX="743.0" layoutY="320.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
-            <TextField fx:id="trainCapacity" layoutX="743.0" layoutY="270.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
+            <TextField fx:id="trainCapacity" layoutX="743.0" layoutY="270.0" prefHeight="34.0" prefWidth="183.0" promptText="1-100" />
             <TextField fx:id="trainSpeed" layoutX="743.0" layoutY="216.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
             <TextField fx:id="businessFacility" layoutX="743.0" layoutY="369.0" prefHeight="34.0" prefWidth="183.0" promptText="Wifi,AC etc" />
             <TextField fx:id="economyCapacity" layoutX="743.0" layoutY="419.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
