@@ -44,51 +44,60 @@ public class buyTicketController implements Initializable
 
     public void onPaymentButton() throws IOException {
 
+        System.out.println("Departure Station Name: " + departStationName.getText());
+        System.out.println("Destination Station Name: " + destinationStationName.getText());
+        System.out.println("Seat No: " + seatNo.getText());
+        System.out.println("Business Class Button Pressed: " + businessClassButton.isPressed());
+        System.out.println("Economy Class Button Pressed: " + economyClassButton.isPressed());
 
-        if(departStationName.getText().isEmpty()||destinationStationName.getText().isEmpty()||seatNo.getText().isEmpty()|| !businessClassButton.isPressed() && !economyClassButton.isPressed())
-        {
-            payButton.setText("Error!");
+        if (departStationName.getText().isEmpty() || destinationStationName.getText().isEmpty() || seatNo.getText().isEmpty() || (!businessClassButton.isPressed() && !economyClassButton.isPressed())) {
+            payButton.setText("Empty Field!");
+            return;
         }
 
-        Boolean trainFound=false;
 
+        Boolean trainFound = false;
 
-        for (int i = 0; i < StationManagement.getTrains().size(); i++)
-        {
-            if(StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().getStationName().equals(departStationName.getText()) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().getStationName().equals(destinationStationName.getText()))
-            {
-                StationManagement.getPassengerTicket().setTicketTrain(StationManagement.getTrains().get(i));
-                int seat= Integer.parseInt(seatNo.getText());
-                StationManagement.getPassengerTicket().setPassengerSeat(seat);
-                trainFound=true;
+        try {
+            for (int i = 0; i < StationManagement.getTrains().size(); i++) {
+                if (StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().getStationName().equals(departStationName.getText()) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().getStationName().equals(destinationStationName.getText())) {
+                    StationManagement.getPassengerTicket().setTicketTrain(StationManagement.getTrains().get(i));
 
-                if(economyClassButton.isPressed())
-                {
-                    StationManagement.getPassengerTicket().setBusinessClass(null);
-                    StationManagement.getPassengerTicket().setEconomyClass(MainAdminPageController.economyClass);
+                    int seat = Integer.parseInt(seatNo.getText());
+                    if(StationManagement.checkSeatNo(seat)) {
+                        payButton.setText("Seat Taken!");
+                        return;
+                    }
 
+                    StationManagement.getPassengerTicket().setPassengerSeat(seat);
+
+                    trainFound = true;
+
+                    if (economyClassButton.isPressed()) {
+                        StationManagement.getPassengerTicket().setBusinessClass(null);
+                        StationManagement.getPassengerTicket().setEconomyClass(MainAdminPageController.economyClass);
+                    }
+                    if (businessClassButton.isPressed()) {
+                        StationManagement.getPassengerTicket().setBusinessClass(MainAdminPageController.businessClass);
+                        StationManagement.getPassengerTicket().setEconomyClass(null);
+                    }
+
+                    break;
                 }
-                if(businessClassButton.isPressed())
-                {
-                    StationManagement.getPassengerTicket().setBusinessClass(MainAdminPageController.businessClass);
-                    StationManagement.getPassengerTicket().setEconomyClass(null);
-
-                }
-
-                break;
             }
-        }
-        if (!trainFound)
-        {
-            payButton.setText("Train Not Found !");
-        }
-        else {
-            Stage stage = (Stage) payButton.getScene().getWindow();
 
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("paymentPage.FXML"));
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setScene(scene);
-            stage.show();
+            if (!trainFound) {
+                payButton.setText("Train Not Found !");
+            } else {
+                Stage stage = (Stage) payButton.getScene().getWindow();
+
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("paymentPage.FXML"));
+                Scene scene = new Scene(fxmlLoader.load());
+                stage.setScene(scene);
+                stage.show();
+            }
+        } catch (NumberFormatException e) {
+            payButton.setText("Invalid Input!");
         }
     }
 
@@ -102,6 +111,7 @@ public class buyTicketController implements Initializable
     }
     public void onSeatRefreshButton()
     {
+
         seatList.clear();
 
         for (int i = 0; i <StationManagement.getTrains().size(); i++)
@@ -123,11 +133,13 @@ public class buyTicketController implements Initializable
 
     public void onBusinessClassButton()
     {
+        System.out.println("Pressed");
         StationManagement.getPassengerTicket().setBusinessClass(MainAdminPageController.businessClass);
         StationManagement.getPassengerTicket().setEconomyClass(null);
     }
     public void onEconomyClassButton()
     {
+        System.out.println("Pressed");
         StationManagement.getPassengerTicket().setEconomyClass(MainAdminPageController.economyClass);
         StationManagement.getPassengerTicket().setBusinessClass(null);
     }
@@ -147,5 +159,9 @@ public class buyTicketController implements Initializable
         stage.setScene(scene);
 
         stage.show();
+    }
+    public void resetPayButton()
+    {
+        payButton.setText("Pay For Ticket");
     }
 }

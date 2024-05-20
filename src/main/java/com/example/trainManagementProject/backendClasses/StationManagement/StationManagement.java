@@ -121,6 +121,15 @@ public class StationManagement
         return false;
     }
 
+    public static Boolean checkSeatNo(int seatNo)
+    {
+        if(seatNo==passengerTicket.getPassengerSeat())
+        {
+            return true;
+        }
+        return false;
+    }
+
     public static void addRoute(Station departStation, Station arriveStation, Schedule schedule)
     {
         trainRoute=new Route(schedule, departStation,arriveStation);
