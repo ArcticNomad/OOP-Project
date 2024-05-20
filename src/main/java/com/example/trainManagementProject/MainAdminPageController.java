@@ -111,6 +111,10 @@ public class MainAdminPageController implements Initializable
             addStationButton.setText("Alphabets Only !");
         }
 
+        else if (StationManagement.checkDuplicateStation(stationName.getText()))
+        {
+            addStationButton.setText("Duplicate Station!");
+        }
         else
         {
             StationManagement.addStation(stationName.getText(),stationCity.getText());
@@ -138,34 +142,81 @@ public class MainAdminPageController implements Initializable
 
     }
 
-    public void onAddRouteButton()
-    {
+    @FXML
+    public void onAddRouteButton() {
+        // Check if any fields are empty
+        if (departStationName.getText().isEmpty() || arrivalStationName.getText().isEmpty() ||
+                departAmPm.getText().isEmpty() || departDay.getText().isEmpty() ||
+                departHour.getText().isEmpty() || departMin.getText().isEmpty() ||
+                departMonth.getText().isEmpty() || departYear.getText().isEmpty() ||
+                arrivalAmPm.getText().isEmpty() || arrivalDay.getText().isEmpty() ||
+                arrivalHour.getText().isEmpty() || arrivalMin.getText().isEmpty() ||
+                arrivalMonth.getText().isEmpty() || arrivalYear.getText().isEmpty()) {
 
-        if (!distanceBwStations.getText().isEmpty()) {
-            Route.distanceBetweenStations = Integer.parseInt(distanceBwStations.getText());
+            addRouteButton.setText("Empty Field!");
+            return;
         }
 
-        // add try catch here
-        Station departStation = StationManagement.getStationByName(StationManagement.getStations(),departStationName.getText());
-        Station arriveStation = StationManagement.getStationByName(StationManagement.getStations(),arrivalStationName.getText());
+        // Validate distance between stations
+        if (!distanceBwStations.getText().isEmpty()) {
+            try {
+                Route.distanceBetweenStations = Integer.parseInt(distanceBwStations.getText());
+            } catch (NumberFormatException e) {
+                addRouteButton.setText("Invalid Distance!");
+                return;
+            }
+        }
 
-        Integer depDay= Integer.valueOf(departDay.getText());
-        Integer depYear= Integer.valueOf(departYear.getText());
-        Integer arriveDay= Integer.valueOf(arrivalDay.getText());
-        Integer arriveYear= Integer.valueOf(arrivalYear.getText());
-        Integer depHour= Integer.valueOf(departHour.getText());
-        Integer depMin= Integer.valueOf(departMin.getText());
-        Integer arriveMin= Integer.valueOf(arrivalMin.getText());
-        Integer arriveHour= Integer.valueOf(arrivalHour.getText());
+        // Validate station names contain only alphabets
+        if (checkStringForInteger(departStationName.getText())) {
+            departStationName.setPromptText("Alphabets Only!");
+            return;
+        }
+        if (checkStringForInteger(arrivalStationName.getText())) {
+            arrivalStationName.setPromptText("Alphabets Only!");
+            return;
+        }
 
+        // Check if both stations exist
+        if (!StationManagement.checkStation(departStationName.getText(), arrivalStationName.getText())) {
+            addRouteButton.setText("Station Not Found!");
+            return;
+        }
+        if()
 
-        Schedule schedule =new Schedule(depDay, departMonth.getText(), depYear, arriveDay, arrivalMonth.getText(), arriveYear, depHour, depMin, arriveHour, arriveMin, departAmPm.getText(),arrivalAmPm.getText());
+        // Attempt to add the route
+        try {
+            Station departStation = StationManagement.getStationByName(StationManagement.getStations(), departStationName.getText());
+            Station arriveStation = StationManagement.getStationByName(StationManagement.getStations(), arrivalStationName.getText());
 
-        StationManagement.addRoute(departStation,arriveStation,schedule);
+            Integer depDay = Integer.valueOf(departDay.getText());
+            Integer depYear = Integer.valueOf(departYear.getText());
+            Integer arriveDay = Integer.valueOf(arrivalDay.getText());
+            Integer arriveYear = Integer.valueOf(arrivalYear.getText());
+            Integer depHour = Integer.valueOf(departHour.getText());
+            Integer depMin = Integer.valueOf(departMin.getText());
+            Integer arriveMin = Integer.valueOf(arrivalMin.getText());
+            Integer arriveHour = Integer.valueOf(arrivalHour.getText());
 
-        addRouteButton.setText("Added!");
+            Schedule schedule = new Schedule(depDay, departMonth.getText(), depYear,
+                    arriveDay, arrivalMonth.getText(), arriveYear,
+                    depHour, depMin, arriveHour, arriveMin,
+                    departAmPm.getText(), arrivalAmPm.getText());
 
+            StationManagement.addRoute(departStation, arriveStation, schedule);
+
+            addRouteButton.setText("Added!");
+        } catch (NullPointerException e) {
+            addRouteButton.setText("Invalid Station!");
+        } catch (NumberFormatException e) {
+            addRouteButton.setText("Invalid Input!");
+        }
+        catch (IllegalArgumentException e)
+        {
+            addRouteButton.setText("Invalid Input!");
+        }
     }
+
 
     public void onAssignRouteButton()
     {
@@ -238,7 +289,7 @@ public class MainAdminPageController implements Initializable
 
         for (int i = 0; i < s.length(); i++)
         {
-            if(Character.isDigit(s.charAt(i)));
+            if(Character.isDigit(s.charAt(i)))
             {
                 return true;
             }

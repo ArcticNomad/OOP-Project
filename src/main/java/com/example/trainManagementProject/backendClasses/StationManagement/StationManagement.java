@@ -85,6 +85,32 @@ public class StationManagement
         stations.add(new Station(stationName,city));
 
     }
+    public static Boolean checkDuplicateStation(String name)
+    {
+        for (int i = 0; i < stations.size(); i++)
+        {
+            if(stations.get(i).getStationName().equals(name))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static Boolean checkStation(String depart, String arrival) {
+        boolean departExists = false;
+        boolean arrivalExists = false;
+
+        for (Station station : stations) {
+            if (station.getStationName().equals(depart)) {
+                departExists = true;
+            }
+            if (station.getStationName().equals(arrival)) {
+                arrivalExists = true;
+            }
+        }
+        return departExists && arrivalExists;
+    }
+
     public static void addRoute(Station departStation, Station arriveStation, Schedule schedule)
     {
         trainRoute=new Route(schedule, departStation,arriveStation);
