@@ -54,6 +54,23 @@ public class StationManagement
         return 0;
     }
 
+    public static Boolean checkTrainCapacity(int cap)
+    {
+        if (cap>100)
+        {
+            return true;
+        }
+        return false;
+    }
+    public static Boolean checkClassCapacity(int business, int economy, int cap)
+    {
+        if ((business+economy)>cap)
+        {
+            return true;
+        }
+        return false;
+    }
+
 
     public void displayPassengerDetails()
     {

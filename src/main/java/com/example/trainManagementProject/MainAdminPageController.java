@@ -134,16 +134,31 @@ public class MainAdminPageController implements Initializable
             return;
         }
         try {
-
             Integer businessCap = Integer.valueOf(businessCapacity.getText());
             Integer ecoCap = Integer.valueOf(economyCapacity.getText());
-            businessClass = new BusinessClass(businessCap, businessFacility.getText());
-            economyClass = new EconomyClass(ecoCap, economyFacility.getText());
+
 
 
             int cap = Integer.parseInt(trainCapacity.getText());
             int num = Integer.parseInt(trainNumber.getText());
             int speed = Integer.parseInt(trainSpeed.getText());
+
+            if (StationManagement.checkTrainCapacity(cap))
+            {
+                addTrainButton.setText("Invalid Capacity!");
+                return;
+            }
+
+            businessClass = new BusinessClass(businessCap, businessFacility.getText());
+            economyClass = new EconomyClass(ecoCap, economyFacility.getText());
+
+
+            if (StationManagement.checkClassCapacity(businessCap, ecoCap,cap))
+            {
+                addTrainButton.setText("Invalid Class Capacity!");
+                return;
+            }
+
             StationManagement.addTrain(num, speed, cap, businessClass, economyClass);
             addTrainButton.setText("Added!");
         }catch (NumberFormatException e)

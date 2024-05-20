@@ -50,7 +50,7 @@ public class buyTicketController implements Initializable
         System.out.println("Business Class Button Pressed: " + businessClassButton.isPressed());
         System.out.println("Economy Class Button Pressed: " + economyClassButton.isPressed());
 
-        if (departStationName.getText().isEmpty() || destinationStationName.getText().isEmpty() || seatNo.getText().isEmpty() || (!businessClassButton.isPressed() && !economyClassButton.isPressed())) {
+        if (departStationName.getText().isEmpty() || destinationStationName.getText().isEmpty() || seatNo.getText().isEmpty()) {
             payButton.setText("Empty Field!");
             return;
         }
