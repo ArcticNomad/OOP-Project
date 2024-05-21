@@ -38,6 +38,7 @@ public class addPassengerController
             return;
         }
 
+
         try
         {
             Long ID= Long.parseLong(id.getText());
@@ -46,6 +47,19 @@ public class addPassengerController
             if (StationManagement.checkID(ID))
             {
                 doneButton.setText("Invalid ID!");
+                return;
+            }
+            if (StationManagement.checkDuplicateID(ID)) // may cause unexpected error ? keep in mind
+            {
+                Stage stage = (Stage) doneButton.getScene().getWindow();
+
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainPassengerPage.FXML"));
+
+                Scene scene = new Scene(fxmlLoader.load());
+
+                stage.setScene(scene);
+
+                stage.show();
                 return;
             }
 

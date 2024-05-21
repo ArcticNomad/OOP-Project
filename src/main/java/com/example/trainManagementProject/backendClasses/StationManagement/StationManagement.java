@@ -131,9 +131,20 @@ public class StationManagement
     {
         String s=id.toString();
         s.toCharArray();
-        if(s.length() != 13)
+        if(s.length() != 13 )
         {
             return true;
+        }
+        return false;
+    }
+    public static Boolean checkDuplicateID(Long ID)
+    {
+        for (int i = 0; i <passengers.size(); i++)
+        {
+            if (passengers.get(i).getPassengerID().equals(ID))
+            {
+                return true;
+            }
         }
         return false;
     }

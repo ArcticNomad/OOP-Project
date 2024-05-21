@@ -15,6 +15,8 @@ public class mainPassengerPageController
     @FXML
     private Button backButton;
     @FXML
+    private Button cancelTicketButton;
+    @FXML
     private Button feedbackButton;
     @FXML
     private  Button ticketDetailsButton;
@@ -73,6 +75,23 @@ public class mainPassengerPageController
             ticketDetailsButton.setText("Error!");
         }
     }
+
+    public void onCancelTicketButton() throws IOException {
+        try {
+            Stage stage = (Stage) cancelTicketButton.getScene().getWindow();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cancelTicketPage.FXML"));
+
+            Scene scene = new Scene(fxmlLoader.load());
+
+            stage.setScene(scene);
+
+            stage.show();
+        }catch (NullPointerException e){
+            ticketDetailsButton.setText("Error!");
+        }
+    }
+
 
 
 }

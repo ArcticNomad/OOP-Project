@@ -19,7 +19,7 @@
                   <Font name="Agency FB" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="feedbackButton" layoutX="399.0" layoutY="420.0" mnemonicParsing="false" onAction="#onFeedbackButton" prefHeight="34.0" prefWidth="157.0" text="Feedback">
+            <Button fx:id="feedbackButton" layoutX="399.0" layoutY="391.0" mnemonicParsing="false" onAction="#onFeedbackButton" prefHeight="34.0" prefWidth="157.0" text="Feedback">
                <font>
                   <Font name="Agency FB" size="16.0" />
                </font>
@@ -30,6 +30,11 @@
                </font>
             </Label>
             <Button fx:id="backButton" layoutX="57.0" layoutY="51.0" mnemonicParsing="false" onAction="#onBackButton" text="Back" />
+            <Button fx:id="cancelTicketButton" layoutX="399.0" layoutY="509.0" mnemonicParsing="false" onAction="#onCancelTicketButton" prefHeight="34.0" prefWidth="157.0" text="Cancel Ticket">
+               <font>
+                  <Font name="Agency FB" size="16.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
