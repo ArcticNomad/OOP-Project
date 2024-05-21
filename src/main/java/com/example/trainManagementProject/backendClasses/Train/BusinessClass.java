@@ -7,9 +7,9 @@ public class BusinessClass
     private PassengerSitting businessSiting;
     private int businessCapacity;
     private int seatsAvailable;
-    private String facility;
+    private Facilities facility;
 
-    public BusinessClass(int businessCapacity,String facility)
+    public BusinessClass(int businessCapacity,Facilities facility)
     {
         setBusinessCapacity(seatsAvailable);
         setBusinessCapacity(businessCapacity);
@@ -32,11 +32,11 @@ public class BusinessClass
         this.seatsAvailable = seatsAvailable;
     }
 
-    public String getFacility() {
+    public Facilities getFacility() {
         return facility;
     }
 
-    public void setFacility(String facility) {
+    public void setFacility(Facilities facility) {
         this.facility = facility;
     }
 }

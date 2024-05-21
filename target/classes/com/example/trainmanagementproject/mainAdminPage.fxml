@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
@@ -40,7 +41,6 @@
                   <Font name="Agency FB Bold" size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="stationCity" layoutX="174.0" layoutY="233.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
             <Label alignment="CENTER" layoutX="526.0" layoutY="163.0" prefHeight="39.0" prefWidth="174.0" text="Train Number ">
                <font>
                   <Font name="Agency FB" size="20.0" />
@@ -81,9 +81,7 @@
             <TextField fx:id="businessCapacity" layoutX="743.0" layoutY="320.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
             <TextField fx:id="trainCapacity" layoutX="743.0" layoutY="270.0" prefHeight="34.0" prefWidth="183.0" promptText="1-100" />
             <TextField fx:id="trainSpeed" layoutX="743.0" layoutY="216.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
-            <TextField fx:id="businessFacility" layoutX="743.0" layoutY="369.0" prefHeight="34.0" prefWidth="183.0" promptText="Wifi,AC etc" />
-            <TextField fx:id="economyCapacity" layoutX="743.0" layoutY="419.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
-            <TextField fx:id="economyFacility" layoutX="743.0" layoutY="477.0" prefHeight="34.0" prefWidth="183.0" promptText="Wifi,AC etc" />
+            <TextField fx:id="economyCapacity" layoutX="740.0" layoutY="431.0" prefHeight="34.0" prefWidth="183.0" promptText="Enter Here" />
             <Button fx:id="addTrainButton" layoutX="565.0" layoutY="563.0" mnemonicParsing="false" onAction="#onAddTrainButton" onMouseExited="#resetTrainButton" prefHeight="49.0" prefWidth="125.0" style="-fx-background-color: a6aeba;" text="Add Train" textFill="#170707" />
             <Label alignment="CENTER" layoutX="8.0" layoutY="443.0" prefHeight="38.0" prefWidth="187.0" text="Route Details">
                <font>
@@ -176,6 +174,9 @@
                </font>
             </TextArea>
             <Button fx:id="homeButton" layoutX="53.0" layoutY="35.0" mnemonicParsing="false" onAction="#onHomeButton" text="Home" />
+            <ChoiceBox fx:id="businessFacility" layoutX="743.0" layoutY="384.0" prefHeight="25.0" prefWidth="180.0" />
+            <ChoiceBox fx:id="economyFacility" layoutX="743.0" layoutY="496.0" prefHeight="25.0" prefWidth="180.0" />
+            <ChoiceBox fx:id="stationCity" layoutX="174.0" layoutY="238.0" prefHeight="25.0" prefWidth="183.0" />
          </children>
       </AnchorPane>
    </content>

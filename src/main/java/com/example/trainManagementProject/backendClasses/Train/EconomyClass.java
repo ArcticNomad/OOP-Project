@@ -7,9 +7,9 @@ public class EconomyClass
     private PassengerSitting EconomySiting;
     private int economyCapacity;
     private int seatsAvailable;
-    private String facility;
+    private Facilities facility;
 
-    public EconomyClass(int economyCapacity,String facility)
+    public EconomyClass(int economyCapacity,Facilities facility)
     {
         setFacility(facility);
         setEconomyCapacity(economyCapacity);
@@ -32,11 +32,11 @@ public class EconomyClass
         this.seatsAvailable = seatsAvailable;
     }
 
-    public String getFacility() {
+    public Facilities getFacility() {
         return facility;
     }
 
-    public void setFacility(String facility) {
+    public void setFacility(Facilities facility) {
         this.facility = facility;
     }
 

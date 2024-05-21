@@ -1,11 +1,12 @@
 package com.example.trainManagementProject;
 
-import com.example.trainManagementProject.backendClasses.Route.Route;
-import com.example.trainManagementProject.backendClasses.Route.Schedule;
+import com.example.trainManagementProject.backendClasses.Route.*;
+import com.example.trainManagementProject.backendClasses.Station.Citites;
 import com.example.trainManagementProject.backendClasses.Station.Station;
 import com.example.trainManagementProject.backendClasses.StationManagement.StationManagement;
 import com.example.trainManagementProject.backendClasses.Train.BusinessClass;
 import com.example.trainManagementProject.backendClasses.Train.EconomyClass;
+import com.example.trainManagementProject.backendClasses.Train.Facilities;
 import com.example.trainManagementProject.backendClasses.Train.Train;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.time.Month;
 import java.util.ResourceBundle;
 
 import java.io.IOException;
@@ -28,7 +30,7 @@ public class MainAdminPageController implements Initializable
 
     @FXML
     private TextField stationName;
-    public TextField stationCity;
+    public ChoiceBox<Citites> stationCity=new ChoiceBox<>();
     @FXML
     private Button addStationButton ;
     @FXML
@@ -46,11 +48,11 @@ public class MainAdminPageController implements Initializable
     @FXML
     private TextField businessCapacity;
     @FXML
-    private TextField businessFacility;
+    private ChoiceBox<Facilities> businessFacility=new ChoiceBox<>();
     @FXML
     private TextField economyCapacity;
     @FXML
-    private TextField economyFacility;
+    private ChoiceBox<Facilities> economyFacility=new ChoiceBox<>();
 
     // ROUTE DETAILS
     @FXML
@@ -60,15 +62,15 @@ public class MainAdminPageController implements Initializable
 
     // ROUTE SCHEDULE DETAILS
     @FXML
-    private TextField departDay;
+    private ChoiceBox<Days> departDay;
     @FXML
-    private TextField departMonth;
+    private ChoiceBox<Months> departMonth;
     @FXML
     private TextField departYear;
     @FXML
-    private TextField arrivalDay;
+    private ChoiceBox<Days> arrivalDay;
     @FXML
-    private TextField arrivalMonth;
+    private ChoiceBox<Months> arrivalMonth;
     @FXML
     private TextField arrivalYear;
 
@@ -82,9 +84,9 @@ public class MainAdminPageController implements Initializable
     @FXML
     private TextField arrivalMin;
     @FXML
-    private TextField departAmPm;
+    private ChoiceBox<Timing> departAmPm=new ChoiceBox<>();
     @FXML
-    private TextField arrivalAmPm;
+    private ChoiceBox<Timing> arrivalAmPm=new ChoiceBox<>();
 
     @FXML
     private TextField distanceBwStations;
@@ -101,12 +103,12 @@ public class MainAdminPageController implements Initializable
     private Button homeButton;
     public void onAddStationButton() throws IOException
     {
-        if(stationName.getText().isEmpty() || stationCity.getText().isEmpty())
+        if(stationName.getText().isEmpty() || stationCity.getItems().isEmpty())
         {
             addStationButton.setText("Empty Field !");
         }
 
-        else if (checkStringForInteger(stationName.getText()) || checkStringForInteger(stationCity.getText()))
+        else if (checkStringForInteger(stationName.getText()))
         {
             addStationButton.setText("Alphabets Only !");
         }
@@ -117,7 +119,7 @@ public class MainAdminPageController implements Initializable
         }
         else
         {
-            StationManagement.addStation(stationName.getText(),stationCity.getText());
+            StationManagement.addStation(stationName.getText(),stationCity.getValue());
             addStationButton.setText("Added!");
         }
 
@@ -128,7 +130,7 @@ public class MainAdminPageController implements Initializable
 
     public void onAddTrainButton()
     {
-        if(trainNumber.getText().isEmpty()||trainSpeed.getText().isEmpty()||businessCapacity.getText().isEmpty()||economyCapacity.getText().isEmpty()||trainCapacity.getText().isEmpty()||businessFacility.getText().isEmpty()||economyFacility.getText().isEmpty())
+        if(trainNumber.getText().isEmpty()||trainSpeed.getText().isEmpty()||businessCapacity.getText().isEmpty()||economyCapacity.getText().isEmpty()||trainCapacity.getText().isEmpty()||businessFacility.getItems().isEmpty()||economyFacility.getItems().isEmpty())
         {
             addTrainButton.setText("Empty Field!");
             return;
@@ -149,8 +151,8 @@ public class MainAdminPageController implements Initializable
                 return;
             }
 
-            businessClass = new BusinessClass(businessCap, businessFacility.getText());
-            economyClass = new EconomyClass(ecoCap, economyFacility.getText());
+            businessClass = new BusinessClass(businessCap, businessFacility.getValue());
+            economyClass = new EconomyClass(ecoCap, economyFacility.getValue());
 
 
             if (StationManagement.checkClassCapacity(businessCap, ecoCap,cap))
@@ -307,6 +309,23 @@ public class MainAdminPageController implements Initializable
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        businessFacility.getItems().addAll(Facilities.values());
+        economyFacility.getItems().addAll(Facilities.values());
+        businessFacility.setValue(Facilities.NONE);
+        economyFacility.setValue(Facilities.NONE);
+
+        stationCity.getItems().addAll(Citites.values());
+
+        departDay.getItems().addAll(Days.values());
+        arrivalDay.getItems().addAll(Days.values());
+        departMonth.getItems().addAll(Months.values());
+        arrivalMonth.getItems().addAll(Months.values());
+        departAmPm.getItems().add(Timing.PM);
+        departAmPm.getItems().add(Timing.AM);
+        arrivalAmPm.getItems().add(Timing.AM);
+        arrivalAmPm.getItems().add(Timing.PM);
+
         trainNumbers.setEditable(false);
         stationLists.setEditable(false);
     }

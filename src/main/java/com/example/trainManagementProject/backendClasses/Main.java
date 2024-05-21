@@ -63,7 +63,7 @@ public class Main
                     String stationName = input.nextLine();
                     System.out.println("Enter Station City :");
                     String city = input.nextLine();
-                    manager.addStation(stationName, city);
+                    //manager.addStation(stationName, city);
 
                     try {
                         stationWriter.write("Station Name :"+stationName);

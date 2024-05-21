@@ -96,7 +96,7 @@ public class StationManagement
         }
     }
 
-    public static void addStation(String stationName, String city)
+    public static void addStation(String stationName, Citites city)
     {
 
         stations.add(new Station(stationName,city));
