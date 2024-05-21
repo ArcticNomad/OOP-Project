@@ -131,7 +131,7 @@ public class StationManagement
     {
         String s=id.toString();
         s.toCharArray();
-        if(s.length() != 9)
+        if(s.length() != 13)
         {
             return true;
         }

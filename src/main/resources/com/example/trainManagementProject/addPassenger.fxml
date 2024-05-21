@@ -26,7 +26,7 @@
          <font>
             <Font name="Agency FB Bold" size="22.0" />
          </font></Label>
-      <TextField fx:id="id" layoutX="421.0" layoutY="232.0" prefHeight="33.0" prefWidth="158.0" promptText="XXXXX-XXXXXXX-X" />
+      <TextField fx:id="id" layoutX="421.0" layoutY="232.0" prefHeight="33.0" prefWidth="158.0" promptText="Without Dashes" />
       <TextField fx:id="age" layoutX="421.0" layoutY="286.0" prefHeight="33.0" prefWidth="158.0" />
       <Button fx:id="doneButton" layoutX="450.0" layoutY="370.0" mnemonicParsing="false" onAction="#onDoneButton" onMouseExited="#resetDoneButton" prefHeight="41.0" prefWidth="101.0" style="-fx-font-family: Agency FB;" text="Done" />
       <Label alignment="TOP_CENTER" layoutX="388.0" layoutY="26.0" prefHeight="52.0" prefWidth="225.0" text="Passenger Details">

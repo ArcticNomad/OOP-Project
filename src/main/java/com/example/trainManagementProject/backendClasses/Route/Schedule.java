@@ -22,6 +22,7 @@ public class Schedule {
         setArrivalHour(arrivalHour);
         setArrivalMonth(arrivalMonth);
         setArrivalMin(arrivalMin);
+        setDepartureMin(departureMin);
         setArrival_AM_PM(arrival_AM_PM);
         setArrivalYear(arrivalYear);
 
@@ -30,7 +31,8 @@ public class Schedule {
         setDeparture_AM_PM(departure_AM_PM);
         setDepartMonth(departMonth);
         setDepartYear(departYear);
-        setArrivalHour(departureHour);
+        setArrivalHour(arrivalHour);
+        setDepartureHour(departureHour);
 
         setDistanceBwStations(distanceBwStations);
     }
