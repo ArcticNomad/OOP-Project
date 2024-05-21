@@ -6,21 +6,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="backButton" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trainManagementProject.CancelTicketPageController">
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trainManagementProject.CancelTicketPageController">
    <children>
       <Label layoutX="278.0" layoutY="133.0" prefHeight="49.0" prefWidth="181.0" text="Enter CNIC">
          <font>
             <Font name="Agency FB" size="20.0" />
          </font>
       </Label>
-      <TextField layoutX="426.0" layoutY="145.0" />
+      <TextField fx:id="cnic" layoutX="426.0" layoutY="145.0" />
       <Label alignment="TOP_CENTER" layoutX="415.0" layoutY="14.0" prefHeight="43.0" prefWidth="171.0" text="Cancel Ticket">
          <font>
             <Font name="Agency FB Bold" size="27.0" />
          </font>
       </Label>
-      <Button layoutX="49.0" layoutY="23.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="backButton" layoutX="49.0" layoutY="23.0" mnemonicParsing="false" onAction="#onBackButton" text="Back" />
       <Button fx:id="cancelButton" layoutX="426.0" layoutY="233.0" mnemonicParsing="false" onAction="#onCancelTicketButton" onMouseExited="#resetCancelButton" prefHeight="43.0" prefWidth="149.0" text="Cancel" />
    </children>
 </AnchorPane>

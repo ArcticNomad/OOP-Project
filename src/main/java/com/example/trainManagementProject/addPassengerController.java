@@ -2,6 +2,7 @@ package com.example.trainManagementProject;
 
 import com.example.trainManagementProject.backendClasses.Passenger.Passenger;
 import com.example.trainManagementProject.backendClasses.StationManagement.StationManagement;
+import com.example.trainManagementProject.backendClasses.Ticket.Ticket;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -39,6 +40,7 @@ public class addPassengerController
         }
 
 
+
         try
         {
             Long ID= Long.parseLong(id.getText());
@@ -49,8 +51,30 @@ public class addPassengerController
                 doneButton.setText("Invalid ID!");
                 return;
             }
+            if (StationManagement.checkAge(Age))
+            {
+                doneButton.setText("Invalid Age!");
+                return;
+            }
             if (StationManagement.checkDuplicateID(ID)) // may cause unexpected error ? keep in mind
             {
+                if (StationManagement.getPassengerTicket()==null)
+                {
+                    StationManagement.addPassenger(ID,firstName.getText(),lastName.getText(),Age);
+                    Ticket passengerTicket=new Ticket();
+                    StationManagement.setPassengerTicket(passengerTicket);
+
+                    Stage stage = (Stage) doneButton.getScene().getWindow();
+
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainPassengerPage.FXML"));
+
+                    Scene scene = new Scene(fxmlLoader.load());
+
+                    stage.setScene(scene);
+
+                    stage.show();
+                    return;
+                }
                 Stage stage = (Stage) doneButton.getScene().getWindow();
 
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainPassengerPage.FXML"));

@@ -148,6 +148,14 @@ public class StationManagement
         }
         return false;
     }
+    public static Boolean checkAge(int age)
+    {
+        if(age<=0 || age>110)
+        {
+            return true;
+        }
+        return false;
+    }
 
     public static Boolean checkSeatNo(int seatNo)
     {

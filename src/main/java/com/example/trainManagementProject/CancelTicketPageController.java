@@ -21,25 +21,39 @@ public class CancelTicketPageController
 
     public void onCancelTicketButton()
     {
-        if (cnic.getText().isEmpty())
-        {
-            cancelButton.setText("Empty Field!");
-            return;
-        }
 
         try
         {
+            if (cnic.getText().isEmpty())
+            {
+                cancelButton.setText("Empty Field!");
+                return;
+            }
+
+
             Long CNIC= Long.valueOf(cnic.getText());
+
+            if (StationManagement.checkID(CNIC))
+            {
+                cancelButton.setText("Invalid ID!");
+                return;
+            }
 
             for (int i = 0; i < StationManagement.getPassengers().size(); i++)
             {
                 if(StationManagement.getPassengers().get(i).getPassengerID().equals(CNIC))
                 {
-                    StationManagement.getPassengers().get(i).setPassengerTicket(null);
+                    StationManagement.setPassengerTicket(null);
                     StationManagement.getTrains().get(i).setCapacity(StationManagement.getTrains().get(i).getCapacity()+1);
+                    cancelButton.setText("Cancelled!");
                 }
             }
-
+        }catch (NullPointerException e)
+        {
+            cancelButton.setText("No Ticket Purchased!");
+        }catch (NumberFormatException e)
+        {
+            cancelButton.setText("Invalid Input!");
         }
 
     }
