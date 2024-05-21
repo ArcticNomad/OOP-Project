@@ -1,23 +1,23 @@
 package com.example.trainManagementProject.backendClasses.Route;
 
 public class Schedule {
-    private int departDay;
-    private String departMonth;
+    private Days departDay;
+    private Months departMonth;
     private int departYear;
-    private int arrivalDay;
-    private String arrivalMonth;
+    private Days arrivalDay;
+    private Months arrivalMonth;
     private int arrivalYear;
 
     private int departureHour;
     private int departureMin;
     private int arrivalHour;
     private int arrivalMin;
-    private String departure_AM_PM;
-    private String arrival_AM_PM;
+    private Timing departure_AM_PM;
+    private Timing arrival_AM_PM;
 
     private double distanceBwStations;
 
-    public Schedule(int departDay, String departMonth, int departYear, int arrivalDay, String arrivalMonth, int arrivalYear, int departureHour, int departureMin, int arrivalHour, int arrivalMin, String departure_AM_PM, String arrival_AM_PM) {
+    public Schedule(Days departDay, Months departMonth, int departYear, Days arrivalDay, Months arrivalMonth, int arrivalYear, int departureHour, int departureMin, int arrivalHour, int arrivalMin, Timing departure_AM_PM, Timing arrival_AM_PM) {
         setArrivalDay(arrivalDay);
         setArrivalHour(arrivalHour);
         setArrivalMonth(arrivalMonth);
@@ -38,35 +38,35 @@ public class Schedule {
     }
 
 
-    public String getArrival_AM_PM() {
+    public Timing getArrival_AM_PM() {
         return arrival_AM_PM;
     }
 
-    public void setArrival_AM_PM(String arrival_AM_PM) {
+    public void setArrival_AM_PM(Timing arrival_AM_PM) {
         this.arrival_AM_PM = arrival_AM_PM;
     }
 
-    public String getDeparture_AM_PM() {
+    public Timing getDeparture_AM_PM() {
         return departure_AM_PM;
     }
 
-    public void setDeparture_AM_PM(String departure_AM_PM) {
+    public void setDeparture_AM_PM(Timing departure_AM_PM) {
         this.departure_AM_PM = departure_AM_PM;
     }
 
-    public int getDepartDay() {
+    public Days getDepartDay() {
         return departDay;
     }
 
-    public void setDepartDay(int departDay) {
+    public void setDepartDay(Days departDay) {
         this.departDay = departDay;
     }
 
-    public String getDepartMonth() {
+    public Months getDepartMonth() {
         return departMonth;
     }
 
-    public void setDepartMonth(String departMonth) {
+    public void setDepartMonth(Months departMonth) {
         this.departMonth = departMonth;
     }
 
@@ -78,19 +78,19 @@ public class Schedule {
         this.departYear = departYear;
     }
 
-    public int getArrivalDay() {
+    public Days getArrivalDay() {
         return arrivalDay;
     }
 
-    public void setArrivalDay(int arrivalDay) {
+    public void setArrivalDay(Days arrivalDay) {
         this.arrivalDay = arrivalDay;
     }
 
-    public String getArrivalMonth() {
+    public Months getArrivalMonth() {
         return arrivalMonth;
     }
 
-    public void setArrivalMonth(String arrivalMonth) {
+    public void setArrivalMonth(Months arrivalMonth) {
         this.arrivalMonth = arrivalMonth;
     }
 

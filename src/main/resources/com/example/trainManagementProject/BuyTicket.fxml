@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -16,7 +17,6 @@
                   <Font name="Agency FB" size="31.0" />
                </font>
             </Label>
-            <TextField fx:id="destinationStationName" layoutX="398.0" layoutY="205.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
             <Label layoutX="178.0" layoutY="132.0" prefHeight="44.0" prefWidth="174.0" text="Departure Station Name">
                <font>
                   <Font name="Agency FB Bold" size="20.0" />
@@ -41,12 +41,11 @@
                   <Font name="Agency FB" size="16.0" />
                </font></Button>
             <TextArea fx:id="stationList" editable="false" layoutX="360.0" layoutY="374.0" prefHeight="161.0" prefWidth="242.0" text="&#10;" />
-            <Label alignment="CENTER" layoutX="417.0" layoutY="325.0" prefHeight="44.0" prefWidth="129.0" text="Stations">
+            <Label alignment="CENTER" layoutX="417.0" layoutY="325.0" prefHeight="44.0" prefWidth="129.0" text="Routes Avalible">
                <font>
                   <Font name="Agency FB Bold" size="19.0" />
                </font>
             </Label>
-            <TextField fx:id="departStationName" layoutX="397.0" layoutY="138.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter here" />
             <Button fx:id="payButton" layoutX="731.0" layoutY="537.0" mnemonicParsing="false" onAction="#onPaymentButton" onMouseExited="#resetPayButton" prefHeight="44.0" prefWidth="168.0" text="Pay For Ticket">
                <font>
                   <Font name="Agency FB" size="17.0" />
@@ -67,8 +66,10 @@
                   <Font name="Agency FB" size="12.0" />
                </font></TextArea>
             <Button layoutX="453.0" layoutY="559.0" mnemonicParsing="false" onAction="#onStationRefreshButton" text="Refresh" />
-            <Button layoutX="787.0" layoutY="482.0" mnemonicParsing="false" onAction="#onSeatRefreshButton" text="Refresh" />
+            <Button fx:id="refreshButton" layoutX="787.0" layoutY="482.0" mnemonicParsing="false" onAction="#onSeatRefreshButton" onMouseExited="#resetRefreshButton" text="Refresh" />
             <Button fx:id="backButton" layoutX="38.0" layoutY="33.0" mnemonicParsing="false" onAction="#onBackButton" text="Back" />
+            <ChoiceBox fx:id="departStationName" layoutX="397.0" layoutY="138.0" prefHeight="33.0" prefWidth="168.0" />
+            <ChoiceBox fx:id="destinationStationName" layoutX="397.0" layoutY="205.0" prefHeight="33.0" prefWidth="168.0" />
          </children>
       </AnchorPane>
    </children>

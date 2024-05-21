@@ -103,7 +103,7 @@ public class MainAdminPageController implements Initializable
     private Button homeButton;
     public void onAddStationButton() throws IOException
     {
-        if(stationName.getText().isEmpty() || stationCity.getItems().isEmpty())
+        if(stationName.getText().isEmpty() || stationCity.getValue()==null)
         {
             addStationButton.setText("Empty Field !");
         }
@@ -174,12 +174,13 @@ public class MainAdminPageController implements Initializable
     public void onAddRouteButton() {
         // Check if any fields are empty
         if (departStationName.getText().isEmpty() || arrivalStationName.getText().isEmpty() ||
-                departAmPm.getText().isEmpty() || departDay.getText().isEmpty() ||
+                departAmPm.getValue()==null || departDay.getValue()==null||
                 departHour.getText().isEmpty() || departMin.getText().isEmpty() ||
-                departMonth.getText().isEmpty() || departYear.getText().isEmpty() ||
-                arrivalAmPm.getText().isEmpty() || arrivalDay.getText().isEmpty() ||
+                departMonth.getValue()==null || departYear.getText().isEmpty() ||
+                arrivalAmPm.getValue()==null || arrivalDay.getValue()==null ||
                 arrivalHour.getText().isEmpty() || arrivalMin.getText().isEmpty() ||
-                arrivalMonth.getText().isEmpty() || arrivalYear.getText().isEmpty()) {
+                arrivalMonth.getValue()==null || arrivalYear.getText().isEmpty() || distanceBwStations.getText().isEmpty())
+        {
 
             addRouteButton.setText("Empty Field!");
             return;
@@ -216,19 +217,18 @@ public class MainAdminPageController implements Initializable
             Station departStation = StationManagement.getStationByName(StationManagement.getStations(), departStationName.getText());
             Station arriveStation = StationManagement.getStationByName(StationManagement.getStations(), arrivalStationName.getText());
 
-            Integer depDay = Integer.valueOf(departDay.getText());
+
             Integer depYear = Integer.valueOf(departYear.getText());
-            Integer arriveDay = Integer.valueOf(arrivalDay.getText());
             Integer arriveYear = Integer.valueOf(arrivalYear.getText());
             Integer depHour = Integer.valueOf(departHour.getText());
             Integer depMin = Integer.valueOf(departMin.getText());
             Integer arriveMin = Integer.valueOf(arrivalMin.getText());
             Integer arriveHour = Integer.valueOf(arrivalHour.getText());
 
-            Schedule schedule = new Schedule(depDay, departMonth.getText(), depYear,
-                    arriveDay, arrivalMonth.getText(), arriveYear,
+            Schedule schedule = new Schedule(departDay.getValue(), departMonth.getValue(), depYear,
+                    arrivalDay.getValue(), arrivalMonth.getValue(), arriveYear,
                     depHour, depMin, arriveHour, arriveMin,
-                    departAmPm.getText(), arrivalAmPm.getText());
+                    departAmPm.getValue(), arrivalAmPm.getValue());
 
             StationManagement.addRoute(departStation, arriveStation, schedule);
 
@@ -332,6 +332,7 @@ public class MainAdminPageController implements Initializable
 
 
     public void onHomeButton() throws IOException {
+
         Stage stage= (Stage) homeButton.getScene().getWindow();
 
         FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("selectionScreen.FXML"));

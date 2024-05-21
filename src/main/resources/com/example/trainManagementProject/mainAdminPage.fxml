@@ -166,7 +166,7 @@
             </TextArea>
             <Button fx:id="homeButton" layoutX="53.0" layoutY="35.0" mnemonicParsing="false" onAction="#onHomeButton" text="Home" />
             <ChoiceBox fx:id="businessFacility" layoutX="743.0" layoutY="384.0" prefHeight="25.0" prefWidth="180.0" />
-            <ChoiceBox fx:id="businessFacility1" layoutX="738.0" layoutY="503.0" prefHeight="25.0" prefWidth="180.0" />
+            <ChoiceBox fx:id="economyFacility" layoutX="738.0" layoutY="503.0" prefHeight="25.0" prefWidth="180.0" />
             <ChoiceBox fx:id="stationCity" layoutX="173.0" layoutY="237.0" prefHeight="25.0" prefWidth="183.0" />
             <TextField fx:id="departHour" layoutX="267.0" layoutY="658.0" prefHeight="34.0" prefWidth="48.0" promptText="Hour" />
             <ChoiceBox fx:id="departAmPm" layoutX="408.0" layoutY="657.0" prefHeight="33.0" prefWidth="56.0" />
@@ -175,8 +175,8 @@
             <ChoiceBox fx:id="arrivalAmPm" layoutX="409.0" layoutY="775.0" prefHeight="33.0" prefWidth="56.0" />
             <ChoiceBox fx:id="arrivalDay" layoutX="262.0" layoutY="838.0" prefHeight="33.0" prefWidth="56.0" />
             <ChoiceBox fx:id="arrivalMonth" layoutX="330.0" layoutY="839.0" prefHeight="33.0" prefWidth="56.0" />
-            <TextField fx:id="arrivalMin1" layoutX="412.0" layoutY="718.0" prefHeight="34.0" prefWidth="48.0" promptText="Year" />
-            <TextField fx:id="arrivalMin11" layoutX="414.0" layoutY="838.0" prefHeight="34.0" prefWidth="48.0" promptText="Year" />
+            <TextField fx:id="departYear" layoutX="412.0" layoutY="718.0" prefHeight="34.0" prefWidth="48.0" promptText="Year" />
+            <TextField fx:id="arrivalYear" layoutX="414.0" layoutY="838.0" prefHeight="34.0" prefWidth="48.0" promptText="Year" />
          </children>
       </AnchorPane>
    </content>

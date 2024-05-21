@@ -2,13 +2,16 @@ package com.example.trainManagementProject;
 
 import com.example.trainManagementProject.backendClasses.Passenger.Passenger;
 import com.example.trainManagementProject.backendClasses.Route.Route;
+import com.example.trainManagementProject.backendClasses.Station.Station;
 import com.example.trainManagementProject.backendClasses.StationManagement.StationManagement;
 import com.example.trainManagementProject.backendClasses.Ticket.Ticket;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -22,11 +25,12 @@ public class buyTicketController implements Initializable
 
     @FXML
     private Button backButton;
-
     @FXML
-    private TextField departStationName;
+    private Button refreshButton;
     @FXML
-    private TextField destinationStationName;
+    private ChoiceBox<String> departStationName;
+    @FXML
+    private ChoiceBox<String> destinationStationName;
     @FXML
     private TextField distance;
     @FXML
@@ -44,13 +48,13 @@ public class buyTicketController implements Initializable
 
     public void onPaymentButton() throws IOException {
 
-        System.out.println("Departure Station Name: " + departStationName.getText());
-        System.out.println("Destination Station Name: " + destinationStationName.getText());
+        //System.out.println("Departure Station Name: " + departStationName.getText());
+        //System.out.println("Destination Station Name: " + destinationStationName.getText());
         System.out.println("Seat No: " + seatNo.getText());
         System.out.println("Business Class Button Pressed: " + businessClassButton.isPressed());
         System.out.println("Economy Class Button Pressed: " + economyClassButton.isPressed());
 
-        if (departStationName.getText().isEmpty() || destinationStationName.getText().isEmpty() || seatNo.getText().isEmpty()) {
+        if (departStationName.getValue()==null || destinationStationName.getValue()==null || seatNo.getText().isEmpty()) {
             payButton.setText("Empty Field!");
             return;
         }
@@ -60,11 +64,12 @@ public class buyTicketController implements Initializable
 
         try {
             for (int i = 0; i < StationManagement.getTrains().size(); i++) {
-                if (StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().getStationName().equals(departStationName.getText()) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().getStationName().equals(destinationStationName.getText())) {
+                if (StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().getStationName().equals(departStationName.getValue()) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().getStationName().equals(destinationStationName.getValue())) {
                     StationManagement.getPassengerTicket().setTicketTrain(StationManagement.getTrains().get(i));
 
                     int seat = Integer.parseInt(seatNo.getText());
-                    if(StationManagement.checkSeatNo(seat)) {
+                    if(StationManagement.checkSeatNo(seat))
+                    {
                         payButton.setText("Seat Taken!");
                         return;
                     }
@@ -116,17 +121,18 @@ public class buyTicketController implements Initializable
 
         for (int i = 0; i <StationManagement.getTrains().size(); i++)
         {
-            if(StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().getStationName().equals(departStationName.getText()) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().getStationName().equals(destinationStationName.getText()))
+            if(StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().getStationName().equals(departStationName.getValue()) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().getStationName().equals(destinationStationName.getValue()))
             {
                 for (int j = 0; j < StationManagement.getTrains().get(i).getCapacity(); j++)
                 {
                     seatList.appendText((j + 1) + "\n");
                 }
-            }
-            if(StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().equals(departStationName) && StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().equals(destinationStationName))
-            {
                 break;
             }
+            else {
+                refreshButton.setText("Error!");
+            }
+
         }
 
     }
@@ -146,8 +152,24 @@ public class buyTicketController implements Initializable
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        String departNames="";
+        String arrivalNames="";
+        for (int i = 0; i < StationManagement.getStations().size(); i++)
+        {
+
+            departNames=StationManagement.getStations().get(i).getStationName();
+            departStationName.getItems().addAll(departNames);
+            arrivalNames=StationManagement.getStations().get(i).getStationName();
+            destinationStationName.getItems().addAll(arrivalNames);
+        }
+
         seatList.setEditable(false);
         stationList.setEditable(false);
+    }
+    public void resetRefreshButton()
+    {
+        refreshButton.setText("Refresh");
     }
     public void onBackButton() throws IOException {
         Stage stage=(Stage) backButton.getScene().getWindow();
