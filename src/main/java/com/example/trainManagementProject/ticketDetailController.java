@@ -13,8 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ticketDetailController implements Initializable
-{
+public class ticketDetailController implements Initializable {
     @FXML
     private TextField passengerName;
     @FXML
@@ -57,30 +56,38 @@ public class ticketDetailController implements Initializable
         price.setEditable(false);
         cnic.setEditable(false);
 
-        try {
-            passengerName.setText(StationManagement.getPassengerTicket().getPassenger().getFirstName() + " " + StationManagement.getPassengerTicket().getPassenger().getLastName());
-            String id= String.valueOf(StationManagement.getPassengerTicket().getPassenger().getPassengerID());
-            cnic.setText(id);
-            from.setText(StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getDepartureStation().getStationName()+" - "+StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getDepartureStation().getCity());
-            to.setText(StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getArrivalStation().getStationName()+" - "+StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getArrivalStation().getCity());
+        try
+        {
+            long ID =mainTicketDetailsPageController.getID();
 
-            String day = String.valueOf(StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getDepartDay());
-            date.setText(day + "/" + StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getDepartMonth() + "/" + StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getDepartYear());
-            String Price = String.valueOf(Double.valueOf(String.valueOf(StationManagement.getPassengerTicket().getFare())));
-            price.setText(Price);
-            departureTime.setText(StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getDepartureHour() + "/" + StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getDepartureMin() + "/" + StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getDeparture_AM_PM());
-            arrivalTime.setText(StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getArrivalHour() + "/" + StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getArrivalMin() + "/" + StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getArrival_AM_PM());
-            String number = String.valueOf(StationManagement.getPassengerTicket().getTicketTrain().getTrainNUmber());
-            trainNumber.setText(number);
-            String SeatNumber = String.valueOf(StationManagement.getPassengerTicket().getPassengerSeat());
-            seatNumber.setText(SeatNumber);
-        }catch (NullPointerException e)
+            for (int i = 0; i < StationManagement.getPassengers().size(); i++)
+            {
+                if (ID == StationManagement.getPassengers().get(i).getPassengerID())
+                {
+                    passengerName.setText(StationManagement.getPassengers().get(i).getFirstName()+ " " + StationManagement.getPassengers().get(i).getLastName());
+                    String id = String.valueOf(StationManagement.getPassengers().get(i).getPassengerID());
+                    cnic.setText(id);
+                    from.setText(StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().getTrainRoute().getDepartureStation().getStationName() + " - " + StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getDepartureStation().getCity());
+                    to.setText(StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().getTrainRoute().getArrivalStation().getStationName() + " - " + StationManagement.getPassengerTicket().getTicketTrain().getTrainRoute().getArrivalStation().getCity());
+
+                    String day = String.valueOf(StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getDepartDay());
+                    date.setText(day + "/" + StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getDepartMonth() + "/" + StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getDepartYear());
+                    String Price = String.valueOf(Double.valueOf(String.valueOf(StationManagement.getPassengers().get(i).getPassengerTicket().getFare())));
+                    price.setText(Price);
+                    departureTime.setText(StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getDepartureHour() + "/" + StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getDepartureMin() + "/" + StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getDeparture_AM_PM());
+                    arrivalTime.setText(StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getArrivalHour() + "/" + StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getArrivalMin() + "/" + StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().getTrainRoute().getTrainTiming().getArrival_AM_PM());
+                    String number = String.valueOf(StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().getTrainNUmber());
+                    trainNumber.setText(number);
+                    String SeatNumber = String.valueOf(StationManagement.getPassengers().get(i).getPassengerTicket().getPassengerSeat());
+                    seatNumber.setText(SeatNumber);
+
+            }
+        } }catch(NullPointerException e)
         {
             errorField.setText("No Ticket Purchased !");
         }
-
-
     }
+
 
     public void onBackButton() throws IOException {
 

@@ -64,7 +64,7 @@ public class mainPassengerPageController
         try {
             Stage stage = (Stage) ticketDetailsButton.getScene().getWindow();
 
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TicketDetails.FXML"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainTicketDetailsPage.FXML"));
 
             Scene scene = new Scene(fxmlLoader.load());
 

@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Passenger extends Person
 {
 
-
     private Long passengerID;
     private Ticket passengerTicket;
 

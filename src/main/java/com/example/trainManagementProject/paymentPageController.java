@@ -1,5 +1,6 @@
 package com.example.trainManagementProject;
 
+import com.example.trainManagementProject.backendClasses.Passenger.Passenger;
 import com.example.trainManagementProject.backendClasses.Station.Cities;
 import com.example.trainManagementProject.backendClasses.StationManagement.StationManagement;
 import javafx.fxml.FXML;
@@ -75,6 +76,8 @@ public class paymentPageController implements Initializable
                         StationManagement.getPassengers().get(i).setPassengerTicket(StationManagement.getPassengerTicket());
 
                         StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().setPassenger(StationManagement.getPassengers().get(i));
+
+
 
                         passengerFound = true;
                         payButton.setText("Ticket Purchased!");

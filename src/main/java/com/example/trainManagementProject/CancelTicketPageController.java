@@ -52,6 +52,7 @@ public class CancelTicketPageController
                 if(StationManagement.getPassengers().get(i).getPassengerTicket()!=null)
                 {
                     StationManagement.setPassengerTicket(null);
+                    StationManagement.getPassengers().get(i).setPassengerTicket(null);
                     StationManagement.getTrains().get(i).setCapacity(StationManagement.getTrains().get(i).getCapacity()+1);
                     cancelButton.setText("Cancelled!");
                     return;
