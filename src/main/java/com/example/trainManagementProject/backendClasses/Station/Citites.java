@@ -10,4 +10,10 @@ public enum Citites
     PESHAWAR,
     RAWALPINDI;
 
+
+    final double discount=0.02;
+
+
+
+
 }

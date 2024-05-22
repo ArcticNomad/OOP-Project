@@ -54,6 +54,12 @@ public class paymentPageController implements Initializable
             }
 
             if (PAYMENT >= AmountDue) {
+
+                if (StationManagement.checkDuplicateID(ID))
+                {
+
+                }
+
                 for (int i = 0; i < StationManagement.getPassengers().size(); i++) {
 
                     if (ID.equals(StationManagement.getPassengers().get(i).getPassengerID()))
@@ -66,6 +72,9 @@ public class paymentPageController implements Initializable
                         StationManagement.getPassengerTicket().getPassenger().setPassengerID(ID);
 
                         StationManagement.getPassengers().get(i).setPassengerTicket(StationManagement.getPassengerTicket());
+
+                        StationManagement.getPassengers().get(i).getPassengerTicket().getTicketTrain().setPassenger(StationManagement.getPassengers().get(i));
+
                         passengerFound = true;
                         payButton.setText("Ticket Purchased!");
                         double calculatedChange = StationManagement.getPassengerTicket().calculateChange(PAYMENT, AmountDue);

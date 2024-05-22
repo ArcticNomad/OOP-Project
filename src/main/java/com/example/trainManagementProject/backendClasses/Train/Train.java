@@ -1,5 +1,6 @@
 package com.example.trainManagementProject.backendClasses.Train;
 
+import com.example.trainManagementProject.backendClasses.Passenger.Passenger;
 import com.example.trainManagementProject.backendClasses.Route.*;
 
 import java.util.Scanner;
@@ -15,7 +16,7 @@ public class Train
 
   private Route trainRoute;
 
-
+  private Passenger passenger;
 
 
   Scanner input=new Scanner(System.in);
@@ -84,6 +85,14 @@ public class Train
 
   public void setTrainRoute(Route trainRoute) {
     this.trainRoute = trainRoute;
+  }
+
+  public Passenger getPassenger() {
+    return passenger;
+  }
+
+  public void setPassenger(Passenger passenger) {
+    this.passenger = passenger;
   }
 
   public void setClass(BusinessClass businessClass, EconomyClass economyClass)

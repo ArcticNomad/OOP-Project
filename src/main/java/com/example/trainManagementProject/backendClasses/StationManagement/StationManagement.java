@@ -53,10 +53,28 @@ public class StationManagement
         }
         return 0;
     }
-
+    public static Boolean checkTrainNumber(int trainNumber)
+    {
+        for (int i = 0; i < trains.size(); i++)
+        {
+            if(trains.get(i).getTrainNUmber()==trainNumber)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static Boolean checkTrainSpeed(int speed)
+    {
+        if (speed<=0 || speed>120)
+        {
+            return true;
+        }
+        return false;
+    }
     public static Boolean checkTrainCapacity(int cap)
     {
-        if (cap>100)
+        if (cap>150 || cap<=0 )
         {
             return true;
         }
@@ -64,7 +82,7 @@ public class StationManagement
     }
     public static Boolean checkClassCapacity(int business, int economy, int cap)
     {
-        if ((business+economy)>cap)
+        if ((business+economy)>cap || (business+economy)!=cap )
         {
             return true;
         }

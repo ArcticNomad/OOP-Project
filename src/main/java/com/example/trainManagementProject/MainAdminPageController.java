@@ -154,11 +154,22 @@ public class MainAdminPageController implements Initializable
             businessClass = new BusinessClass(businessCap, businessFacility.getValue());
             economyClass = new EconomyClass(ecoCap, economyFacility.getValue());
 
+            if(StationManagement.checkTrainSpeed(speed))
+            {
+                addTrainButton.setText("Invalid Speed!");
+                return;
+            }
 
             if (StationManagement.checkClassCapacity(businessCap, ecoCap,cap))
             {
                 addTrainButton.setText("Invalid Class Capacity!");
                 return;
+            }
+            if(StationManagement.checkTrainNumber(num))
+            {
+                addTrainButton.setText("Change Train Number");
+                return;
+
             }
 
             StationManagement.addTrain(num, speed, cap, businessClass, economyClass);
@@ -212,6 +223,7 @@ public class MainAdminPageController implements Initializable
             return;
         }
 
+
         // Attempt to add the route
         try {
             Station departStation = StationManagement.getStationByName(StationManagement.getStations(), departStationName.getText());
@@ -224,6 +236,17 @@ public class MainAdminPageController implements Initializable
             Integer depMin = Integer.valueOf(departMin.getText());
             Integer arriveMin = Integer.valueOf(arrivalMin.getText());
             Integer arriveHour = Integer.valueOf(arrivalHour.getText());
+
+            if(depHour<=0 || depHour>12 || arriveHour<=0 || arriveHour>12 || arriveMin<=0 || arriveMin>60 || depMin<=0 || depMin>60)
+            {
+                addRouteButton.setText("Invalid Time Input!");
+                return;
+            }
+            if (arriveYear!=depYear)
+            {
+                addRouteButton.setText("Invalid Year Input!");
+                return;
+            }
 
             Schedule schedule = new Schedule(departDay.getValue(), departMonth.getValue(), depYear,
                     arrivalDay.getValue(), arrivalMonth.getValue(), arriveYear,

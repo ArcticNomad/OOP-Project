@@ -19,10 +19,6 @@ public class Station
   }
 
 
-  public void addTrain(int trainNUmber, int trainSpeed, int capacity, BusinessClass businessClass,EconomyClass economyClass) {
-    trains.add(new Train(trainNUmber, trainSpeed, capacity,businessClass,economyClass));
-  }
-
 
   public void removeTrain()
   {

@@ -19,7 +19,7 @@
             <Font name="Agency FB Bold" size="27.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="49.0" layoutY="23.0" mnemonicParsing="false" onAction="#onBackButton" text="Back" />
+      <Button fx:id="homeButton" layoutX="49.0" layoutY="23.0" mnemonicParsing="false" onAction="#onHomeButton" text="Home" />
       <Button fx:id="cancelButton" layoutX="426.0" layoutY="233.0" mnemonicParsing="false" onAction="#onCancelTicketButton" onMouseExited="#resetCancelButton" prefHeight="43.0" prefWidth="149.0" text="Cancel" />
    </children>
 </AnchorPane>
