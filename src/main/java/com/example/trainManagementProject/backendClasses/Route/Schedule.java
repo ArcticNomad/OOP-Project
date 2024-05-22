@@ -1,10 +1,10 @@
 package com.example.trainManagementProject.backendClasses.Route;
 
 public class Schedule {
-    private Days departDay;
+    private Integer departDay;
     private Months departMonth;
     private int departYear;
-    private Days arrivalDay;
+    private Integer arrivalDay;
     private Months arrivalMonth;
     private int arrivalYear;
 
@@ -17,7 +17,7 @@ public class Schedule {
 
     private double distanceBwStations;
 
-    public Schedule(Days departDay, Months departMonth, int departYear, Days arrivalDay, Months arrivalMonth, int arrivalYear, int departureHour, int departureMin, int arrivalHour, int arrivalMin, Timing departure_AM_PM, Timing arrival_AM_PM) {
+    public Schedule(Integer departDay, Months departMonth, int departYear, Integer arrivalDay, Months arrivalMonth, int arrivalYear, int departureHour, int departureMin, int arrivalHour, int arrivalMin, Timing departure_AM_PM, Timing arrival_AM_PM) {
         setArrivalDay(arrivalDay);
         setArrivalHour(arrivalHour);
         setArrivalMonth(arrivalMonth);
@@ -54,11 +54,11 @@ public class Schedule {
         this.departure_AM_PM = departure_AM_PM;
     }
 
-    public Days getDepartDay() {
+    public Integer getDepartDay() {
         return departDay;
     }
 
-    public void setDepartDay(Days departDay) {
+    public void setDepartDay(Integer departDay) {
         this.departDay = departDay;
     }
 
@@ -78,11 +78,11 @@ public class Schedule {
         this.departYear = departYear;
     }
 
-    public Days getArrivalDay() {
+    public Integer getArrivalDay() {
         return arrivalDay;
     }
 
-    public void setArrivalDay(Days arrivalDay) {
+    public void setArrivalDay(Integer arrivalDay) {
         this.arrivalDay = arrivalDay;
     }
 

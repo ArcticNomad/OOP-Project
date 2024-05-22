@@ -59,13 +59,13 @@ public class MainAdminPageController implements Initializable
 
     // ROUTE SCHEDULE DETAILS
     @FXML
-    private ChoiceBox<Days> departDay;
+    private ChoiceBox<Integer> departDay;
     @FXML
     private ChoiceBox<Months> departMonth;
     @FXML
     private TextField departYear;
     @FXML
-    private ChoiceBox<Days> arrivalDay;
+    private ChoiceBox<Integer> arrivalDay;
     @FXML
     private ChoiceBox<Months> arrivalMonth;
     @FXML
@@ -337,8 +337,13 @@ public class MainAdminPageController implements Initializable
 
         stationCity.getItems().addAll(Cities.values());
 
-        departDay.getItems().addAll(Days.values());
-        arrivalDay.getItems().addAll(Days.values());
+        for (int i=0;i<31;i++) {
+            departDay.getItems().add(i+1);
+        }
+
+        for (int i=0;i<31;i++) {
+            arrivalDay.getItems().add(i+1);
+        }
         departMonth.getItems().addAll(Months.values());
         arrivalMonth.getItems().addAll(Months.values());
         departAmPm.getItems().add(Timing.PM);
