@@ -4,39 +4,30 @@ import com.example.trainManagementProject.backendClasses.Ticket.*;
 
 import java.util.Scanner;
 
-public class Passenger
+public class Passenger extends Person
 {
 
-    private String firstName;
-    private String lastName;
-    private int age;
+
     private Long passengerID;
     private Ticket passengerTicket;
-
-    Scanner input=new Scanner(System.in);
-
 
 
     public Passenger(Long passengerID, String firstName, String lastName, int age, Ticket passengerTicket)
     {
+        super(firstName,lastName,age);
         setAge(age);
-        setFirstName(firstName);
-        setLastName(lastName);
         setPassengerID(passengerID);
         setPassengerTicket(passengerTicket);
     }
 
-    public Passenger(){}
+
 
     public Passenger(Long id, String firstName, String lastName, int age)
     {
+        super(firstName,lastName,age);
         setAge(age);
         setPassengerID(id);
-        setFirstName(firstName);
-        setLastName(lastName);
     }
-
-    public void assignTicket(){}
 
     public void menu()
     {

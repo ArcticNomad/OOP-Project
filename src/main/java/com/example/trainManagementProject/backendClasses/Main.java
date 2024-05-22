@@ -20,7 +20,7 @@ public class Main
 
         StationManagement manager = new StationManagement();
         EmployeeManagement employeeManager = new EmployeeManagement();
-        Passenger passenger = new Passenger();
+        //Passenger passenger = new Passenger();
         Route trainRoute = null;
         Schedule trainTiming;
         Ticket passengerTicket = null;
@@ -257,7 +257,7 @@ public class Main
                 }
             } else if (authentication.equals("pass")) {
 
-                passenger.menu();
+                //passenger.menu();
                 System.out.println("Enter Choice :");
                 option = input.nextInt();
 
