@@ -1,5 +1,6 @@
 package com.example.trainManagementProject;
 
+import com.example.trainManagementProject.backendClasses.Station.Cities;
 import com.example.trainManagementProject.backendClasses.StationManagement.StationManagement;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -102,7 +103,19 @@ public class paymentPageController implements Initializable
     {
         amountDue.setEditable(false);
         change.setEditable(false);
-        String fare= String.valueOf(StationManagement.getPassengerTicket().calculateFare());
+        String fare = null;
+        double discount;
+        double businessCharge;
+        if (buyTicketController.getBusinessButtonPressed())
+        {
+            businessCharge=StationManagement.getPassengerTicket().calculateFare()*Cities.getBusinessCharge();
+            fare= String.valueOf(StationManagement.getPassengerTicket().calculateFare()+businessCharge);
+        }
+        else if (buyTicketController.getEconomyButtonPressed())
+        {
+            discount=StationManagement.getPassengerTicket().calculateFare()* Cities.getDiscount();
+            fare= String.valueOf(StationManagement.getPassengerTicket().calculateFare()-discount);
+        }
         amountDue.setText(fare);
     }
     public void onBackButton() throws IOException {

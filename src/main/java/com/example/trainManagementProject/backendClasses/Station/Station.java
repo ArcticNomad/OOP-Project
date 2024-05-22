@@ -7,13 +7,13 @@ import java.util.Scanner;
 public class Station
 {
   private String stationName;
-  private Citites city;
+  private Cities city;
   ArrayList<Train> trains = new ArrayList<>();
 
 
   Scanner input = new Scanner(System.in);
 
-  public Station(String stationName, Citites city) {
+  public Station(String stationName, Cities city) {
     setStationName(stationName);
     setCity(city);
   }
@@ -48,11 +48,11 @@ public class Station
     this.stationName = stationName;
   }
 
-  public Citites getCity() {
+  public Cities getCity() {
     return city;
   }
 
-  public void setCity(Citites city) {
+  public void setCity(Cities city) {
     this.city = city;
   }
 

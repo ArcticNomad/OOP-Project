@@ -1,13 +1,12 @@
 package com.example.trainManagementProject;
 
 import com.example.trainManagementProject.backendClasses.Route.*;
-import com.example.trainManagementProject.backendClasses.Station.Citites;
+import com.example.trainManagementProject.backendClasses.Station.Cities;
 import com.example.trainManagementProject.backendClasses.Station.Station;
 import com.example.trainManagementProject.backendClasses.StationManagement.StationManagement;
 import com.example.trainManagementProject.backendClasses.Train.BusinessClass;
 import com.example.trainManagementProject.backendClasses.Train.EconomyClass;
 import com.example.trainManagementProject.backendClasses.Train.Facilities;
-import com.example.trainManagementProject.backendClasses.Train.Train;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,11 +15,9 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.time.Month;
 import java.util.ResourceBundle;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class MainAdminPageController implements Initializable
 {
@@ -30,7 +27,7 @@ public class MainAdminPageController implements Initializable
 
     @FXML
     private TextField stationName;
-    public ChoiceBox<Citites> stationCity=new ChoiceBox<>();
+    public ChoiceBox<Cities> stationCity=new ChoiceBox<>();
     @FXML
     private Button addStationButton ;
     @FXML
@@ -338,7 +335,7 @@ public class MainAdminPageController implements Initializable
         businessFacility.setValue(Facilities.NONE);
         economyFacility.setValue(Facilities.NONE);
 
-        stationCity.getItems().addAll(Citites.values());
+        stationCity.getItems().addAll(Cities.values());
 
         departDay.getItems().addAll(Days.values());
         arrivalDay.getItems().addAll(Days.values());

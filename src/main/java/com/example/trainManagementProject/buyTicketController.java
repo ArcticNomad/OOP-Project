@@ -46,8 +46,8 @@ public class buyTicketController implements Initializable
     @FXML
     private Button economyClassButton;
 
-    public Boolean businessButtonPressed=false;
-    public Boolean economyButtonPressed=false;
+    public static Boolean businessButtonPressed=false;
+    public static Boolean economyButtonPressed=false;
 
     public void onPaymentButton() throws IOException {
 
@@ -212,5 +212,21 @@ public class buyTicketController implements Initializable
     public void resetPayButton()
     {
         payButton.setText("Pay For Ticket");
+    }
+
+    public static Boolean getBusinessButtonPressed() {
+        return businessButtonPressed;
+    }
+
+    public static void setBusinessButtonPressed(Boolean businessButtonPressed) {
+        buyTicketController.businessButtonPressed = businessButtonPressed;
+    }
+
+    public static Boolean getEconomyButtonPressed() {
+        return economyButtonPressed;
+    }
+
+    public static void setEconomyButtonPressed(Boolean economyButtonPressed) {
+        buyTicketController.economyButtonPressed = economyButtonPressed;
     }
 }
