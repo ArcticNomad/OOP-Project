@@ -40,7 +40,7 @@ public class CancelTicketPageController
             }
             for (int i = 0; i < StationManagement.getPassengers().size(); i++)
             {
-                if (!StationManagement.getPassengers().get(i).getPassengerID().equals(CNIC))
+                if (!StationManagement.getPassengers().get(i).getPassengerID().equals(CNIC) && StationManagement.getPassengers().get(i).getPassengerID().equals(addPassengerController.getCNIC()))
                 {
                     cancelButton.setText("ID not Found!");
                     return;

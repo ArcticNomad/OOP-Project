@@ -134,7 +134,7 @@ public class buyTicketController implements Initializable
         stationList.clear();
 
         for (int i = 0; i < StationManagement.getTrains().size(); i++) {
-            stationList.appendText((i + 1) + " - " +" From - "+ StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().getStationName() + " To - "+StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().getStationName()+"\n");
+            stationList.appendText((i + 1) + " - " +" From - "+ StationManagement.getTrains().get(i).getTrainRoute().getDepartureStation().getStationName() + "    To -   "+StationManagement.getTrains().get(i).getTrainRoute().getArrivalStation().getStationName()+"\n");
         }
     }
     public void onSeatRefreshButton()

@@ -28,6 +28,15 @@ public class addPassengerController
     @FXML
     private Button backButton;
 
+    public static Long getCNIC() {
+        return CNIC;
+    }
+
+    public static void setCNIC(Long CNIC) {
+        addPassengerController.CNIC = CNIC;
+    }
+
+    static Long CNIC;
 
 
     public void onDoneButton() throws IOException {
@@ -44,6 +53,7 @@ public class addPassengerController
         try
         {
             Long ID= Long.parseLong(id.getText());
+            CNIC=ID;
             Integer Age= Integer.valueOf(age.getText());
 
             if (StationManagement.checkID(ID))

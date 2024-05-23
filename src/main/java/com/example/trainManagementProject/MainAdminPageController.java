@@ -29,7 +29,7 @@ public class MainAdminPageController implements Initializable
     private TextField stationName;
     public ChoiceBox<Cities> stationCity=new ChoiceBox<>();
     @FXML
-    private Button addStationButton ;
+    private Button addStationButton;
     @FXML
     private Button addTrainButton;
     @FXML
@@ -180,7 +180,7 @@ public class MainAdminPageController implements Initializable
 
     @FXML
     public void onAddRouteButton() {
-        // Check if any fields are empty
+        // Chechk if any fields are empty
         if (departStationName.getText().isEmpty() || arrivalStationName.getText().isEmpty() ||
                 departAmPm.getValue()==null || departDay.getValue()==null||
                 departHour.getText().isEmpty() || departMin.getText().isEmpty() ||
@@ -194,7 +194,6 @@ public class MainAdminPageController implements Initializable
             return;
         }
 
-        // Validate distance between stations
         if (!distanceBwStations.getText().isEmpty()) {
             try {
                 Route.distanceBetweenStations = Integer.parseInt(distanceBwStations.getText());
@@ -204,7 +203,6 @@ public class MainAdminPageController implements Initializable
             }
         }
 
-        // Validate station names contain only alphabets
         if (checkStringForInteger(departStationName.getText())) {
             departStationName.setPromptText("Alphabets Only!");
             return;
@@ -214,14 +212,13 @@ public class MainAdminPageController implements Initializable
             return;
         }
 
-        // Check if both stations exist
+
         if (!StationManagement.checkStation(departStationName.getText(), arrivalStationName.getText())) {
             addRouteButton.setText("Station Not Found!");
             return;
         }
 
 
-        // Attempt to add the route
         try {
             Station departStation = StationManagement.getStationByName(StationManagement.getStations(), departStationName.getText());
             Station arriveStation = StationManagement.getStationByName(StationManagement.getStations(), arrivalStationName.getText());
@@ -239,7 +236,7 @@ public class MainAdminPageController implements Initializable
                 addRouteButton.setText("Invalid Time Input!");
                 return;
             }
-            if (arriveYear!=depYear)
+            if (!arriveYear.equals(depYear))
             {
                 addRouteButton.setText("Invalid Year Input!");
                 return;

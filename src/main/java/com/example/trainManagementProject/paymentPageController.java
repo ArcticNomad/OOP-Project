@@ -64,7 +64,7 @@ public class paymentPageController implements Initializable
 
                 for (int i = 0; i < StationManagement.getPassengers().size(); i++) {
 
-                    if (ID.equals(StationManagement.getPassengers().get(i).getPassengerID()))
+                    if (ID.equals(StationManagement.getPassengers().get(i).getPassengerID()) && StationManagement.getPassengers().get(i).getPassengerID().equals(addPassengerController.getCNIC()))
                     {
                         StationManagement.getPassengerTicket().setPassenger(StationManagement.getPassengers().get(i));
 
