@@ -16,8 +16,7 @@ public class mainTicketDetailsPageController
     private Button displayButton;
     @FXML
     private Button homeButton;
-
-
+    private Boolean ID_Found=false;
     @FXML
     public TextField cnic;
 
@@ -52,6 +51,8 @@ public class mainTicketDetailsPageController
                 {
                     if (ID.equals(StationManagement.getPassengers().get(i).getPassengerID()))
                     {
+                        ID_Found=true;
+
                         Stage stage=(Stage) displayButton.getScene().getWindow();
 
                         FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("TicketDetails.FXML"));
@@ -62,6 +63,10 @@ public class mainTicketDetailsPageController
 
                         stage.show();
                     }
+                }
+                if (!ID_Found)
+                {
+                    displayButton.setText("ID Not Found!");
                 }
             }catch (NumberFormatException e)
             {

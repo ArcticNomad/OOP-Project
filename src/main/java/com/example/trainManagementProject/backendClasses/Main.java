@@ -13,6 +13,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+// THIS CLASS IS ONLY FOR TESTING THE JAVA CODE
+
+
 public class Main
 {
     public static void main(String args[]) {
